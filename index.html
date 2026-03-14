@@ -241,6 +241,10 @@
   <div id="season-bar"></div>
 </div>
 <div class="filter-section">
+  <div class="filter-label">チーム</div>
+  <div id="team-bar"></div>
+</div>
+<div class="filter-section">
   <div class="filter-label">大会</div>
   <div id="filter-bar"></div>
 </div>
@@ -255,9 +259,11 @@
   const gridEl      = document.getElementById('video-grid');
   const filterBarEl = document.getElementById('filter-bar');
   const seasonBarEl = document.getElementById('season-bar');
+  const teamBarEl   = document.getElementById('team-bar');
 
   let allItems     = [];
   let activeSeason = 'すべて';
+  let activeTeam   = 'すべて';
   let activeTag    = 'すべて';
 
   async function fetchVideos() {
@@ -284,8 +290,9 @@
     gridEl.innerHTML = '';
     const filtered = allItems.filter(i => {
       const seasonMatch = activeSeason === 'すべて' || String(i.season) === String(activeSeason);
+      const teamMatch   = activeTeam   === 'すべて' || i.team === activeTeam;
       const tagMatch    = activeTag    === 'すべて' || i.tag === activeTag;
-      return seasonMatch && tagMatch;
+      return seasonMatch && teamMatch && tagMatch;
     });
     renderCards(filtered);
   }
@@ -308,9 +315,11 @@
 
   function renderFilterButtons() {
     const seasons = ['すべて', ...new Set(allItems.map(i => i.season).filter(Boolean)).values()].sort((a, b) => b - a);
+    const teams   = ['すべて', ...new Set(allItems.map(i => i.team).filter(Boolean))];
     const tags    = ['すべて', ...new Set(allItems.map(i => i.tag).filter(Boolean))];
 
     makeButtons(seasonBarEl, seasons, () => activeSeason, v => activeSeason = v);
+    makeButtons(teamBarEl,   teams,   () => activeTeam,   v => activeTeam   = v);
     makeButtons(filterBarEl, tags,    () => activeTag,    v => activeTag    = v);
   }
 
