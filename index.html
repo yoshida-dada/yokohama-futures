@@ -367,6 +367,18 @@
 
     .accordion-table tr:hover td { background: #1a0a0a; }
 
+    .game-accordion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      overflow-x: auto;
+    }
+
+    @media (max-width: 900px) {
+      .game-accordion-grid { grid-template-columns: 1fr; }
+      .game-accordion-grid > div:last-child { border-left: none; border-top: 1px solid #2a2a2a; }
+    }
+
     /* ===== PITCHER HEATMAP ===== */
     .heatmap-wrap {
       overflow-x: auto;
@@ -639,7 +651,10 @@
 
     <div class="summary-grid" id="team-summary-grid"></div>
 
-    <div class="section-title">試合一覧</div>
+    <div class="section-title" style="display:flex; justify-content:space-between; align-items:baseline;">
+      <span>試合一覧</span>
+      <span id="data-updated" style="font-size:0.72rem; color:#555; font-weight:400; letter-spacing:0;"></span>
+    </div>
     <div style="overflow-x:auto;">
       <table class="data-table" id="game-table">
         <thead>
@@ -659,6 +674,14 @@
         </thead>
         <tbody id="game-tbody"></tbody>
       </table>
+    </div>
+
+    <div class="section-title" style="margin-top:32px;">得点 vs 失点（試合別）</div>
+    <div style="position:relative; height:300px; margin-bottom:8px;">
+      <canvas id="chart-score-scatter"></canvas>
+    </div>
+    <div style="font-size:0.75rem; color:#666; margin-bottom:32px; padding-left:4px;">
+      ● 勝　● 負　● 引分　／　破線 = 同点ライン
     </div>
   </div>
 </div>
@@ -711,6 +734,12 @@
       <div id="pitcher-heatmap"></div>
     </div>
     <div class="heatmap-legend" id="heatmap-legend"></div>
+
+    <div class="section-title" style="margin-top:24px;">登板ヒートマップ（四死球数）</div>
+    <div class="heatmap-wrap">
+      <div id="pitcher-heatmap-walks"></div>
+    </div>
+    <div class="heatmap-legend" id="heatmap-legend-walks"></div>
 
     <div class="section-title">投手別 レーダーチャート（全投手平均との比較）</div>
     <div class="player-select-row">
@@ -889,6 +918,7 @@ async function loadAllData() {
 
 // ===== TAB 1: チーム成績 =====
 function renderTeamTab() {
+  renderScoreScatterChart();
   // 勝敗集計 (pitcher_data をベースに)
   let wins = 0, losses = 0, draws = 0;
   pitcherData.forEach(g => {
@@ -954,6 +984,14 @@ function renderTeamTab() {
     </div>
   `).join('');
 
+  // データ最終更新日（pitcher_data の最新試合日付）
+  const latestDate = pitcherData.length > 0 ? pitcherData[0].date : null;
+  if (latestDate) {
+    const d = new Date(latestDate);
+    const label = `データ最終更新: ${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()}`;
+    document.getElementById('data-updated').textContent = label;
+  }
+
   // 試合一覧テーブル
   const tbody = document.getElementById('game-tbody');
   tbody.innerHTML = '';
@@ -969,8 +1007,9 @@ function renderTeamTab() {
     const resultClass = g.result === '勝' ? 'win' : g.result === '負' ? 'lose' : 'draw';
 
     const row = document.createElement('tr');
+    row.style.cursor = 'pointer';
     row.innerHTML = `
-      <td>${formatDate(g.date)}</td>
+      <td class="accordion-trigger">${formatDate(g.date)} <span class="acc-icon">▶</span></td>
       <td>${g.tournament}</td>
       <td>${g.opponent}</td>
       <td class="center"><span class="badge ${resultClass}">${g.result}</span></td>
@@ -983,6 +1022,94 @@ function renderTeamTab() {
       <td class="num">${totPitcher.runs ?? '-'}</td>
     `;
     tbody.appendChild(row);
+    row.querySelector('.accordion-trigger').addEventListener('click', () => {
+      toggleAccordion(row, 11, () => buildGameAccordionHTML(g, b));
+    });
+  });
+}
+
+function renderScoreScatterChart() {
+  const points = pitcherData.map((g, idx) => {
+    const b = batterData[idx] || {};
+    const runs = b.team_totals?.runs ?? 0;
+    const runsAgainst = (g.pitchers.find(p => p.name === '計') || {}).runs ?? 0;
+    return { x: runs, y: runsAgainst, label: `${formatDate(g.date)} ${g.opponent}`, result: g.result };
+  });
+
+  const maxVal = Math.max(...points.map(p => Math.max(p.x, p.y)), 5) + 1;
+
+  const colorMap = { '勝': 'rgba(109,255,143,0.85)', '負': 'rgba(255,109,109,0.85)', '引き分け': 'rgba(180,180,180,0.85)' };
+  const borderMap = { '勝': '#6dff8f', '負': '#ff6d6d', '引き分け': '#aaa' };
+
+  const ctx = document.getElementById('chart-score-scatter').getContext('2d');
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        data: points.map(p => ({ x: p.x, y: p.y, label: p.label, result: p.result })),
+        backgroundColor: points.map(p => colorMap[p.result] ?? 'rgba(200,168,75,0.8)'),
+        borderColor:     points.map(p => borderMap[p.result] ?? '#c8a84b'),
+        borderWidth: 1,
+        pointRadius: 7,
+        pointHoverRadius: 10,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const d = ctx.raw;
+              return [`${d.label}`, `得点: ${d.x}　失点: ${d.y}　${d.result}`];
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: '得点', color: '#888' },
+          min: 0, max: maxVal,
+          ticks: { color: '#aaa', stepSize: 1 },
+          grid: { color: '#2a2a2a' },
+        },
+        y: {
+          title: { display: true, text: '失点', color: '#888' },
+          min: 0, max: maxVal,
+          ticks: { color: '#aaa', stepSize: 1 },
+          grid: { color: '#2a2a2a' },
+        }
+      }
+    },
+    plugins: [{
+      id: 'scoreLine',
+      afterDraw(chart) {
+        const { ctx, scales: { x, y } } = chart;
+        // 同点ライン（得点=失点の対角線）
+        const x0 = x.getPixelForValue(0);
+        const y0 = y.getPixelForValue(0);
+        const x1 = x.getPixelForValue(maxVal);
+        const y1 = y.getPixelForValue(maxVal);
+        ctx.save();
+        ctx.setLineDash([6, 4]);
+        ctx.strokeStyle = 'rgba(200,168,75,0.4)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(x0, y0);
+        ctx.lineTo(x1, y1);
+        ctx.stroke();
+        // 領域ラベル
+        ctx.setLineDash([]);
+        ctx.font = '11px sans-serif';
+        ctx.fillStyle = 'rgba(109,255,143,0.4)';
+        ctx.fillText('勝ちゾーン', x.getPixelForValue(maxVal * 0.55), y.getPixelForValue(maxVal * 0.15));
+        ctx.fillStyle = 'rgba(255,109,109,0.4)';
+        ctx.fillText('負けゾーン', x.getPixelForValue(maxVal * 0.05), y.getPixelForValue(maxVal * 0.9));
+        ctx.restore();
+      }
+    }]
   });
 }
 
@@ -1093,6 +1220,84 @@ function setupBatterSort() {
       renderBatterRows();
     });
   });
+}
+
+// ===== ACCORDION: 試合一覧 試合別HTML =====
+function buildGameAccordionHTML(g, b) {
+  // 打者成績
+  const players = (b.players || []).filter(p => p.pa !== null);
+  const batterRows = players.map(p => {
+    const ab  = p.pa - p.walks;
+    const ba  = ab > 0 ? (p.hits / ab).toFixed(3).replace(/^0/, '') : '-';
+    const obp = p.pa > 0 ? (p.onBase / p.pa).toFixed(3).replace(/^0/, '') : '-';
+    return `
+      <tr>
+        <td style="color:#888">${p.number}</td>
+        <td>${p.name}</td>
+        <td class="num">${p.pa}</td>
+        <td class="num">${ab}</td>
+        <td class="num">${p.hits}</td>
+        <td class="num">${ba}</td>
+        <td class="num">${p.onBase}</td>
+        <td class="num">${obp}</td>
+        <td class="num">${p.runs}</td>
+        <td class="num">${p.walks}</td>
+        <td class="num">${p.strikeouts}</td>
+      </tr>`;
+  }).join('');
+
+  // 投手成績（「計」を先頭に固定）
+  const pitchers = [...g.pitchers].sort((a, b) => a.name === '計' ? -1 : b.name === '計' ? 1 : 0);
+  const pitcherRows = pitchers.map(p => {
+    const kRate  = p.batters > 0 ? (p.strikeouts / p.batters * 100).toFixed(1) + '%' : '-';
+    const bbRate = p.batters > 0 ? (p.walks / p.batters * 100).toFixed(1) + '%' : '-';
+    const isTotals = p.name === '計';
+    return `
+      <tr style="${isTotals ? 'font-weight:700; border-top:1px solid #444;' : ''}">
+        <td style="${isTotals ? 'color:#c8a84b' : ''}">${p.name}</td>
+        <td class="num">${p.pitches}</td>
+        <td class="num">${p.batters}</td>
+        <td class="num">${formatInnings(p.innings)}</td>
+        <td class="num">${p.strikeouts}</td>
+        <td class="num">${p.walks}</td>
+        <td class="num">${p.hits}</td>
+        <td class="num ${p.runs > 0 ? 'bad' : ''}">${p.runs}</td>
+        <td class="num ${p.wp_pb > 0 ? 'bad' : ''}">${p.wp_pb}</td>
+        <td class="num">${kRate}</td>
+        <td class="num">${bbRate}</td>
+      </tr>`;
+  }).join('');
+
+  return `
+    <div class="accordion-inner">
+      <div class="game-accordion-grid">
+        <div style="padding:8px 12px 12px;">
+          <div style="font-size:0.75rem; color:#c8a84b; font-weight:700; margin-bottom:6px; letter-spacing:1px;">打者成績</div>
+          <table class="data-table accordion-table">
+            <thead><tr>
+              <th>#</th><th>選手名</th>
+              <th class="num">打席</th><th class="num">打数</th><th class="num">安打</th>
+              <th class="num">打率</th><th class="num">出塁</th><th class="num">出塁率</th>
+              <th class="num">得点</th><th class="num">四死球</th><th class="num">三振</th>
+            </tr></thead>
+            <tbody>${batterRows || '<tr><td colspan="11" style="color:#555;text-align:center;padding:12px;">データなし</td></tr>'}</tbody>
+          </table>
+        </div>
+        <div style="padding:8px 12px 12px; border-left:1px solid #2a2a2a;">
+          <div style="font-size:0.75rem; color:#c8a84b; font-weight:700; margin-bottom:6px; letter-spacing:1px;">投手成績</div>
+          <table class="data-table accordion-table">
+            <thead><tr>
+              <th>投手名</th>
+              <th class="num">投球数</th><th class="num">打者数</th><th class="num">投球回</th>
+              <th class="num">奪三振</th><th class="num">四死球</th><th class="num">被安打</th>
+              <th class="num">失点</th><th class="num">WP/PB</th>
+              <th class="num">K率</th><th class="num">BB率</th>
+            </tr></thead>
+            <tbody>${pitcherRows}</tbody>
+          </table>
+        </div>
+      </div>
+    </div>`;
 }
 
 // ===== ACCORDION: 打者 試合別HTML =====
@@ -2210,38 +2415,22 @@ function renderPitcherScatterChart() {
 }
 
 // ===== 案C: 登板ヒートマップ =====
-function renderPitcherHeatmap() {
-  // 投手名一覧（投球回数順）
-  const map = buildPitcherMap();
-  const pitcherNames = Object.entries(map)
-    .sort((a, b) => b[1].innings - a[1].innings)
-    .map(([name]) => name);
-
-  // 試合一覧（新しい順 → 表示は古い順に左から並べる）
-  const games = [...pitcherData].reverse();
-
+// ===== ヒートマップ共通描画関数 =====
+// colorFn(value, maxValue) → CSS色文字列
+// cellFn(p) → { value, label, tip } p=投手オブジェクト or null(未登板)
+function buildPitcherHeatmapGrid(containerId, legendId, games, pitcherNames, cellFn, colorFn, legendLabel) {
   const cols = games.length;
-  const rows = pitcherNames.length;
+  const container = document.getElementById(containerId);
 
-  // 最大投球回数（色スケール基準）
-  const allInnings = [];
+  // 全セルの最大値を計算（色スケール基準）
+  let maxVal = 0;
   games.forEach(g => g.pitchers.forEach(p => {
-    if (p.name !== '計') allInnings.push(p.innings);
+    if (p.name === '計') return;
+    const { value } = cellFn(p);
+    if (value !== null) maxVal = Math.max(maxVal, value);
   }));
-  const maxInn = Math.max(...allInnings, 1);
+  if (maxVal === 0) maxVal = 1;
 
-  // 色生成: 投球回数 → 赤みの濃さ
-  function innColor(inn) {
-    if (inn === 0 || inn === null) return '#1a1a1a';
-    const ratio = Math.min(inn / maxInn, 1);
-    const r = Math.round(80  + ratio * 175);
-    const g = Math.round(10  + ratio * 20);
-    const b = Math.round(10  + ratio * 20);
-    return `rgb(${r},${g},${b})`;
-  }
-
-  // グリッド構築: 1列目=投手名 + 試合数列
-  const container = document.getElementById('pitcher-heatmap');
   const grid = document.createElement('div');
   grid.className = 'heatmap-grid';
   grid.style.gridTemplateColumns = `120px repeat(${cols}, 48px)`;
@@ -2270,17 +2459,21 @@ function renderPitcherHeatmap() {
 
     games.forEach(g => {
       const p = g.pitchers.find(pi => pi.name === name);
-      const inn = p ? p.innings : null;
       const cell = document.createElement('div');
       cell.className = 'hm-cell';
-      cell.style.background = inn !== null ? innColor(inn) : '#111';
-      cell.style.color = inn !== null && inn > 0 ? '#fff' : '#444';
-      cell.textContent = inn !== null && inn > 0 ? formatInnings(inn) : '-';
-      // ツールチップ
-      const tipText = inn !== null
-        ? `${name}\\n${formatDate(g.date)} vs ${g.opponent}\\n投球回: ${formatInnings(inn)}回\\n失点: ${p.runs} / 投球数: ${p.pitches}`
-        : `${name}\\n${formatDate(g.date)} vs ${g.opponent}\\n未登板`;
-      cell.dataset.tip = tipText;
+
+      if (p) {
+        const { value, label, tip } = cellFn(p);
+        cell.style.background = colorFn(value, maxVal);
+        cell.style.color = value > 0 ? '#fff' : '#444';
+        cell.textContent = label;
+        cell.dataset.tip = tip;
+      } else {
+        cell.style.background = '#111';
+        cell.style.color = '#333';
+        cell.textContent = '-';
+        cell.dataset.tip = `${name}\\n${formatDate(g.date)} vs ${g.opponent}\\n未登板`;
+      }
       grid.appendChild(cell);
     });
   });
@@ -2291,15 +2484,90 @@ function renderPitcherHeatmap() {
   // 凡例
   const steps = [0, 0.25, 0.5, 0.75, 1.0];
   const legendBar = steps.map(r => {
-    const inn = r * maxInn;
-    return `<span style="background:${innColor(inn > 0 ? inn : 0.01)}"></span>`;
+    const v = r * maxVal;
+    return `<span style="background:${colorFn(v > 0 ? v : 0.01, maxVal)}"></span>`;
   }).join('');
-  document.getElementById('heatmap-legend').innerHTML = `
+  document.getElementById(legendId).innerHTML = `
     <span>少</span>
     <div class="heatmap-legend-bar">${legendBar}</div>
-    <span>多（最大 ${formatInnings(maxInn)}回）</span>
+    <span>多（最大 ${legendLabel(maxVal)}）</span>
     <span style="margin-left:16px; color:#555;">■ 未登板</span>
   `;
+}
+
+function renderPitcherHeatmap() {
+  const map = buildPitcherMap();
+  const pitcherNames = Object.entries(map)
+    .sort((a, b) => b[1].innings - a[1].innings)
+    .map(([name]) => name);
+  const games = [...pitcherData].reverse();
+
+  // ── 投球回数ヒートマップ（赤系）──
+  buildPitcherHeatmapGrid(
+    'pitcher-heatmap', 'heatmap-legend',
+    games, pitcherNames,
+    p => ({
+      value: p.innings,
+      label: p.innings > 0 ? formatInnings(p.innings) : '-',
+      tip: `${p.name}\\n${formatDate(games.find(g => g.pitchers.includes(p))?.date ?? '')} vs ...\\n投球回: ${formatInnings(p.innings)}回\\n失点: ${p.runs} / 投球数: ${p.pitches}`,
+    }),
+    (v, max) => {
+      if (v <= 0) return '#1a1a1a';
+      const ratio = Math.min(v / max, 1);
+      return `rgb(${Math.round(80 + ratio * 175)},${Math.round(10 + ratio * 20)},${Math.round(10 + ratio * 20)})`;
+    },
+    v => `${formatInnings(v)}回`
+  );
+
+  // ツールチップを正しい試合情報で上書き
+  const innGrid = document.getElementById('pitcher-heatmap').querySelector('.heatmap-grid');
+  const innCells = [...innGrid.children].slice(1 + games.length); // ヘッダー行分スキップ
+  pitcherNames.forEach((name, ri) => {
+    games.forEach((g, ci) => {
+      const p = g.pitchers.find(pi => pi.name === name);
+      const cell = innCells[ri * (games.length + 1) + 1 + ci];
+      if (!cell) return;
+      if (p) {
+        cell.dataset.tip = `${name}\\n${formatDate(g.date)} vs ${g.opponent}\\n投球回: ${formatInnings(p.innings)}回\\n失点: ${p.runs} / 投球数: ${p.pitches}`;
+      } else {
+        cell.dataset.tip = `${name}\\n${formatDate(g.date)} vs ${g.opponent}\\n未登板`;
+      }
+    });
+  });
+
+  // ── 四死球数ヒートマップ（オレンジ系）──
+  buildPitcherHeatmapGrid(
+    'pitcher-heatmap-walks', 'heatmap-legend-walks',
+    games, pitcherNames,
+    p => ({
+      value: p.walks,
+      label: p.walks > 0 ? String(p.walks) : '0',
+      tip: '',  // 下で上書き
+    }),
+    (v, max) => {
+      if (v <= 0) return '#1a1a1a';
+      const ratio = Math.min(v / max, 1);
+      return `rgb(${Math.round(80 + ratio * 175)},${Math.round(40 + ratio * 80)},${Math.round(5)})`;
+    },
+    v => `${v}個`
+  );
+
+  // 四死球ツールチップを正しい試合情報で上書き
+  const wkGrid = document.getElementById('pitcher-heatmap-walks').querySelector('.heatmap-grid');
+  const wkCells = [...wkGrid.children].slice(1 + games.length);
+  pitcherNames.forEach((name, ri) => {
+    games.forEach((g, ci) => {
+      const p = g.pitchers.find(pi => pi.name === name);
+      const cell = wkCells[ri * (games.length + 1) + 1 + ci];
+      if (!cell) return;
+      if (p) {
+        const bbRate = p.batters > 0 ? (p.walks / p.batters * 100).toFixed(1) : '-';
+        cell.dataset.tip = `${name}\\n${formatDate(g.date)} vs ${g.opponent}\\n四死球: ${p.walks} / 打者数: ${p.batters}\\nBB率: ${bbRate}%`;
+      } else {
+        cell.dataset.tip = `${name}\\n${formatDate(g.date)} vs ${g.opponent}\\n未登板`;
+      }
+    });
+  });
 }
 
 function chartOptions(title, yAxes) {
