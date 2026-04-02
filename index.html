@@ -320,6 +320,120 @@
     .sortable.desc .sort-icon::after { content: ' ▼'; color: #c8a84b; }
     .sortable:not(.asc):not(.desc) .sort-icon::after { content: ' ⇅'; }
 
+    /* ===== ACCORDION ===== */
+    .accordion-trigger {
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .accordion-trigger:hover { color: #c8a84b; }
+
+    .acc-icon {
+      font-size: 0.65rem;
+      color: #666;
+      margin-left: 4px;
+    }
+
+    .accordion-row > td {
+      padding: 0 !important;
+      background: #111 !important;
+    }
+
+    .accordion-inner {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.28s ease;
+    }
+
+    .accordion-inner.open { max-height: 1200px; }
+
+    .accordion-table {
+      font-size: 0.8rem;
+      border-top: 2px solid #8b0000;
+    }
+
+    .accordion-table th {
+      background: #1c0f0f;
+      font-size: 0.75rem;
+      padding: 7px 10px;
+      color: #c8a84b;
+    }
+
+    .accordion-table td {
+      padding: 7px 10px;
+      color: #ccc;
+      border-bottom: 1px solid #222;
+    }
+
+    .accordion-table tr:hover td { background: #1a0a0a; }
+
+    /* ===== PITCHER HEATMAP ===== */
+    .heatmap-wrap {
+      overflow-x: auto;
+      margin-bottom: 32px;
+    }
+
+    .heatmap-grid {
+      display: grid;
+      gap: 3px;
+      min-width: max-content;
+    }
+
+    .hm-cell {
+      height: 32px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: default;
+      transition: opacity 0.15s;
+    }
+
+    .hm-cell:hover { opacity: 0.8; }
+
+    .hm-header {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #888;
+      white-space: nowrap;
+    }
+
+    .hm-name {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #ccc;
+      white-space: nowrap;
+      padding-right: 10px;
+    }
+
+    .heatmap-legend {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 0.72rem;
+      color: #888;
+    }
+
+    .heatmap-legend-bar {
+      display: flex;
+      gap: 2px;
+    }
+
+    .heatmap-legend-bar span {
+      width: 20px;
+      height: 12px;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
     /* ===== RANK TOGGLE ===== */
     .rank-toggle {
       display: flex;
@@ -352,8 +466,8 @@
     }
 
     /* positive/negative coloring for tables */
-    .good { color: #6dff8f; }
-    .bad  { color: #ff6d6d; }
+    td.good { color: #6dff8f; }
+    td.bad  { color: #ff6d6d; }
 
     /* ===== TOOLTIP (JS制御) ===== */
     [data-tip] { cursor: help; }
@@ -415,6 +529,74 @@
       .radar-grid { grid-template-columns: 1fr; }
     }
 
+    /* ===== TEAM SUMMARY ===== */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .summary-card {
+      background: #221212;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+
+    .summary-card .s-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #c8a84b;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .summary-card .s-label {
+      font-size: 0.75rem;
+      color: #888;
+      letter-spacing: 0.5px;
+    }
+
+    .recent-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #221212;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .recent-label {
+      font-size: 0.75rem;
+      color: #888;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .recent-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .r-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .r-dot.win  { background: #1a5c2a; color: #6dff8f; }
+    .r-dot.lose { background: #5c1a1a; color: #ff6d6d; }
+    .r-dot.draw { background: #3a3a3a; color: #ccc; }
+
     @media (max-width: 600px) {
       #video-grid { grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; }
       header h1 { font-size: 1.3rem; }
@@ -449,6 +631,13 @@
       <div class="stat-card draw-card"><div class="stat-num" id="s-draw">-</div><div class="stat-label">引分</div></div>
       <div class="stat-card rate-card"><div class="stat-num" id="s-rate">-</div><div class="stat-label">勝率</div></div>
     </div>
+
+    <div class="recent-row">
+      <span class="recent-label">直近5試合</span>
+      <div class="recent-dots" id="recent-dots"></div>
+    </div>
+
+    <div class="summary-grid" id="team-summary-grid"></div>
 
     <div class="section-title">試合一覧</div>
     <div style="overflow-x:auto;">
@@ -509,10 +698,19 @@
       <canvas id="chart-pitcher-trend"></canvas>
     </div>
 
-    <div class="section-title">投手別 奪三振 / 与四死球</div>
-    <div style="position:relative; height:260px; margin-bottom:32px;">
-      <canvas id="chart-pitcher-kbb"></canvas>
+    <div class="section-title">投球効率マップ（K率 vs BB率）</div>
+    <div style="position:relative; height:300px; margin-bottom:8px;">
+      <canvas id="chart-pitcher-scatter"></canvas>
     </div>
+    <div style="font-size:0.75rem; color:#666; margin-bottom:32px; padding-left:4px;">
+      ● 点の大きさ = 通算投球回数　破線 = チーム平均
+    </div>
+
+    <div class="section-title">登板ヒートマップ（投球回数）</div>
+    <div class="heatmap-wrap">
+      <div id="pitcher-heatmap"></div>
+    </div>
+    <div class="heatmap-legend" id="heatmap-legend"></div>
 
     <div class="section-title">投手別 レーダーチャート（全投手平均との比較）</div>
     <div class="player-select-row">
@@ -654,7 +852,7 @@
   <div id="video-grid"></div>
 </div>
 
-<footer><p>YOKOHAMA FUTURES © 2026</p></footer>
+<footer><p>YOKOHAMA FUTURES © 2026 <span style="color:#555; margin-left:12px;">V1.00</span></p></footer>
 <div id="js-tooltip"></div>
 
 <script>
@@ -705,6 +903,56 @@ function renderTeamTab() {
   document.getElementById('s-lose').textContent = losses;
   document.getElementById('s-draw').textContent = draws;
   document.getElementById('s-rate').textContent = (wins + losses) > 0 ? rate : '-';
+
+  // 直近5試合ドット（pitcherData は新しい順）
+  const recent5 = pitcherData.slice(0, 5).reverse(); // 古い→新しい の順で左→右表示
+  document.getElementById('recent-dots').innerHTML = recent5.map(g => {
+    const cls = g.result === '勝' ? 'win' : g.result === '負' ? 'lose' : 'draw';
+    const lbl = g.result === '引き分け' ? '分' : g.result;
+    return `<div class="r-dot ${cls}" title="${formatDate(g.date)} ${g.opponent}">${lbl}</div>`;
+  }).join('');
+
+  // チームサマリー集計
+  let totPA = 0, totHits = 0, totOnBase = 0, totRuns = 0, totWalks = 0, totStrikeouts = 0;
+  let totRunsAgainst = 0, totPitches = 0, gameCount = 0;
+
+  pitcherData.forEach((g, idx) => {
+    const b = batterData[idx] || {};
+    const bt = b.team_totals || {};
+    const totPitcher = g.pitchers.find(p => p.name === '計') || {};
+    gameCount++;
+    totPA          += bt.pa          ?? 0;
+    totHits        += bt.hits        ?? 0;
+    totOnBase      += bt.onBase      ?? 0;
+    totRuns        += bt.runs        ?? 0;
+    totWalks       += bt.walks       ?? 0;
+    totStrikeouts  += bt.strikeouts  ?? 0;
+    totRunsAgainst += totPitcher.runs    ?? 0;
+    totPitches     += totPitcher.pitches ?? 0;
+  });
+
+  const teamBA  = (totPA - totWalks) > 0 ? (totHits   / (totPA - totWalks)) : null;
+  const teamOBP = totPA > 0             ? (totOnBase  / totPA)               : null;
+  const avgRuns = gameCount > 0         ? totRuns        / gameCount          : null;
+  const avgRA   = gameCount > 0         ? totRunsAgainst / gameCount          : null;
+  const avgPitch = gameCount > 0        ? totPitches     / gameCount          : null;
+  const kRate   = totPA > 0            ? totStrikeouts  / totPA              : null;
+
+  const summaryItems = [
+    { label: 'チーム打率',       val: teamBA   !== null ? teamBA.toFixed(3).replace(/^0/, '') : '-' },
+    { label: 'チーム出塁率',     val: teamOBP  !== null ? teamOBP.toFixed(3).replace(/^0/, '') : '-' },
+    { label: '平均得点',         val: avgRuns  !== null ? avgRuns.toFixed(1) : '-' },
+    { label: '平均失点',         val: avgRA    !== null ? avgRA.toFixed(1)   : '-' },
+    { label: '平均投球数',       val: avgPitch !== null ? Math.round(avgPitch) : '-' },
+    { label: 'チーム三振率',     val: kRate    !== null ? (kRate * 100).toFixed(1) + '%' : '-' },
+  ];
+
+  document.getElementById('team-summary-grid').innerHTML = summaryItems.map(item => `
+    <div class="summary-card">
+      <div class="s-val">${item.val}</div>
+      <div class="s-label">${item.label}</div>
+    </div>
+  `).join('');
 
   // 試合一覧テーブル
   const tbody = document.getElementById('game-tbody');
@@ -847,6 +1095,115 @@ function setupBatterSort() {
   });
 }
 
+// ===== ACCORDION: 打者 試合別HTML =====
+function buildBatterAccordionHTML(name) {
+  const rows = batterData.map(game => {
+    const p = game.players.find(pl => pl.name === name);
+    if (!p) return '';
+    const absent = p.pa === null;
+    const resultClass = game.result === '勝' ? 'win' : game.result === '負' ? 'lose' : 'draw';
+    const ab  = absent ? '-' : p.pa - p.walks;
+    const ba  = (!absent && (p.pa - p.walks) > 0)
+                  ? (p.hits / (p.pa - p.walks)).toFixed(3).replace(/^0/, '') : '-';
+    const obp = (!absent && p.pa > 0)
+                  ? (p.onBase / p.pa).toFixed(3).replace(/^0/, '') : '-';
+    return `
+      <tr style="opacity:${absent ? '0.4' : '1'}">
+        <td>${formatDate(game.date)}</td>
+        <td>${game.tournament}</td>
+        <td>${game.opponent}</td>
+        <td class="center"><span class="badge ${resultClass}">${game.result}</span></td>
+        <td class="num">${absent ? '<span style="color:#555">欠場</span>' : p.pa}</td>
+        <td class="num">${ab}</td>
+        <td class="num">${absent ? '-' : p.hits}</td>
+        <td class="num">${ba}</td>
+        <td class="num">${absent ? '-' : p.onBase}</td>
+        <td class="num">${obp}</td>
+        <td class="num">${absent ? '-' : p.runs}</td>
+        <td class="num">${absent ? '-' : p.walks}</td>
+        <td class="num">${absent ? '-' : p.strikeouts}</td>
+      </tr>`;
+  }).join('');
+  return `
+    <div class="accordion-inner">
+      <div style="overflow-x:auto; padding:0 4px 8px;">
+        <table class="data-table accordion-table">
+          <thead><tr>
+            <th>日付</th><th>大会</th><th>相手</th><th class="center">結果</th>
+            <th class="num">打席</th><th class="num">打数</th><th class="num">安打</th>
+            <th class="num">打率</th><th class="num">出塁</th><th class="num">出塁率</th>
+            <th class="num">得点</th><th class="num">四死球</th><th class="num">三振</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>`;
+}
+
+// ===== ACCORDION: 投手 試合別HTML =====
+function buildPitcherAccordionHTML(name) {
+  const rows = pitcherData.map(game => {
+    const p = game.pitchers.find(pi => pi.name === name);
+    if (!p) return '';
+    const resultClass = game.result === '勝' ? 'win' : game.result === '負' ? 'lose' : 'draw';
+    const kRate  = p.batters > 0 ? (p.strikeouts / p.batters * 100).toFixed(1) + '%' : '-';
+    const bbRate = p.batters > 0 ? (p.walks / p.batters * 100).toFixed(1) + '%' : '-';
+    return `
+      <tr>
+        <td>${formatDate(game.date)}</td>
+        <td>${game.tournament}</td>
+        <td>${game.opponent}</td>
+        <td class="center"><span class="badge ${resultClass}">${game.result}</span></td>
+        <td class="num">${p.pitches}</td>
+        <td class="num">${p.batters}</td>
+        <td class="num">${formatInnings(p.innings)}</td>
+        <td class="num">${p.strikeouts}</td>
+        <td class="num">${p.walks}</td>
+        <td class="num">${p.hits}</td>
+        <td class="num ${p.runs > 0 ? 'bad' : ''}">${p.runs}</td>
+        <td class="num ${p.wp_pb > 0 ? 'bad' : ''}">${p.wp_pb}</td>
+        <td class="num">${kRate}</td>
+        <td class="num">${bbRate}</td>
+      </tr>`;
+  }).join('');
+  return `
+    <div class="accordion-inner">
+      <div style="overflow-x:auto; padding:0 4px 8px;">
+        <table class="data-table accordion-table">
+          <thead><tr>
+            <th>日付</th><th>大会</th><th>相手</th><th class="center">結果</th>
+            <th class="num">投球数</th><th class="num">打者数</th><th class="num">投球回</th>
+            <th class="num">奪三振</th><th class="num">四死球</th><th class="num">被安打</th>
+            <th class="num">失点</th><th class="num">WP/PB</th>
+            <th class="num">K率</th><th class="num">BB率</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>`;
+}
+
+function toggleAccordion(tr, colSpan, htmlFn) {
+  const next = tr.nextElementSibling;
+  const icon = tr.querySelector('.acc-icon');
+  if (next && next.classList.contains('accordion-row')) {
+    const inner = next.querySelector('.accordion-inner');
+    const isOpen = inner.classList.contains('open');
+    inner.classList.toggle('open');
+    icon.textContent = isOpen ? '▶' : '▼';
+  } else {
+    const accTr = document.createElement('tr');
+    accTr.className = 'accordion-row';
+    const accTd = document.createElement('td');
+    accTd.colSpan = colSpan;
+    accTd.innerHTML = htmlFn();
+    accTr.appendChild(accTd);
+    tr.insertAdjacentElement('afterend', accTr);
+    requestAnimationFrame(() => accTr.querySelector('.accordion-inner').classList.add('open'));
+    icon.textContent = '▼';
+  }
+}
+
 function renderBatterRows() {
   const rows = [...batterRowData].sort((a, b) => {
     let av = a[batterSortCol], bv = b[batterSortCol];
@@ -879,7 +1236,7 @@ function renderBatterRows() {
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td style="color:#888">${m.number}</td>
-      <td>${m.name}</td>
+      <td class="accordion-trigger">${m.name} <span class="acc-icon">▶</span></td>
       <td class="num">${m.pa}</td>
       <td class="num">${m.ab}</td>
       <td class="num">${m.hits}</td>
@@ -894,6 +1251,9 @@ function renderBatterRows() {
       <td class="num ${rcColor}">${rcStr}</td>
     `;
     tbody.appendChild(tr);
+    tr.querySelector('.accordion-trigger').addEventListener('click', () => {
+      toggleAccordion(tr, 14, () => buildBatterAccordionHTML(m.name));
+    });
   });
 }
 
@@ -1349,7 +1709,8 @@ function renderCards(items) {
 function renderPitcherTab() {
   renderPitcherSummaryTable();
   renderPitcherTrendChart();
-  renderPitcherKBBChart();
+  renderPitcherScatterChart();
+  renderPitcherHeatmap();
   renderPitcherRadarChart();
 }
 
@@ -1391,7 +1752,7 @@ function renderPitcherSummaryTable() {
 
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${name}</td>
+      <td class="accordion-trigger">${name} <span class="acc-icon">▶</span></td>
       <td class="num">${m.games}</td>
       <td class="num">${m.pitches}</td>
       <td class="num">${m.batters}</td>
@@ -1408,6 +1769,9 @@ function renderPitcherSummaryTable() {
       <td class="num ${parseFloat(strRate)>= 60 ? 'good' : ''}">${strRate}%</td>
     `;
     tbody.appendChild(tr);
+    tr.querySelector('.accordion-trigger').addEventListener('click', () => {
+      toggleAccordion(tr, 15, () => buildPitcherAccordionHTML(name));
+    });
   });
 }
 
@@ -1419,40 +1783,104 @@ function formatInnings(raw) {
 }
 
 function renderPitcherTrendChart() {
-  const labels  = pitcherData.map(g => `${formatDate(g.date)} ${g.opponent}`).reverse();
-  const totals  = pitcherData.map(g => g.pitchers.find(p => p.name === '計') || {}).reverse();
-  const pitches = totals.map(t => t.pitches ?? 0);
-  const runs    = totals.map(t => t.runs    ?? 0);
+  // 古い順に並べる
+  const games = [...pitcherData].reverse();
+  const labels = games.map(g => `${formatDate(g.date)} ${g.opponent}`);
+
+  // 登場した投手名を全試合から収集（登板回数の多い順）
+  const pitchCountMap = {};
+  games.forEach(g => {
+    g.pitchers.forEach(p => {
+      if (p.name === '計') return;
+      pitchCountMap[p.name] = (pitchCountMap[p.name] || 0) + p.pitches;
+    });
+  });
+  const pitcherNames = Object.entries(pitchCountMap)
+    .sort((a, b) => b[1] - a[1])
+    .map(([name]) => name);
+
+  // 投手ごとの色パレット
+  const PALETTE = [
+    'rgba(255, 99,  99,  0.80)',
+    'rgba( 99, 160, 255, 0.80)',
+    'rgba(109, 255, 143, 0.80)',
+    'rgba(255, 200,  80, 0.80)',
+    'rgba(200, 120, 255, 0.80)',
+    'rgba( 80, 220, 220, 0.80)',
+  ];
+
+  // 投手別 積み上げデータセット
+  const barDatasets = pitcherNames.map((name, i) => ({
+    label: name,
+    type: 'bar',
+    data: games.map(g => {
+      const p = g.pitchers.find(pi => pi.name === name);
+      return p ? p.pitches : 0;
+    }),
+    backgroundColor: PALETTE[i % PALETTE.length],
+    borderColor: PALETTE[i % PALETTE.length].replace('0.80', '1'),
+    borderWidth: 1,
+    stack: 'pitches',
+    yAxisID: 'y',
+  }));
+
+  // 失点折れ線
+  const runsDataset = {
+    label: '失点',
+    type: 'line',
+    data: games.map(g => (g.pitchers.find(p => p.name === '計') || {}).runs ?? 0),
+    borderColor: '#c8a84b',
+    backgroundColor: 'rgba(200,168,75,0.15)',
+    borderWidth: 2,
+    pointRadius: 4,
+    pointBackgroundColor: '#c8a84b',
+    yAxisID: 'y2',
+    tension: 0.3,
+    order: 0,
+  };
 
   const ctx = document.getElementById('chart-pitcher-trend').getContext('2d');
   new Chart(ctx, {
     type: 'bar',
-    data: {
-      labels,
-      datasets: [
-        {
-          label: '投球数',
-          data: pitches,
-          backgroundColor: 'rgba(139,0,0,0.7)',
-          borderColor: '#8b0000',
-          borderWidth: 1,
-          yAxisID: 'y',
-        },
-        {
-          label: '失点',
-          data: runs,
-          type: 'line',
-          borderColor: '#c8a84b',
-          backgroundColor: 'rgba(200,168,75,0.15)',
-          borderWidth: 2,
-          pointRadius: 4,
-          pointBackgroundColor: '#c8a84b',
-          yAxisID: 'y2',
-          tension: 0.3,
+    data: { labels, datasets: [...barDatasets, runsDataset] },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#ccc', font: { size: 12 } } },
+        tooltip: {
+          callbacks: {
+            // 積み上げの合計も表示
+            footer: items => {
+              const total = items
+                .filter(i => i.dataset.type !== 'line')
+                .reduce((s, i) => s + i.parsed.y, 0);
+              return total > 0 ? `合計投球数: ${total}` : '';
+            }
+          }
         }
-      ]
-    },
-    options: chartOptions('投球数 / 失点', { y: '投球数', y2: '失点' })
+      },
+      scales: {
+        x: {
+          ticks: { color: '#aaa', font: { size: 11 }, maxRotation: 30 },
+          grid: { color: '#2a2a2a' },
+          stacked: true,
+        },
+        y: {
+          position: 'left',
+          stacked: true,
+          ticks: { color: '#aaa' },
+          grid: { color: '#2a2a2a' },
+          title: { display: true, text: '投球数', color: '#888' },
+        },
+        y2: {
+          position: 'right',
+          ticks: { color: '#c8a84b', stepSize: 1 },
+          grid: { drawOnChartArea: false },
+          title: { display: true, text: '失点', color: '#c8a84b' },
+        }
+      }
+    }
   });
 }
 
@@ -1660,34 +2088,218 @@ function drawPitcherRadar(selectedName, map, avgScores) {
   }).join('');
 }
 
-function renderPitcherKBBChart() {
-  const map = {};
-  pitcherData.forEach(game => {
-    game.pitchers.forEach(p => {
-      if (p.name === '計') return;
-      if (!map[p.name]) map[p.name] = { k: 0, bb: 0 };
-      map[p.name].k  += p.strikeouts;
-      map[p.name].bb += p.walks;
+// ===== 案A: 投球効率 散布図（K率 vs BB率）=====
+function renderPitcherScatterChart() {
+  const map = buildPitcherMap();
+  const entries = Object.entries(map);
+
+  // チーム平均
+  let sumK = 0, sumBB = 0, n = 0;
+  entries.forEach(([, m]) => {
+    if (m.batters === 0) return;
+    sumK  += m.strikeouts / m.batters * 100;
+    sumBB += m.walks      / m.batters * 100;
+    n++;
+  });
+  const avgK  = n > 0 ? sumK  / n : 0;
+  const avgBB = n > 0 ? sumBB / n : 0;
+
+  // 最大投球回数（点のサイズ正規化用）
+  const maxInn = Math.max(...entries.map(([, m]) => m.innings), 1);
+
+  const points = entries.map(([name, m]) => {
+    const bf = m.batters || 1;
+    return {
+      x: +(m.walks      / bf * 100).toFixed(1),
+      y: +(m.strikeouts / bf * 100).toFixed(1),
+      name,
+      innings: m.innings,
+      r: Math.max(6, Math.round(m.innings / maxInn * 22)),
+    };
+  });
+
+  const ctx = document.getElementById('chart-pitcher-scatter').getContext('2d');
+  new Chart(ctx, {
+    type: 'bubble',
+    data: {
+      datasets: [{
+        label: '投手',
+        data: points.map(p => ({ x: p.x, y: p.y, r: p.r, name: p.name, innings: p.innings })),
+        backgroundColor: points.map(p => {
+          // 右上（高K・高BB）= 黄、左上（低K・高BB）= 赤、右下（高K・低BB）= 緑、左下 = グレー
+          const goodK  = p.y >= avgK;
+          const goodBB = p.x <= avgBB;
+          if (goodK  && goodBB)  return 'rgba(109,255,143,0.75)';
+          if (goodK  && !goodBB) return 'rgba(200,168,75,0.75)';
+          if (!goodK && goodBB)  return 'rgba(200,168,75,0.55)';
+          return 'rgba(255,109,109,0.75)';
+        }),
+        borderColor: '#333',
+        borderWidth: 1,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const d = ctx.raw;
+              return [`${d.name}`, `K率: ${d.y}%  BB率: ${d.x}%`, `投球回: ${formatInnings(d.innings)}`];
+            }
+          }
+        },
+        // 選手名ラベルをキャンバス外プラグインで描画
+        afterDraw: null,
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'BB率（与四死球率）%', color: '#888' },
+          ticks: { color: '#aaa', callback: v => `${v}%` },
+          grid: { color: '#2a2a2a' },
+        },
+        y: {
+          title: { display: true, text: 'K率（奪三振率）%', color: '#888' },
+          ticks: { color: '#aaa', callback: v => `${v}%` },
+          grid: { color: '#2a2a2a' },
+        }
+      }
+    },
+    plugins: [{
+      // 選手名ラベルと平均線をafterDrawで描画
+      id: 'pitcherLabels',
+      afterDraw(chart) {
+        const { ctx, scales: { x, y } } = chart;
+
+        // 平均線（破線）
+        ctx.save();
+        ctx.setLineDash([5, 4]);
+        ctx.strokeStyle = 'rgba(200,168,75,0.5)';
+        ctx.lineWidth = 1;
+        // 縦線（平均BB率）
+        const xPx = x.getPixelForValue(avgBB);
+        ctx.beginPath(); ctx.moveTo(xPx, y.top); ctx.lineTo(xPx, y.bottom); ctx.stroke();
+        // 横線（平均K率）
+        const yPx = y.getPixelForValue(avgK);
+        ctx.beginPath(); ctx.moveTo(x.left, yPx); ctx.lineTo(x.right, yPx); ctx.stroke();
+        ctx.setLineDash([]);
+
+        // 象限ラベル
+        ctx.font = '10px sans-serif';
+        ctx.fillStyle = 'rgba(200,168,75,0.4)';
+        ctx.fillText('高K・低BB（理想）', xPx - 100, yPx - 8);
+        ctx.fillText('高K・高BB（力型）', xPx + 6, yPx - 8);
+        ctx.fillText('低K・低BB（省エネ型）', xPx - 110, yPx + 14);
+        ctx.fillText('低K・高BB（要強化）', xPx + 6, yPx + 14);
+
+        // 選手名
+        ctx.font = 'bold 11px sans-serif';
+        ctx.fillStyle = '#ddd';
+        ctx.textAlign = 'center';
+        chart.data.datasets[0].data.forEach(d => {
+          const px = x.getPixelForValue(d.x);
+          const py = y.getPixelForValue(d.y);
+          ctx.fillText(d.name, px, py - d.r - 4);
+        });
+        ctx.restore();
+      }
+    }]
+  });
+}
+
+// ===== 案C: 登板ヒートマップ =====
+function renderPitcherHeatmap() {
+  // 投手名一覧（投球回数順）
+  const map = buildPitcherMap();
+  const pitcherNames = Object.entries(map)
+    .sort((a, b) => b[1].innings - a[1].innings)
+    .map(([name]) => name);
+
+  // 試合一覧（新しい順 → 表示は古い順に左から並べる）
+  const games = [...pitcherData].reverse();
+
+  const cols = games.length;
+  const rows = pitcherNames.length;
+
+  // 最大投球回数（色スケール基準）
+  const allInnings = [];
+  games.forEach(g => g.pitchers.forEach(p => {
+    if (p.name !== '計') allInnings.push(p.innings);
+  }));
+  const maxInn = Math.max(...allInnings, 1);
+
+  // 色生成: 投球回数 → 赤みの濃さ
+  function innColor(inn) {
+    if (inn === 0 || inn === null) return '#1a1a1a';
+    const ratio = Math.min(inn / maxInn, 1);
+    const r = Math.round(80  + ratio * 175);
+    const g = Math.round(10  + ratio * 20);
+    const b = Math.round(10  + ratio * 20);
+    return `rgb(${r},${g},${b})`;
+  }
+
+  // グリッド構築: 1列目=投手名 + 試合数列
+  const container = document.getElementById('pitcher-heatmap');
+  const grid = document.createElement('div');
+  grid.className = 'heatmap-grid';
+  grid.style.gridTemplateColumns = `120px repeat(${cols}, 48px)`;
+
+  // ヘッダー行
+  const cornerCell = document.createElement('div');
+  cornerCell.className = 'hm-header';
+  grid.appendChild(cornerCell);
+
+  games.forEach(g => {
+    const cell = document.createElement('div');
+    cell.className = 'hm-header';
+    cell.style.flexDirection = 'column';
+    cell.style.lineHeight = '1.3';
+    const resultColor = g.result === '勝' ? '#6dff8f' : g.result === '負' ? '#ff6d6d' : '#ccc';
+    cell.innerHTML = `<span>${formatDate(g.date)}</span><span style="color:${resultColor};font-size:0.65rem;">${g.result === '引き分け' ? '分' : g.result}</span>`;
+    grid.appendChild(cell);
+  });
+
+  // データ行（投手ごと）
+  pitcherNames.forEach(name => {
+    const nameCell = document.createElement('div');
+    nameCell.className = 'hm-name';
+    nameCell.textContent = name;
+    grid.appendChild(nameCell);
+
+    games.forEach(g => {
+      const p = g.pitchers.find(pi => pi.name === name);
+      const inn = p ? p.innings : null;
+      const cell = document.createElement('div');
+      cell.className = 'hm-cell';
+      cell.style.background = inn !== null ? innColor(inn) : '#111';
+      cell.style.color = inn !== null && inn > 0 ? '#fff' : '#444';
+      cell.textContent = inn !== null && inn > 0 ? formatInnings(inn) : '-';
+      // ツールチップ
+      const tipText = inn !== null
+        ? `${name}\\n${formatDate(g.date)} vs ${g.opponent}\\n投球回: ${formatInnings(inn)}回\\n失点: ${p.runs} / 投球数: ${p.pitches}`
+        : `${name}\\n${formatDate(g.date)} vs ${g.opponent}\\n未登板`;
+      cell.dataset.tip = tipText;
+      grid.appendChild(cell);
     });
   });
 
-  const sorted = Object.entries(map).sort((a, b) => b[1].k - a[1].k);
-  const labels = sorted.map(([name]) => name);
-  const kData  = sorted.map(([, m]) => m.k);
-  const bbData = sorted.map(([, m]) => m.bb);
+  container.innerHTML = '';
+  container.appendChild(grid);
 
-  const ctx = document.getElementById('chart-pitcher-kbb').getContext('2d');
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [
-        { label: '奪三振', data: kData,  backgroundColor: 'rgba(109,255,143,0.6)', borderColor: '#6dff8f', borderWidth: 1 },
-        { label: '与四死球', data: bbData, backgroundColor: 'rgba(255,109,109,0.6)', borderColor: '#ff6d6d', borderWidth: 1 }
-      ]
-    },
-    options: chartOptions('奪三振 / 与四死球', null)
-  });
+  // 凡例
+  const steps = [0, 0.25, 0.5, 0.75, 1.0];
+  const legendBar = steps.map(r => {
+    const inn = r * maxInn;
+    return `<span style="background:${innColor(inn > 0 ? inn : 0.01)}"></span>`;
+  }).join('');
+  document.getElementById('heatmap-legend').innerHTML = `
+    <span>少</span>
+    <div class="heatmap-legend-bar">${legendBar}</div>
+    <span>多（最大 ${formatInnings(maxInn)}回）</span>
+    <span style="margin-left:16px; color:#555;">■ 未登板</span>
+  `;
 }
 
 function chartOptions(title, yAxes) {
@@ -1986,7 +2598,7 @@ function drawPlayerGameTable(games) {
     const el = e.target.closest('[data-tip]');
     if (!el) return;
     clearTimeout(hideTimer);
-    tip.textContent = el.dataset.tip;  // pre-line で改行される
+    tip.textContent = el.dataset.tip.replace(/\\n/g, '\n');  // HTML属性の\nを実改行に変換
     tip.style.display = 'block';
     position(e);
   });
