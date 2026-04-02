@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YOKOHAMA FUTURES - 試合動画</title>
+  <title>YOKOHAMA FUTURES</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -20,7 +17,7 @@
 
     header {
       background: linear-gradient(135deg, #8b0000, #1a1a1a);
-      padding: 24px 20px;
+      padding: 20px 20px 0;
       text-align: center;
       border-bottom: 3px solid #c8a84b;
     }
@@ -30,18 +27,143 @@
       font-weight: 800;
       letter-spacing: 2px;
       color: #fff;
+      margin-bottom: 16px;
     }
 
-    header h1 span {
+    header h1 span { color: #c8a84b; }
+
+    /* ===== TAB NAV ===== */
+    .tab-nav {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 10px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      color: #aaa;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 10px 18px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover { color: #c8a84b; }
+
+    .tab-btn.active {
+      color: #fff;
+      border-bottom-color: #c8a84b;
+      font-weight: 700;
+    }
+
+    /* ===== TAB CONTENT ===== */
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* ===== COMMON CONTENT AREA ===== */
+    .content-area {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 20px;
+    }
+
+    /* ===== STAT CARDS (勝敗) ===== */
+    .stat-cards {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      flex: 1;
+      min-width: 120px;
+      background: #2a1a1a;
+      border-radius: 10px;
+      padding: 20px 16px;
+      text-align: center;
+      border-top: 3px solid #444;
+    }
+
+    .stat-card.win-card  { border-top-color: #2a7a3a; }
+    .stat-card.lose-card { border-top-color: #7a2a2a; }
+    .stat-card.draw-card { border-top-color: #555; }
+    .stat-card.rate-card { border-top-color: #c8a84b; }
+
+    .stat-card .stat-num {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-card.win-card  .stat-num { color: #6dff8f; }
+    .stat-card.lose-card .stat-num { color: #ff6d6d; }
+    .stat-card.draw-card .stat-num { color: #ccc; }
+    .stat-card.rate-card .stat-num { color: #c8a84b; }
+
+    .stat-card .stat-label {
+      font-size: 0.8rem;
+      color: #aaa;
+      letter-spacing: 1px;
+    }
+
+    /* ===== SECTION TITLE ===== */
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
       color: #c8a84b;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #333;
+      letter-spacing: 1px;
     }
 
-    header p {
-      margin-top: 6px;
-      font-size: 0.9rem;
-      color: #ccc;
+    /* ===== TABLE ===== */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
     }
 
+    .data-table th {
+      background: #2a1a1a;
+      color: #c8a84b;
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid #8b0000;
+      white-space: nowrap;
+    }
+
+    .data-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid #2a2a2a;
+      color: #ddd;
+    }
+
+    .data-table tr:hover td { background: #221212; }
+
+    .data-table td.center, .data-table th.center { text-align: center; }
+    .data-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border-radius: 4px;
+      padding: 2px 10px;
+    }
+    .badge.win  { background: #1a5c2a; color: #6dff8f; }
+    .badge.lose { background: #5c1a1a; color: #ff6d6d; }
+    .badge.draw { background: #3a3a3a; color: #ccc; }
+
+    /* ===== STATUS / EMPTY ===== */
     #status {
       text-align: center;
       padding: 40px 20px;
@@ -49,11 +171,12 @@
       font-size: 0.95rem;
     }
 
+    /* ===== VIDEO ARCHIVE (Tab 5 — existing styles) ===== */
     #video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
-      padding: 30px 20px;
+      padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -82,11 +205,7 @@
       overflow: hidden;
     }
 
-    .card-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
     .card-thumb .play-icon {
       position: absolute;
@@ -98,24 +217,12 @@
       transition: background 0.2s;
     }
 
-    .card:hover .play-icon {
-      background: rgba(0,0,0,0.35);
-    }
+    .card:hover .play-icon { background: rgba(0,0,0,0.35); }
 
-    .play-icon svg {
-      width: 52px;
-      height: 52px;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
+    .play-icon svg { width: 52px; height: 52px; opacity: 0; transition: opacity 0.2s; }
+    .card:hover .play-icon svg { opacity: 1; }
 
-    .card:hover .play-icon svg {
-      opacity: 1;
-    }
-
-    .card-body {
-      padding: 14px 16px;
-    }
+    .card-body { padding: 14px 16px; }
 
     .card-title {
       font-size: 0.95rem;
@@ -128,17 +235,9 @@
       overflow: hidden;
     }
 
-    .card-date {
-      font-size: 0.78rem;
-      color: #c8a84b;
-    }
+    .card-date { font-size: 0.78rem; color: #c8a84b; }
 
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
+    .card-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
 
     .card-tag {
       display: inline-block;
@@ -162,7 +261,7 @@
     .card-result.draw { background: #3a3a3a; color: #ccc; }
 
     .filter-section {
-      padding: 16px 20px 0;
+      padding: 14px 20px 0;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -173,12 +272,6 @@
       margin-bottom: 6px;
       letter-spacing: 1px;
       text-transform: uppercase;
-    }
-
-    #filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
     }
 
     .filter-btn {
@@ -192,15 +285,13 @@
       transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
 
-    .filter-btn:hover {
-      border-color: #c8a84b;
-      color: #c8a84b;
-    }
+    .filter-btn:hover { border-color: #c8a84b; color: #c8a84b; }
+    .filter-btn.active { background: #8b0000; border-color: #8b0000; color: #fff; }
 
-    .filter-btn.active {
-      background: #8b0000;
-      border-color: #8b0000;
-      color: #fff;
+    #filter-bar, #season-bar, #team-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     footer {
@@ -210,21 +301,129 @@
       font-size: 0.8rem;
     }
 
+    /* ===== SORTABLE TABLE ===== */
+    .sortable {
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .sortable:hover { color: #c8a84b; }
+
+    .sort-icon {
+      font-size: 0.7rem;
+      color: #555;
+      margin-left: 2px;
+    }
+
+    .sortable.asc  .sort-icon::after { content: ' ▲'; color: #c8a84b; }
+    .sortable.desc .sort-icon::after { content: ' ▼'; color: #c8a84b; }
+    .sortable:not(.asc):not(.desc) .sort-icon::after { content: ' ⇅'; }
+
+    /* ===== RANK TOGGLE ===== */
+    .rank-toggle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .rank-btn {
+      background: #2a1a1a;
+      color: #aaa;
+      border: 1px solid #444;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .rank-btn:hover { border-color: #c8a84b; color: #c8a84b; }
+    .rank-btn.active { background: #8b0000; border-color: #8b0000; color: #fff; }
+
+    /* ===== CHART WRAPPER ===== */
+    .chart-wrap {
+      position: relative;
+      background: #221212;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 32px;
+    }
+
+    /* positive/negative coloring for tables */
+    .good { color: #6dff8f; }
+    .bad  { color: #ff6d6d; }
+
+    /* ===== TOOLTIP (JS制御) ===== */
+    [data-tip] { cursor: help; }
+
+    #js-tooltip {
+      position: fixed;
+      background: #111;
+      color: #ddd;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      max-width: 260px;
+      pointer-events: none;
+      z-index: 9999;
+      display: none;
+      white-space: pre-line;
+    }
+
+    /* ===== PLAYER SELECT ===== */
+    .player-select-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .player-select-row label {
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    .player-select {
+      background: #2a1a1a;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 6px;
+      padding: 7px 14px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .player-select:focus, .player-select:hover {
+      border-color: #c8a84b;
+    }
+
+    .radar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 700px) {
+      .radar-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 600px) {
-      #video-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        padding: 16px 12px;
-      }
-      header h1 {
-        font-size: 1.3rem;
-      }
+      #video-grid { grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; }
+      header h1 { font-size: 1.3rem; }
+      .tab-btn { padding: 8px 12px; font-size: 0.78rem; }
+      .stat-card .stat-num { font-size: 1.8rem; }
     }
 
     @media (max-width: 380px) {
-      #video-grid {
-        grid-template-columns: 1fr;
-      }
+      #video-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -232,144 +431,1591 @@
 
 <header>
   <h1>⚾ YOKOHAMA <span>FUTURES</span></h1>
-  <p>試合・練習動画アーカイブ</p>
+  <nav class="tab-nav">
+    <button class="tab-btn" data-tab="team">チーム成績</button>
+    <button class="tab-btn" data-tab="pitcher">投手分析</button>
+    <button class="tab-btn" data-tab="batter">打者分析</button>
+    <button class="tab-btn" data-tab="player">選手詳細</button>
+    <button class="tab-btn active" data-tab="video">試合・練習動画</button>
+  </nav>
 </header>
 
-<div id="status">動画を読み込み中...</div>
-<div class="filter-section">
-  <div class="filter-label">シーズン</div>
-  <div id="season-bar"></div>
-</div>
-<div class="filter-section">
-  <div class="filter-label">チーム</div>
-  <div id="team-bar"></div>
-</div>
-<div class="filter-section">
-  <div class="filter-label">大会</div>
-  <div id="filter-bar"></div>
-</div>
-<div id="video-grid"></div>
+<!-- ========== TAB 1: チーム成績 ========== -->
+<div id="tab-team" class="tab-pane">
+  <div class="content-area">
+    <div class="stat-cards" id="team-stat-cards">
+      <div class="stat-card win-card"><div class="stat-num" id="s-win">-</div><div class="stat-label">勝</div></div>
+      <div class="stat-card lose-card"><div class="stat-num" id="s-lose">-</div><div class="stat-label">負</div></div>
+      <div class="stat-card draw-card"><div class="stat-num" id="s-draw">-</div><div class="stat-label">引分</div></div>
+      <div class="stat-card rate-card"><div class="stat-num" id="s-rate">-</div><div class="stat-label">勝率</div></div>
+    </div>
 
-<footer>
-  <p>YOKOHAMA FUTURES © 2026</p>
-</footer>
+    <div class="section-title">試合一覧</div>
+    <div style="overflow-x:auto;">
+      <table class="data-table" id="game-table">
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>大会</th>
+            <th>相手</th>
+            <th class="center">結果</th>
+            <th>スコア</th>
+            <th class="num">得点</th>
+            <th class="num">安打</th>
+            <th class="num">四死球</th>
+            <th class="num">三振</th>
+            <th class="num">投球数</th>
+            <th class="num">失点</th>
+          </tr>
+        </thead>
+        <tbody id="game-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== TAB 2: 投手分析 ========== -->
+<div id="tab-pitcher" class="tab-pane">
+  <div class="content-area">
+
+    <div class="section-title">投手別 通算成績</div>
+    <div style="overflow-x:auto; margin-bottom:32px;">
+      <table class="data-table" id="pitcher-summary-table">
+        <thead>
+          <tr>
+            <th>投手名</th>
+            <th class="num">登板</th>
+            <th class="num">投球数</th>
+            <th class="num">打者数</th>
+            <th class="num">投球回</th>
+            <th class="num">奪三振</th>
+            <th class="num">与四死球</th>
+            <th class="num">被安打</th>
+            <th class="num">失点</th>
+            <th class="num">WP/PB</th>
+            <th class="num">WP/PB率</th>
+            <th class="num" data-tip="WHIP = (四死球 + 被安打) ÷ 投球回数\n1回あたりの走者許容数\n1.00以下: 緑 / 2.00以上: 赤">WHIP</th>
+            <th class="num">K率</th>
+            <th class="num">BB率</th>
+            <th class="num">Str率</th>
+          </tr>
+        </thead>
+        <tbody id="pitcher-summary-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title">試合別 投球数 / 失点 推移</div>
+    <div style="position:relative; height:260px; margin-bottom:32px;">
+      <canvas id="chart-pitcher-trend"></canvas>
+    </div>
+
+    <div class="section-title">投手別 奪三振 / 与四死球</div>
+    <div style="position:relative; height:260px; margin-bottom:32px;">
+      <canvas id="chart-pitcher-kbb"></canvas>
+    </div>
+
+    <div class="section-title">投手別 レーダーチャート（全投手平均との比較）</div>
+    <div class="player-select-row">
+      <label>投手を選択：</label>
+      <select id="pitcher-radar-select" class="player-select"></select>
+    </div>
+    <div class="radar-grid">
+      <div style="position:relative; height:320px;">
+        <canvas id="chart-pitcher-radar"></canvas>
+      </div>
+      <div id="pitcher-radar-legend" style="display:flex; flex-direction:column; justify-content:center; gap:10px; padding:12px;">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== TAB 3: 打者分析 ========== -->
+<div id="tab-batter" class="tab-pane">
+  <div class="content-area">
+
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap;">
+      <div class="section-title" style="margin-bottom:0; border:none;">選手別 通算成績</div>
+      <button id="batter-sort-reset" class="rank-btn" style="display:none; padding:4px 12px; font-size:0.78rem;">↺ リセット</button>
+    </div>
+    <div style="overflow-x:auto; margin-bottom:32px;">
+      <table class="data-table" id="batter-summary-table">
+        <thead>
+          <tr>
+            <th data-col="number" data-tip="背番号順（デフォルト）" class="sortable"># <span class="sort-icon"></span></th>
+            <th>選手名</th>
+            <th data-col="pa"          data-tip="打席数（四死球含む全打席）"                         class="num sortable">打席 <span class="sort-icon"></span></th>
+            <th data-col="ab"          data-tip="打数 = 打席 - 四死球"                               class="num sortable">打数 <span class="sort-icon"></span></th>
+            <th data-col="hits"        data-tip="安打数"                                              class="num sortable">安打 <span class="sort-icon"></span></th>
+            <th data-col="ba"          data-tip="打率 = 安打 ÷ 打数\n.300以上: 緑 / .200未満: 赤"    class="num sortable">打率 <span class="sort-icon"></span></th>
+            <th data-col="obp"         data-tip="出塁率 = 出塁数 ÷ 打席数\n.350以上: 緑 / .250未満: 赤" class="num sortable">出塁率 <span class="sort-icon"></span></th>
+            <th data-col="runs"        data-tip="得点数（ホームを踏んだ回数）"                        class="num sortable">得点 <span class="sort-icon"></span></th>
+            <th data-col="walks"       data-tip="四球・死球の合計"                                    class="num sortable">四死球 <span class="sort-icon"></span></th>
+            <th data-col="walkRate"    data-tip="四死球率 = 四死球 ÷ 打席数\n15%以上: 緑（選球眼あり）/ 5%以下: 赤" class="num sortable">四死球率 <span class="sort-icon"></span></th>
+            <th data-col="strikeouts"  data-tip="三振数"                                              class="num sortable">三振 <span class="sort-icon"></span></th>
+            <th data-col="kRate"       data-tip="三振率 = 三振 ÷ 打席数\n15%以下: 緑 / 30%以上: 赤"  class="num sortable">三振率 <span class="sort-icon"></span></th>
+            <th data-col="kbb"         data-tip="K/BB比 = 三振 ÷ 四死球\n1.0以下: 緑（粘れる打者）\n3.0以上: 赤\n四死球0の場合は ∞ と表示" class="num sortable">K/BB <span class="sort-icon"></span></th>
+            <th data-col="runContrib"  data-tip="得点貢献率 = 得点 ÷ 出塁数\n出塁後に返ってきた割合\n50%以上: 緑 / 25%未満: 赤" class="num sortable">得点貢献率 <span class="sort-icon"></span></th>
+          </tr>
+        </thead>
+        <tbody id="batter-summary-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title">ランキング</div>
+    <div class="rank-toggle">
+      <button class="rank-btn active" data-rank="ba">打率</button>
+      <button class="rank-btn" data-rank="obp">出塁率</button>
+      <button class="rank-btn" data-rank="runContrib">得点貢献率</button>
+      <button class="rank-btn" data-rank="noK">低三振率</button>
+      <button class="rank-btn" data-rank="walkRate">四死球率</button>
+      <button class="rank-btn" data-rank="kbb">K/BB比</button>
+    </div>
+    <div style="position:relative; margin-bottom:32px;" id="batter-rank-wrap">
+      <canvas id="chart-batter-rank"></canvas>
+    </div>
+
+    <div class="section-title">選手別 レーダーチャート（全選手平均との比較）</div>
+    <div class="player-select-row">
+      <label>選手を選択：</label>
+      <select id="batter-radar-select" class="player-select"></select>
+    </div>
+    <div class="radar-grid">
+      <div style="position:relative; height:320px;">
+        <canvas id="chart-batter-radar"></canvas>
+      </div>
+      <div id="batter-radar-legend" style="display:flex; flex-direction:column; justify-content:center; gap:10px; padding:12px;"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== TAB 4: 選手詳細 ========== -->
+<div id="tab-player" class="tab-pane">
+  <div class="content-area">
+
+    <div class="player-select-row">
+      <label>選手を選択：</label>
+      <select id="player-detail-select" class="player-select"></select>
+    </div>
+
+    <!-- サマリーカード -->
+    <div class="stat-cards" id="player-stat-cards" style="margin-bottom:28px;"></div>
+
+    <!-- 成績推移グラフ -->
+    <div class="section-title">試合別 成績推移</div>
+    <div style="position:relative; height:260px; margin-bottom:32px;">
+      <canvas id="chart-player-trend"></canvas>
+    </div>
+
+    <!-- 試合別成績テーブル -->
+    <div class="section-title">試合別 成績一覧</div>
+    <div style="overflow-x:auto;">
+      <table class="data-table" id="player-game-table">
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>大会</th>
+            <th>相手</th>
+            <th class="center">結果</th>
+            <th class="num">打席</th>
+            <th class="num">打数</th>
+            <th class="num">安打</th>
+            <th class="num">打率</th>
+            <th class="num">出塁</th>
+            <th class="num">出塁率</th>
+            <th class="num">得点</th>
+            <th class="num">四死球</th>
+            <th class="num">三振</th>
+          </tr>
+        </thead>
+        <tbody id="player-game-tbody"></tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ========== TAB 5: 試合・練習動画 ========== -->
+<div id="tab-video" class="tab-pane active">
+  <div id="status">動画を読み込み中...</div>
+  <div class="filter-section">
+    <div class="filter-label">シーズン</div>
+    <div id="season-bar"></div>
+  </div>
+  <div class="filter-section">
+    <div class="filter-label">チーム</div>
+    <div id="team-bar"></div>
+  </div>
+  <div class="filter-section">
+    <div class="filter-label">大会</div>
+    <div id="filter-bar"></div>
+  </div>
+  <div id="video-grid"></div>
+</div>
+
+<footer><p>YOKOHAMA FUTURES © 2026</p></footer>
+<div id="js-tooltip"></div>
 
 <script>
-  const statusEl    = document.getElementById('status');
-  const gridEl      = document.getElementById('video-grid');
-  const filterBarEl = document.getElementById('filter-bar');
-  const seasonBarEl = document.getElementById('season-bar');
-  const teamBarEl   = document.getElementById('team-bar');
+// ===== TAB SWITCHING =====
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
 
-  let allItems     = [];
-  let activeSeason = 'すべて';
-  let activeTeam   = 'すべて';
-  let activeTag    = 'すべて';
+// ===== DATA LOADING =====
+let pitcherData = [];
+let batterData  = [];
 
-  async function fetchVideos() {
-    try {
-      const res = await fetch('videos.json');
-      allItems = await res.json();
+async function loadAllData() {
+  try {
+    const [pRes, bRes] = await Promise.all([
+      fetch('pitcher_data.json'),
+      fetch('batter_data.json')
+    ]);
+    pitcherData = await pRes.json();
+    batterData  = await bRes.json();
+    renderTeamTab();
+  renderPitcherTab();
+  renderBatterTab();
+  renderPlayerTab();
+  } catch (e) {
+    console.error('データ読み込みエラー:', e);
+  }
+}
 
-      if (!allItems || allItems.length === 0) {
-        statusEl.textContent = '動画が登録されていません。';
-        return;
+// ===== TAB 1: チーム成績 =====
+function renderTeamTab() {
+  // 勝敗集計 (pitcher_data をベースに)
+  let wins = 0, losses = 0, draws = 0;
+  pitcherData.forEach(g => {
+    if (g.result === '勝') wins++;
+    else if (g.result === '負') losses++;
+    else draws++;
+  });
+  const total = wins + losses + draws;
+  const rate  = total > 0 ? (wins / (wins + losses)).toFixed(3).replace(/^0/, '') : '-';
+
+  document.getElementById('s-win').textContent  = wins;
+  document.getElementById('s-lose').textContent = losses;
+  document.getElementById('s-draw').textContent = draws;
+  document.getElementById('s-rate').textContent = (wins + losses) > 0 ? rate : '-';
+
+  // 試合一覧テーブル
+  const tbody = document.getElementById('game-tbody');
+  tbody.innerHTML = '';
+
+  pitcherData.forEach((g, idx) => {
+    // 打者データから同じ試合を探す（日付+相手で照合）
+    const b = batterData[idx] || {};
+    const teamTotals = b.team_totals || {};
+
+    // 投手「計」行
+    const totPitcher = g.pitchers.find(p => p.name === '計') || {};
+
+    const resultClass = g.result === '勝' ? 'win' : g.result === '負' ? 'lose' : 'draw';
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${formatDate(g.date)}</td>
+      <td>${g.tournament}</td>
+      <td>${g.opponent}</td>
+      <td class="center"><span class="badge ${resultClass}">${g.result}</span></td>
+      <td>${g.score}</td>
+      <td class="num">${teamTotals.runs ?? '-'}</td>
+      <td class="num">${teamTotals.hits ?? '-'}</td>
+      <td class="num">${teamTotals.walks ?? '-'}</td>
+      <td class="num">${teamTotals.strikeouts ?? '-'}</td>
+      <td class="num">${totPitcher.pitches ?? '-'}</td>
+      <td class="num">${totPitcher.runs ?? '-'}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
+function formatDate(dateStr) {
+  const d = new Date(dateStr);
+  return `${d.getMonth() + 1}/${d.getDate()}`;
+}
+
+// ===== TAB 3: 打者分析 =====
+let batterRadarChart = null;
+
+function renderBatterTab() {
+  const map = buildBatterMap();
+  renderBatterSummaryTable(map);
+  renderBatterRankChart(map, 'ba');
+  renderBatterRadarChart(map);
+
+  // ランキング切替ボタン
+  document.querySelectorAll('.rank-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.rank-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderBatterRankChart(map, btn.dataset.rank);
+    });
+  });
+}
+
+function buildBatterMap() {
+  const map = {};
+  batterData.forEach(game => {
+    game.players.forEach(p => {
+      if (p.pa === null) return; // 欠場
+      if (!map[p.name]) {
+        map[p.name] = { number: p.number, name: p.name,
+                        pa: 0, hits: 0, onBase: 0, runs: 0, walks: 0, strikeouts: 0 };
       }
+      const m = map[p.name];
+      m.pa          += p.pa;
+      m.hits        += p.hits;
+      m.onBase      += p.onBase;
+      m.runs        += p.runs;
+      m.walks       += p.walks;
+      m.strikeouts  += p.strikeouts;
+    });
+  });
+  return map;
+}
 
-      statusEl.style.display = 'none';
-      renderFilterButtons();
-      applyFilters();
+function calcBA(m) {
+  const ab = m.pa - m.walks;
+  return ab > 0 ? m.hits / ab : null;
+}
 
-    } catch (err) {
-      statusEl.textContent = '動画の読み込みに失敗しました。';
-      console.error(err);
+function calcOBP(m) {
+  return m.pa > 0 ? m.onBase / m.pa : null;
+}
+
+// 各選手の数値を計算してフラットなオブジェクトで返す
+function buildBatterRow(m) {
+  const ba           = calcBA(m);
+  const obp          = calcOBP(m);
+  const ab           = m.pa - m.walks;
+  const kRate        = m.pa > 0 ? m.strikeouts / m.pa : null;
+  const walkRate     = m.pa > 0 ? m.walks / m.pa : null;
+  const kbb          = m.walks > 0 ? m.strikeouts / m.walks : (m.strikeouts > 0 ? Infinity : null);
+  const runContrib   = m.onBase > 0 ? m.runs / m.onBase : null;
+  return { ...m, ab, ba, obp, kRate, walkRate, kbb, runContrib };
+}
+
+let batterSortCol = 'number';
+let batterSortDir = 'asc';
+let batterRowData = [];
+
+function renderBatterSummaryTable(map) {
+  batterRowData = Object.values(map).map(buildBatterRow);
+  setupBatterSort();
+  renderBatterRows();
+}
+
+function setupBatterSort() {
+  const resetBtn = document.getElementById('batter-sort-reset');
+  resetBtn.addEventListener('click', () => {
+    batterSortCol = 'number';
+    batterSortDir = 'asc';
+    resetBtn.style.display = 'none';
+    document.querySelectorAll('#batter-summary-table th.sortable').forEach(th => {
+      th.classList.remove('asc', 'desc');
+    });
+    document.querySelector('#batter-summary-table th[data-col="number"]').classList.add('asc');
+    renderBatterRows();
+  });
+
+  document.querySelectorAll('#batter-summary-table th.sortable').forEach(th => {
+    // デフォルト状態
+    if (th.dataset.col === 'number') th.classList.add('asc');
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (batterSortCol === col) {
+        batterSortDir = batterSortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        batterSortCol = col;
+        // 数値系はデフォルト降順（大きい順）、number/nameは昇順
+        batterSortDir = col === 'number' ? 'asc' : 'desc';
+      }
+      document.querySelectorAll('#batter-summary-table th.sortable').forEach(h => h.classList.remove('asc', 'desc'));
+      th.classList.add(batterSortDir);
+      resetBtn.style.display = batterSortCol === 'number' ? 'none' : '';
+      renderBatterRows();
+    });
+  });
+}
+
+function renderBatterRows() {
+  const rows = [...batterRowData].sort((a, b) => {
+    let av = a[batterSortCol], bv = b[batterSortCol];
+    // null / Infinity の扱い: 常に末尾
+    const aNull = av === null || av === undefined || av === Infinity || isNaN(av);
+    const bNull = bv === null || bv === undefined || bv === Infinity || isNaN(bv);
+    if (aNull && bNull) return 0;
+    if (aNull) return 1;
+    if (bNull) return -1;
+    return batterSortDir === 'asc' ? av - bv : bv - av;
+  });
+
+  const tbody = document.getElementById('batter-summary-tbody');
+  tbody.innerHTML = '';
+  rows.forEach(m => {
+    const baStr      = m.ba  !== null ? m.ba.toFixed(3).replace(/^0/, '')  : '-';
+    const obpStr     = m.obp !== null ? m.obp.toFixed(3).replace(/^0/, '') : '-';
+    const kRateStr   = m.kRate    !== null ? (m.kRate    * 100).toFixed(1) + '%' : '-';
+    const walkRateStr= m.walkRate !== null ? (m.walkRate * 100).toFixed(1) + '%' : '-';
+    const kbbStr     = m.kbb === null ? '-' : m.kbb === Infinity ? '∞' : m.kbb.toFixed(2);
+    const rcStr      = m.runContrib !== null ? (m.runContrib * 100).toFixed(1) + '%' : '-';
+
+    const baColor  = m.ba  !== null ? (m.ba  >= 0.300 ? 'good' : m.ba  < 0.200 ? 'bad' : '') : '';
+    const obpColor = m.obp !== null ? (m.obp >= 0.350 ? 'good' : m.obp < 0.250 ? 'bad' : '') : '';
+    const kColor   = m.kRate    !== null ? (m.kRate    >= 0.30 ? 'bad'  : m.kRate    <= 0.15 ? 'good' : '') : '';
+    const wkColor  = m.walkRate !== null ? (m.walkRate >= 0.15 ? 'good' : m.walkRate <= 0.05 ? 'bad'  : '') : '';
+    const kbbColor = m.kbb !== null && m.kbb !== Infinity ? (m.kbb <= 1.0 ? 'good' : m.kbb >= 3.0 ? 'bad' : '') : '';
+    const rcColor  = m.runContrib !== null ? (m.runContrib >= 0.5 ? 'good' : m.runContrib < 0.25 ? 'bad' : '') : '';
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="color:#888">${m.number}</td>
+      <td>${m.name}</td>
+      <td class="num">${m.pa}</td>
+      <td class="num">${m.ab}</td>
+      <td class="num">${m.hits}</td>
+      <td class="num ${baColor}">${baStr}</td>
+      <td class="num ${obpColor}">${obpStr}</td>
+      <td class="num">${m.runs}</td>
+      <td class="num">${m.walks}</td>
+      <td class="num ${wkColor}">${walkRateStr}</td>
+      <td class="num">${m.strikeouts}</td>
+      <td class="num ${kColor}">${kRateStr}</td>
+      <td class="num ${kbbColor}">${kbbStr}</td>
+      <td class="num ${rcColor}">${rcStr}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// ランキングの定義
+const RANK_DEFS = {
+  ba: {
+    label: '打率',
+    tip: '安打 ÷ 打数（打席 - 四死球）\n打数3以上の選手を対象',
+    minPA: 3,
+    getValue: m => { const ab = m.pa - m.walks; return ab >= 3 ? calcBA(m) : null; },
+    fmt: v => v.toFixed(3).replace(/^0/, ''),
+    tooltipFmt: v => `.${String(Math.round(v * 1000)).padStart(3,'0')}`,
+    xMax: 0.6,
+    xTick: v => v.toFixed(3).replace(/^0/, ''),
+    goodThresh: 0.300, badThresh: 0.200,
+    higherBetter: true,
+  },
+  obp: {
+    label: '出塁率',
+    tip: '出塁数 ÷ 打席数\n打席5以上の選手を対象',
+    minPA: 5,
+    getValue: m => m.pa >= 5 ? calcOBP(m) : null,
+    fmt: v => v.toFixed(3).replace(/^0/, ''),
+    tooltipFmt: v => `.${String(Math.round(v * 1000)).padStart(3,'0')}`,
+    xMax: 0.7,
+    xTick: v => v.toFixed(3).replace(/^0/, ''),
+    goodThresh: 0.400, badThresh: 0.300,
+    higherBetter: true,
+  },
+  runContrib: {
+    label: '得点貢献率',
+    tip: '得点 ÷ 出塁数 × 100\n出塁3以上の選手を対象',
+    minPA: 0,
+    getValue: m => m.onBase >= 3 ? m.runs / m.onBase : null,
+    fmt: v => `${(v * 100).toFixed(1)}%`,
+    tooltipFmt: v => ` ${(v * 100).toFixed(1)}%`,
+    xMax: 0.8,
+    xTick: v => `${(v * 100).toFixed(0)}%`,
+    goodThresh: 0.50, badThresh: 0.25,
+    higherBetter: true,
+  },
+  noK: {
+    label: '低三振率',
+    tip: '(1 - 三振 ÷ 打席) × 100\n打席5以上の選手を対象\n高いほど三振が少ない',
+    minPA: 5,
+    getValue: m => m.pa >= 5 ? 1 - m.strikeouts / m.pa : null,
+    fmt: v => `${(v * 100).toFixed(1)}%`,
+    tooltipFmt: v => ` ${(v * 100).toFixed(1)}%`,
+    xMax: 1.0,
+    xTick: v => `${(v * 100).toFixed(0)}%`,
+    goodThresh: 0.85, badThresh: 0.70,
+    higherBetter: true,
+  },
+  walkRate: {
+    label: '四死球率',
+    tip: '四死球 ÷ 打席数 × 100\n打席5以上の選手を対象',
+    minPA: 5,
+    getValue: m => m.pa >= 5 ? m.walks / m.pa : null,
+    fmt: v => `${(v * 100).toFixed(1)}%`,
+    tooltipFmt: v => ` ${(v * 100).toFixed(1)}%`,
+    xMax: 0.35,
+    xTick: v => `${(v * 100).toFixed(0)}%`,
+    goodThresh: 0.15, badThresh: 0.05,
+    higherBetter: true,
+  },
+  kbb: {
+    label: 'K/BB比',
+    tip: '三振 ÷ 四死球\n低いほど粘れる打者\n四死球1以上の選手を対象',
+    minPA: 0,
+    getValue: m => m.walks >= 1 ? m.strikeouts / m.walks : null,
+    fmt: v => v.toFixed(2),
+    tooltipFmt: v => ` ${v.toFixed(2)}`,
+    xMax: 6,
+    xTick: v => v.toFixed(1),
+    goodThresh: null, badThresh: null,  // 低いほど良いので色分けは逆
+    higherBetter: false,
+  },
+};
+
+let batterRankChart = null;
+let currentRank = 'ba';
+
+function renderBatterRankChart(map, rankKey) {
+  const def = RANK_DEFS[rankKey];
+  const all = Object.values(map)
+    .map(m => ({ m, v: def.getValue(m) }))
+    .filter(x => x.v !== null);
+
+  // 良い順にソート
+  all.sort((a, b) => def.higherBetter ? b.v - a.v : a.v - b.v);
+
+  const labels = all.map(x => `#${x.m.number} ${x.m.name}`);
+  const data   = all.map(x => x.v);
+
+  const colors = data.map(v => {
+    if (def.goodThresh !== null) {
+      if (def.higherBetter) {
+        return v >= def.goodThresh ? 'rgba(109,255,143,0.75)'
+             : v <  def.badThresh  ? 'rgba(255,109,109,0.75)'
+             : 'rgba(200,168,75,0.75)';
+      } else {
+        return v <= def.goodThresh ? 'rgba(109,255,143,0.75)'
+             : v >  def.badThresh  ? 'rgba(255,109,109,0.75)'
+             : 'rgba(200,168,75,0.75)';
+      }
     }
-  }
+    // K/BB比: 低いほど良い（グラデーション: 最小→緑、最大→赤）
+    const min = Math.min(...data), max = Math.max(...data);
+    const ratio = max > min ? (v - min) / (max - min) : 0.5;
+    const r = Math.round(255 * ratio);
+    const g = Math.round(143 * (1 - ratio) + 109 * ratio);
+    return `rgba(${r},${g},109,0.75)`;
+  });
 
-  function applyFilters() {
-    gridEl.innerHTML = '';
-    const filtered = allItems.filter(i => {
-      const seasonMatch = activeSeason === 'すべて' || String(i.season) === String(activeSeason);
-      const teamMatch   = activeTeam   === 'すべて' || i.team === activeTeam;
-      const tagMatch    = activeTag    === 'すべて' || i.tag === activeTag;
-      return seasonMatch && teamMatch && tagMatch;
-    });
-    renderCards(filtered);
-  }
+  // チャートの高さを選手数に応じて動的調整
+  const height = Math.max(200, all.length * 34);
+  document.getElementById('batter-rank-wrap').style.height = height + 'px';
 
-  function makeButtons(container, values, getActive, setActive) {
-    container.innerHTML = '';
-    values.forEach(val => {
-      const btn = document.createElement('button');
-      btn.className = 'filter-btn' + (val === getActive() ? ' active' : '');
-      btn.textContent = val;
-      btn.addEventListener('click', () => {
-        setActive(val);
-        container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        applyFilters();
-      });
-      container.appendChild(btn);
-    });
-  }
+  const ctx = document.getElementById('chart-batter-rank').getContext('2d');
+  if (batterRankChart) batterRankChart.destroy();
 
-  function renderFilterButtons() {
-    const seasons = ['すべて', ...new Set(allItems.map(i => i.season).filter(Boolean)).values()].sort((a, b) => b - a);
-    const teams   = ['すべて', ...new Set(allItems.map(i => i.team).filter(Boolean))];
-    const tags    = ['すべて', ...new Set(allItems.map(i => i.tag).filter(Boolean))];
-
-    makeButtons(seasonBarEl, seasons, () => activeSeason, v => activeSeason = v);
-    makeButtons(teamBarEl,   teams,   () => activeTeam,   v => activeTeam   = v);
-    makeButtons(filterBarEl, tags,    () => activeTag,    v => activeTag    = v);
-  }
-
-  function renderCards(items) {
-    items.forEach(item => {
-      const videoId = item.id;
-      const title   = item.title;
-      const thumb   = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-      const date    = new Date(item.date).toLocaleDateString('ja-JP', {
-        year: 'numeric', month: 'long', day: 'numeric'
-      });
-      const tagHtml = item.tag ? `<div class="card-tag">${item.tag}</div>` : '';
-
-      let resultHtml = '';
-      if (item.result === '勝') {
-        resultHtml = `<div class="card-result win">勝</div>`;
-      } else if (item.result === '負') {
-        resultHtml = `<div class="card-result lose">負</div>`;
-      } else if (item.result === '分') {
-        resultHtml = `<div class="card-result draw">分</div>`;
+  batterRankChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: def.label,
+        data,
+        backgroundColor: colors,
+        borderColor: colors.map(c => c.replace('0.75', '1')),
+        borderWidth: 1,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => def.tooltipFmt(ctx.parsed.x) } }
+      },
+      scales: {
+        x: {
+          min: 0,
+          max: def.xMax,
+          ticks: { color: '#aaa', callback: def.xTick },
+          grid: { color: '#2a2a2a' }
+        },
+        y: { ticks: { color: '#ccc', font: { size: 12 } }, grid: { color: '#2a2a2a' } }
       }
+    }
+  });
+}
 
-      const card = document.createElement('a');
-      card.className = 'card';
-      card.href = `https://www.youtube.com/watch?v=${videoId}`;
-      card.target = '_blank';
-      card.rel = 'noopener noreferrer';
+// 各指標の上限（実際の成績をもとに設定した100点基準）
+const RADAR_BATTER_MAX = {
+  ba:       0.500,   // 打率 .500 = 100点
+  obp:      0.600,   // 出塁率 .600 = 100点
+  runRate:  0.40,    // 得点率 40% = 100点
+  noK:      { min: 0.30, max: 1.00 },  // 低三振率: 30%未満→0点, 100%→100点
+  walkRate: 0.30,    // 四死球率 30% = 100点
+};
 
-      card.innerHTML = `
-        <div class="card-thumb">
-          <img src="${thumb}" alt="${title}" loading="lazy" />
-          <div class="play-icon">
-            <svg viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="34" cy="34" r="34" fill="rgba(255,255,255,0.9)"/>
-              <polygon points="27,20 54,34 27,48" fill="#c8a84b"/>
-            </svg>
-          </div>
+function clamp(v, min, max) { return Math.min(Math.max(v, min), max); }
+
+function buildBatterRadarScores(m) {
+  const ba       = calcBA(m)  || 0;
+  const obp      = calcOBP(m) || 0;
+  const runRate  = m.pa > 0 ? m.runs       / m.pa : 0;
+  const kRate    = m.pa > 0 ? m.strikeouts / m.pa : 0;
+  const walkRate = m.pa > 0 ? m.walks      / m.pa : 0;
+
+  // 正規化: 全指標を 0〜100 スケールに統一
+  const noK = 1 - kRate;
+  const noKNorm = (noK - RADAR_BATTER_MAX.noK.min) / (RADAR_BATTER_MAX.noK.max - RADAR_BATTER_MAX.noK.min);
+
+  return {
+    ba:       +clamp(ba       / RADAR_BATTER_MAX.ba,       0, 1) .toFixed(3) * 100,
+    obp:      +clamp(obp      / RADAR_BATTER_MAX.obp,      0, 1) .toFixed(3) * 100,
+    runRate:  +clamp(runRate  / RADAR_BATTER_MAX.runRate,  0, 1) .toFixed(3) * 100,
+    noK:      +clamp(noKNorm,                              0, 1) .toFixed(3) * 100,
+    walkRate: +clamp(walkRate / RADAR_BATTER_MAX.walkRate, 0, 1) .toFixed(3) * 100,
+    // 実値（右パネル表示用）
+    _ba:       ba,
+    _obp:      obp,
+    _runRate:  runRate,
+    _kRate:    kRate,
+    _walkRate: walkRate,
+  };
+}
+
+function renderBatterRadarChart(map) {
+  const names = Object.keys(map);
+  const sel = document.getElementById('batter-radar-select');
+  sel.innerHTML = '';
+  Object.values(map).sort((a,b) => a.number - b.number).forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m.name;
+    opt.textContent = `#${m.number} ${m.name}`;
+    sel.appendChild(opt);
+  });
+
+  const keys = ['ba', 'obp', 'runRate', 'noK', 'walkRate'];
+  const totals = Object.fromEntries(keys.map(k => [k, 0]));
+  names.forEach(name => {
+    const s = buildBatterRadarScores(map[name]);
+    keys.forEach(k => totals[k] += s[k]);
+  });
+  const avgScores = Object.fromEntries(keys.map(k => [k, +(totals[k] / names.length).toFixed(1)]));
+
+  drawBatterRadar(sel.value, map, avgScores);
+  sel.addEventListener('change', () => drawBatterRadar(sel.value, map, avgScores));
+}
+
+function drawBatterRadar(selectedName, map, avgScores) {
+  const labels = ['打率', '出塁率', '得点率', '低三振率', '四死球率'];
+  const ps = buildBatterRadarScores(map[selectedName]);
+  const playerData = [ps.ba, ps.obp, ps.runRate, ps.noK, ps.walkRate];
+  const avgData    = [avgScores.ba, avgScores.obp, avgScores.runRate, avgScores.noK, avgScores.walkRate];
+
+  const ctx = document.getElementById('chart-batter-radar').getContext('2d');
+  if (batterRadarChart) batterRadarChart.destroy();
+
+  batterRadarChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: selectedName,
+          data: playerData,
+          backgroundColor: 'rgba(139,0,0,0.3)',
+          borderColor: '#ff4444',
+          borderWidth: 2,
+          pointBackgroundColor: '#ff4444',
+          pointRadius: 4,
+        },
+        {
+          label: '全選手平均',
+          data: avgData,
+          backgroundColor: 'rgba(200,168,75,0.15)',
+          borderColor: '#c8a84b',
+          borderWidth: 2,
+          pointBackgroundColor: '#c8a84b',
+          pointRadius: 4,
+          borderDash: [5, 3],
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#ccc', font: { size: 12 } } },
+        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.r.toFixed(1)}` } }
+      },
+      scales: {
+        r: {
+          min: 0,
+          max: 100,
+          ticks: {
+            stepSize: 25,
+            color: '#666',
+            backdropColor: 'transparent',
+            callback: v => v === 0 ? '' : `${v}`
+          },
+          grid: { color: '#333' },
+          pointLabels: { color: '#ccc', font: { size: 12 } },
+          angleLines: { color: '#333' }
+        }
+      }
+    }
+  });
+
+  // 右パネルは実値で表示（正規化スコアではなく）
+  const avgMap = buildBatterMap();  // 平均用の実値を再計算
+  const allNames = Object.keys(avgMap);
+  const avgReal = { ba: 0, obp: 0, runRate: 0, kRate: 0, walkRate: 0 };
+  allNames.forEach(n => {
+    const s = buildBatterRadarScores(avgMap[n]);
+    avgReal.ba       += s._ba;
+    avgReal.obp      += s._obp;
+    avgReal.runRate  += s._runRate;
+    avgReal.kRate    += s._kRate;
+    avgReal.walkRate += s._walkRate;
+  });
+  const n = allNames.length;
+  Object.keys(avgReal).forEach(k => avgReal[k] /= n);
+
+  const defs = [
+    {
+      label: '打率',
+      tip: `安打数 ÷ 打数(打席-四死球)\n100点 = .500`,
+      pv: ps._ba,       av: avgReal.ba,
+      fmt: v => v.toFixed(3).replace(/^0/, ''),
+      score: ps.ba,     aScore: avgScores.ba,
+    },
+    {
+      label: '出塁率',
+      tip: `出塁数 ÷ 打席数\n100点 = .600`,
+      pv: ps._obp,      av: avgReal.obp,
+      fmt: v => v.toFixed(3).replace(/^0/, ''),
+      score: ps.obp,    aScore: avgScores.obp,
+    },
+    {
+      label: '得点率',
+      tip: `得点数 ÷ 打席数 × 100\n100点 = 40%`,
+      pv: ps._runRate,  av: avgReal.runRate,
+      fmt: v => `${(v * 100).toFixed(1)}%`,
+      score: ps.runRate, aScore: avgScores.runRate,
+    },
+    {
+      label: '低三振率',
+      tip: `(1 - 三振÷打席) × 100\n100点 = 三振0% / 0点 = 三振30%以上`,
+      pv: 1 - ps._kRate,  av: 1 - avgReal.kRate,
+      fmt: v => `${(v * 100).toFixed(1)}%`,
+      score: ps.noK,    aScore: avgScores.noK,
+    },
+    {
+      label: '四死球率',
+      tip: `四死球数 ÷ 打席数 × 100\n100点 = 30%`,
+      pv: ps._walkRate, av: avgReal.walkRate,
+      fmt: v => `${(v * 100).toFixed(1)}%`,
+      score: ps.walkRate, aScore: avgScores.walkRate,
+    },
+  ];
+
+  const legend = document.getElementById('batter-radar-legend');
+  legend.innerHTML = defs.map(d => {
+    const scoreDiff = d.score - d.aScore;
+    const color = scoreDiff >= 0 ? '#6dff8f' : '#ff6d6d';
+    const sign  = scoreDiff >= 0 ? '+' : '';
+    return `
+      <div data-tip="${d.tip}" style="background:#221212; border-radius:8px; padding:10px 14px;">
+        <div style="font-size:0.75rem; color:#888; margin-bottom:4px;">
+          ${d.label} <span style="color:#555; font-size:0.7rem;">ⓘ</span>
         </div>
-        <div class="card-body">
-          <div class="card-meta">${tagHtml}${resultHtml}</div>
-          <div class="card-title">${title}</div>
-          <div class="card-date">${date}</div>
+        <div style="display:flex; gap:16px; align-items:baseline;">
+          <span style="font-size:1.1rem; font-weight:700; color:#ff4444;">${d.fmt(d.pv)}</span>
+          <span style="font-size:0.8rem; color:#aaa;">平均 ${d.fmt(d.av)}</span>
+          <span style="font-size:0.85rem; font-weight:700; color:${color};">${sign}${scoreDiff.toFixed(0)}pt</span>
         </div>
-      `;
+      </div>`;
+  }).join('');
+}
 
-      gridEl.appendChild(card);
+// ===== TAB 5: 動画アーカイブ =====
+const statusEl    = document.getElementById('status');
+const gridEl      = document.getElementById('video-grid');
+const filterBarEl = document.getElementById('filter-bar');
+const seasonBarEl = document.getElementById('season-bar');
+const teamBarEl   = document.getElementById('team-bar');
+
+let allItems     = [];
+let activeSeason = 'すべて';
+let activeTeam   = 'すべて';
+let activeTag    = 'すべて';
+
+async function fetchVideos() {
+  try {
+    const res = await fetch('videos.json');
+    allItems = await res.json();
+    if (!allItems || allItems.length === 0) {
+      statusEl.textContent = '動画が登録されていません。';
+      return;
+    }
+    statusEl.style.display = 'none';
+    renderFilterButtons();
+    applyFilters();
+  } catch (err) {
+    statusEl.textContent = '動画の読み込みに失敗しました。';
+    console.error(err);
+  }
+}
+
+function applyFilters() {
+  gridEl.innerHTML = '';
+  const filtered = allItems.filter(i => {
+    const seasonMatch = activeSeason === 'すべて' || String(i.season) === String(activeSeason);
+    const teamMatch   = activeTeam   === 'すべて' || i.team === activeTeam;
+    const tagMatch    = activeTag    === 'すべて' || i.tag  === activeTag;
+    return seasonMatch && teamMatch && tagMatch;
+  });
+  renderCards(filtered);
+}
+
+function makeButtons(container, values, getActive, setActive) {
+  container.innerHTML = '';
+  values.forEach(val => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (val === getActive() ? ' active' : '');
+    btn.textContent = val;
+    btn.addEventListener('click', () => {
+      setActive(val);
+      container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
     });
+    container.appendChild(btn);
+  });
+}
+
+function renderFilterButtons() {
+  const seasons = ['すべて', ...new Set(allItems.map(i => i.season).filter(Boolean)).values()].sort((a, b) => b - a);
+  const teams   = ['すべて', ...new Set(allItems.map(i => i.team).filter(Boolean))];
+  const tags    = ['すべて', ...new Set(allItems.map(i => i.tag).filter(Boolean))];
+  makeButtons(seasonBarEl, seasons, () => activeSeason, v => activeSeason = v);
+  makeButtons(teamBarEl,   teams,   () => activeTeam,   v => activeTeam   = v);
+  makeButtons(filterBarEl, tags,    () => activeTag,    v => activeTag    = v);
+}
+
+function renderCards(items) {
+  items.forEach(item => {
+    const videoId = item.id;
+    const thumb   = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+    const date    = new Date(item.date).toLocaleDateString('ja-JP', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    });
+    const tagHtml = item.tag ? `<div class="card-tag">${item.tag}</div>` : '';
+
+    let resultHtml = '';
+    if      (item.result === '勝') resultHtml = `<div class="card-result win">勝</div>`;
+    else if (item.result === '負') resultHtml = `<div class="card-result lose">負</div>`;
+    else if (item.result === '分') resultHtml = `<div class="card-result draw">分</div>`;
+
+    const card = document.createElement('a');
+    card.className = 'card';
+    card.href      = `https://www.youtube.com/watch?v=${videoId}`;
+    card.target    = '_blank';
+    card.rel       = 'noopener noreferrer';
+
+    card.innerHTML = `
+      <div class="card-thumb">
+        <img src="${thumb}" alt="${item.title}" loading="lazy" />
+        <div class="play-icon">
+          <svg viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="34" cy="34" r="34" fill="rgba(255,255,255,0.9)"/>
+            <polygon points="27,20 54,34 27,48" fill="#c8a84b"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-meta">${tagHtml}${resultHtml}</div>
+        <div class="card-title">${item.title}</div>
+        <div class="card-date">${date}</div>
+      </div>
+    `;
+    gridEl.appendChild(card);
+  });
+}
+
+// ===== TAB 2: 投手分析 =====
+function renderPitcherTab() {
+  renderPitcherSummaryTable();
+  renderPitcherTrendChart();
+  renderPitcherKBBChart();
+  renderPitcherRadarChart();
+}
+
+function renderPitcherSummaryTable() {
+  // 投手別集計 (「計」を除く)
+  const map = {};
+  pitcherData.forEach(game => {
+    game.pitchers.forEach(p => {
+      if (p.name === '計') return;
+      if (!map[p.name]) {
+        map[p.name] = { games: 0, pitches: 0, batters: 0, innings: 0, strikeouts: 0, walks: 0, hits: 0, runs: 0, strikes: 0, wp_pb: 0 };
+      }
+      const m = map[p.name];
+      m.games++;
+      m.pitches     += p.pitches;
+      m.batters     += p.batters;
+      m.innings     += p.innings;
+      m.strikeouts  += p.strikeouts;
+      m.walks       += p.walks;
+      m.hits        += p.hits;
+      m.runs        += p.runs;
+      m.strikes     += p.strikes;
+      m.wp_pb       += p.wp_pb;
+    });
+  });
+
+  // 投球数順でソート
+  const sorted = Object.entries(map).sort((a, b) => b[1].pitches - a[1].pitches);
+
+  const tbody = document.getElementById('pitcher-summary-tbody');
+  tbody.innerHTML = '';
+  sorted.forEach(([name, m]) => {
+    const kRate   = m.batters > 0 ? (m.strikeouts / m.batters * 100).toFixed(1) : '-';
+    const bbRate  = m.batters > 0 ? (m.walks      / m.batters * 100).toFixed(1) : '-';
+    const strRate = m.pitches > 0 ? (m.strikes    / m.pitches * 100).toFixed(1) : '-';
+    const wpRate  = m.innings > 0 ? (m.wp_pb      / m.innings).toFixed(2) : '-';
+    const whip    = m.innings > 0 ? ((m.walks + m.hits) / m.innings).toFixed(2) : '-';
+    const inn     = formatInnings(m.innings);
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${name}</td>
+      <td class="num">${m.games}</td>
+      <td class="num">${m.pitches}</td>
+      <td class="num">${m.batters}</td>
+      <td class="num">${inn}</td>
+      <td class="num">${m.strikeouts}</td>
+      <td class="num">${m.walks}</td>
+      <td class="num">${m.hits}</td>
+      <td class="num">${m.runs}</td>
+      <td class="num ${m.wp_pb > 0 ? 'bad' : ''}">${m.wp_pb}</td>
+      <td class="num ${parseFloat(wpRate) >= 1.0 ? 'bad' : wpRate !== '-' ? 'good' : ''}">${wpRate !== '-' ? wpRate + '/回' : '-'}</td>
+      <td class="num ${parseFloat(whip) <= 1.00 ? 'good' : parseFloat(whip) >= 2.00 ? 'bad' : ''}">${whip}</td>
+      <td class="num ${parseFloat(kRate)  >= 20 ? 'good' : ''}">${kRate}%</td>
+      <td class="num ${parseFloat(bbRate) >= 20 ? 'bad'  : ''}">${bbRate}%</td>
+      <td class="num ${parseFloat(strRate)>= 60 ? 'good' : ''}">${strRate}%</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function formatInnings(raw) {
+  // innings は 1.3 = 1回1/3 (小数部が 0,1,2 で3進数)
+  const whole = Math.floor(raw);
+  const frac  = Math.round((raw - whole) * 10);
+  return frac === 0 ? `${whole}` : `${whole}.${frac}`;
+}
+
+function renderPitcherTrendChart() {
+  const labels  = pitcherData.map(g => `${formatDate(g.date)} ${g.opponent}`).reverse();
+  const totals  = pitcherData.map(g => g.pitchers.find(p => p.name === '計') || {}).reverse();
+  const pitches = totals.map(t => t.pitches ?? 0);
+  const runs    = totals.map(t => t.runs    ?? 0);
+
+  const ctx = document.getElementById('chart-pitcher-trend').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: '投球数',
+          data: pitches,
+          backgroundColor: 'rgba(139,0,0,0.7)',
+          borderColor: '#8b0000',
+          borderWidth: 1,
+          yAxisID: 'y',
+        },
+        {
+          label: '失点',
+          data: runs,
+          type: 'line',
+          borderColor: '#c8a84b',
+          backgroundColor: 'rgba(200,168,75,0.15)',
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: '#c8a84b',
+          yAxisID: 'y2',
+          tension: 0.3,
+        }
+      ]
+    },
+    options: chartOptions('投球数 / 失点', { y: '投球数', y2: '失点' })
+  });
+}
+
+// 投手別レーダーチャート
+let pitcherRadarChart = null;
+
+// 投手名→通算成績マップを返す共通関数
+function buildPitcherMap() {
+  const map = {};
+  pitcherData.forEach(game => {
+    game.pitchers.forEach(p => {
+      if (p.name === '計') return;
+      if (!map[p.name]) {
+        map[p.name] = { games: 0, pitches: 0, batters: 0, innings: 0,
+                        strikeouts: 0, walks: 0, hits: 0, runs: 0,
+                        strikes: 0, flyBalls: 0, flyBallOuts: 0, wp_pb: 0 };
+      }
+      const m = map[p.name];
+      m.games++; m.pitches += p.pitches; m.batters += p.batters;
+      m.innings += p.innings; m.strikeouts += p.strikeouts;
+      m.walks += p.walks; m.hits += p.hits; m.runs += p.runs;
+      m.strikes += p.strikes; m.flyBalls += p.flyBalls; m.flyBallOuts += p.flyBallOuts;
+      m.wp_pb += p.wp_pb;
+    });
+  });
+  return map;
+}
+
+// 投手レーダー正規化基準（実データに基づくスケール）
+// 各指標の「この値なら100点」と「この値なら0点」の範囲を定義
+const RADAR_PITCHER_SCALE = {
+  kRate:   { min: 0,  max: 30  },  // 奪三振率: 0%=0pt, 30%=100pt (実最大26%)
+  strRate: { min: 40, max: 80  },  // ストライク率: 40%=0pt, 80%=100pt (実範囲47-73%)
+  noWalk:  { min: 65, max: 100 },  // 低BB率: 65%=0pt, 100%=100pt (実範囲70-100%)
+  noWpPb:  { min: 0,  max: 100 },  // 低WP率: そのまま (実範囲0-100%)
+  flyOut:  { min: 0,  max: 80  },  // 飛球アウト率: 0%=0pt, 80%=100pt (実最大70%)
+};
+
+function normalizePitcher(raw, key) {
+  const s = RADAR_PITCHER_SCALE[key];
+  return +Math.min(100, Math.max(0, (raw - s.min) / (s.max - s.min) * 100)).toFixed(1);
+}
+
+// 成績マップ→レーダー用スコア（0〜100, 高いほど良い）
+function toRadarScores(m) {
+  const bf  = m.batters  || 1;
+  const pi  = m.pitches  || 1;
+  const fb  = m.flyBalls || 1;
+  const inn = m.innings  || 1;
+  const raw = {
+    kRate:   m.strikeouts / bf * 100,
+    strRate: m.strikes    / pi * 100,
+    noWalk:  (1 - m.walks / bf) * 100,
+    noWpPb:  Math.max(0, (1 - m.wp_pb / inn) * 100),
+    flyOut:  m.flyBallOuts / fb * 100,
+  };
+  return {
+    kRate:   normalizePitcher(raw.kRate,   'kRate'),
+    strRate: normalizePitcher(raw.strRate, 'strRate'),
+    noWalk:  normalizePitcher(raw.noWalk,  'noWalk'),
+    noWpPb:  normalizePitcher(raw.noWpPb,  'noWpPb'),
+    flyOut:  normalizePitcher(raw.flyOut,  'flyOut'),
+    // 実値（右パネル表示用）
+    _kRate:   raw.kRate,
+    _strRate: raw.strRate,
+    _noWalk:  raw.noWalk,
+    _noWpPb:  raw.noWpPb,
+    _flyOut:  raw.flyOut,
+  };
+}
+
+function renderPitcherRadarChart() {
+  const map = buildPitcherMap();
+  const names = Object.keys(map);
+
+  // プルダウンを構築
+  const sel = document.getElementById('pitcher-radar-select');
+  sel.innerHTML = '';
+  names.forEach(name => {
+    const opt = document.createElement('option');
+    opt.value = name;
+    opt.textContent = name;
+    sel.appendChild(opt);
+  });
+
+  // 全投手平均を計算
+  const avgScores = computeAvgScores(map, names);
+
+  // 初回描画
+  drawPitcherRadar(sel.value, map, avgScores);
+
+  // 選択変更時
+  sel.addEventListener('change', () => {
+    drawPitcherRadar(sel.value, map, avgScores);
+  });
+}
+
+function computeAvgScores(map, names) {
+  const keys = ['kRate', 'strRate', 'noWalk', 'noWpPb', 'flyOut'];
+  const totals = Object.fromEntries(keys.map(k => [k, 0]));
+  names.forEach(name => {
+    const s = toRadarScores(map[name]);
+    keys.forEach(k => totals[k] += s[k]);
+  });
+  return Object.fromEntries(keys.map(k => [k, +(totals[k] / names.length).toFixed(1)]));
+}
+
+function drawPitcherRadar(selectedName, map, avgScores) {
+  const labels = ['奪三振率', 'ストライク率', '制球力\n(低BB率)', '低WP/PB率', '内野飛球\nアウト率'];
+  const playerScores = toRadarScores(map[selectedName]);
+  const playerData   = [playerScores.kRate, playerScores.strRate, playerScores.noWalk, playerScores.noWpPb, playerScores.flyOut];
+  const avgData      = [avgScores.kRate,    avgScores.strRate,    avgScores.noWalk,    avgScores.noWpPb,    avgScores.flyOut];
+
+  const ctx = document.getElementById('chart-pitcher-radar').getContext('2d');
+
+  if (pitcherRadarChart) pitcherRadarChart.destroy();
+
+  pitcherRadarChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: selectedName,
+          data: playerData,
+          backgroundColor: 'rgba(139,0,0,0.3)',
+          borderColor: '#ff4444',
+          borderWidth: 2,
+          pointBackgroundColor: '#ff4444',
+          pointRadius: 4,
+        },
+        {
+          label: '全投手平均',
+          data: avgData,
+          backgroundColor: 'rgba(200,168,75,0.15)',
+          borderColor: '#c8a84b',
+          borderWidth: 2,
+          pointBackgroundColor: '#c8a84b',
+          pointRadius: 4,
+          borderDash: [5, 3],
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#ccc', font: { size: 12 } } },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${ctx.parsed.r.toFixed(1)}`
+          }
+        }
+      },
+      scales: {
+        r: {
+          min: 0,
+          max: 100,
+          ticks: { stepSize: 20, color: '#666', backdropColor: 'transparent' },
+          grid:  { color: '#333' },
+          pointLabels: { color: '#ccc', font: { size: 11 } },
+          angleLines: { color: '#333' }
+        }
+      }
+    }
+  });
+
+  // 右パネル: 実値で表示し、差分はスコアで示す
+  const allPNames = Object.keys(map);
+  const avgReal = { kRate: 0, strRate: 0, noWalk: 0, noWpPb: 0, flyOut: 0 };
+  allPNames.forEach(n => {
+    const s = toRadarScores(map[n]);
+    avgReal.kRate   += s._kRate;
+    avgReal.strRate += s._strRate;
+    avgReal.noWalk  += s._noWalk;
+    avgReal.noWpPb  += s._noWpPb;
+    avgReal.flyOut  += s._flyOut;
+  });
+  const pn = allPNames.length;
+  Object.keys(avgReal).forEach(k => avgReal[k] /= pn);
+
+  const legend = document.getElementById('pitcher-radar-legend');
+  const defs = [
+    { label: '奪三振率',    tip: `三振数 ÷ 打者数 × 100\n100pt = 30%`,        pv: playerScores._kRate,   av: avgReal.kRate,   score: playerScores.kRate,   aScore: avgScores.kRate,   fmt: v => `${v.toFixed(1)}%` },
+    { label: 'ストライク率', tip: `ストライク数 ÷ 投球数 × 100\n100pt = 80%`,  pv: playerScores._strRate, av: avgReal.strRate, score: playerScores.strRate, aScore: avgScores.strRate, fmt: v => `${v.toFixed(1)}%` },
+    { label: '制球力(低BB率)', tip: `(1 - 四死球÷打者数) × 100\n100pt = 100%`, pv: playerScores._noWalk,  av: avgReal.noWalk,  score: playerScores.noWalk,  aScore: avgScores.noWalk,  fmt: v => `${v.toFixed(1)}%` },
+    { label: '低WP/PB率',  tip: `(1 - WP/PB数÷投球回数) × 100\n高いほどエラーが少ない`, pv: playerScores._noWpPb,  av: avgReal.noWpPb,  score: playerScores.noWpPb,  aScore: avgScores.noWpPb,  fmt: v => `${v.toFixed(1)}%` },
+    { label: '飛球アウト率', tip: `内野飛球アウト数 ÷ 内野飛球数 × 100\n100pt = 80%`,    pv: playerScores._flyOut,  av: avgReal.flyOut,  score: playerScores.flyOut,  aScore: avgScores.flyOut,  fmt: v => `${v.toFixed(1)}%` },
+  ];
+  legend.innerHTML = defs.map(d => {
+    const scoreDiff = d.score - d.aScore;
+    const color = scoreDiff >= 0 ? '#6dff8f' : '#ff6d6d';
+    const sign  = scoreDiff >= 0 ? '+' : '';
+    return `
+      <div data-tip="${d.tip}" style="background:#221212; border-radius:8px; padding:10px 14px;">
+        <div style="font-size:0.75rem; color:#888; margin-bottom:4px;">
+          ${d.label} <span style="color:#555; font-size:0.7rem;">ⓘ</span>
+        </div>
+        <div style="display:flex; gap:16px; align-items:baseline;">
+          <span style="font-size:1.1rem; font-weight:700; color:#ff4444;">${d.fmt(d.pv)}</span>
+          <span style="font-size:0.8rem; color:#aaa;">平均 ${d.fmt(d.av)}</span>
+          <span style="font-size:0.85rem; font-weight:700; color:${color};">${sign}${scoreDiff.toFixed(0)}pt</span>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function renderPitcherKBBChart() {
+  const map = {};
+  pitcherData.forEach(game => {
+    game.pitchers.forEach(p => {
+      if (p.name === '計') return;
+      if (!map[p.name]) map[p.name] = { k: 0, bb: 0 };
+      map[p.name].k  += p.strikeouts;
+      map[p.name].bb += p.walks;
+    });
+  });
+
+  const sorted = Object.entries(map).sort((a, b) => b[1].k - a[1].k);
+  const labels = sorted.map(([name]) => name);
+  const kData  = sorted.map(([, m]) => m.k);
+  const bbData = sorted.map(([, m]) => m.bb);
+
+  const ctx = document.getElementById('chart-pitcher-kbb').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        { label: '奪三振', data: kData,  backgroundColor: 'rgba(109,255,143,0.6)', borderColor: '#6dff8f', borderWidth: 1 },
+        { label: '与四死球', data: bbData, backgroundColor: 'rgba(255,109,109,0.6)', borderColor: '#ff6d6d', borderWidth: 1 }
+      ]
+    },
+    options: chartOptions('奪三振 / 与四死球', null)
+  });
+}
+
+function chartOptions(title, yAxes) {
+  const opts = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { color: '#ccc', font: { size: 12 } } },
+      title:  { display: false }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#aaa', font: { size: 11 }, maxRotation: 30 },
+        grid:  { color: '#2a2a2a' }
+      }
+    }
+  };
+
+  if (yAxes) {
+    opts.scales.y = {
+      position: 'left',
+      ticks: { color: '#aaa' },
+      grid:  { color: '#2a2a2a' },
+      title: { display: true, text: yAxes.y, color: '#888' }
+    };
+    opts.scales.y2 = {
+      position: 'right',
+      ticks: { color: '#c8a84b' },
+      grid:  { drawOnChartArea: false },
+      title: { display: true, text: yAxes.y2, color: '#c8a84b' }
+    };
+  } else {
+    opts.scales.y = {
+      ticks: { color: '#aaa' },
+      grid:  { color: '#2a2a2a' }
+    };
   }
 
-  fetchVideos();
+  return opts;
+}
+
+// ===== TAB 4: 選手詳細 =====
+let playerTrendChart = null;
+
+function renderPlayerTab() {
+  const map = buildBatterMap();
+  const sel = document.getElementById('player-detail-select');
+  sel.innerHTML = '';
+  Object.values(map).sort((a, b) => a.number - b.number).forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m.name;
+    opt.textContent = `#${m.number} ${m.name}`;
+    sel.appendChild(opt);
+  });
+
+  drawPlayerDetail(sel.value);
+  sel.addEventListener('change', () => drawPlayerDetail(sel.value));
+}
+
+// 全選手の指標ランキングを事前計算（map は buildBatterMap() の結果）
+function buildRankings(map) {
+  const players = Object.values(map);
+  const rank = (arr, higherBetter = true) => {
+    const sorted = [...arr].filter(x => x.v !== null).sort((a, b) => higherBetter ? b.v - a.v : a.v - b.v);
+    const rankMap = {};
+    sorted.forEach((x, i) => { rankMap[x.name] = i + 1; });
+    return rankMap;
+  };
+  return {
+    ba:         rank(players.map(m => ({ name: m.name, v: (m.pa - m.walks) >= 3 ? calcBA(m) : null  }))),
+    obp:        rank(players.map(m => ({ name: m.name, v: m.pa >= 5         ? calcOBP(m) : null }))),
+    runs:       rank(players.map(m => ({ name: m.name, v: m.runs }))),
+    strikeouts: rank(players.map(m => ({ name: m.name, v: m.strikeouts })), false), // 少ない方が良い
+  };
+}
+
+function drawPlayerDetail(name) {
+  const map = buildBatterMap();
+  const rankings = buildRankings(map);
+
+  // 選手の全試合データを時系列で収集（古い順）
+  const games = [];
+  [...batterData].reverse().forEach(game => {
+    const p = game.players.find(p => p.name === name);
+    if (!p) return;
+    games.push({ game, player: p });
+  });
+
+  drawPlayerCards(name, games, rankings);
+  drawPlayerTrendChart(name, games);
+  drawPlayerGameTable(games);
+}
+
+function rankBadge(rankings, key, name) {
+  const r = rankings[key]?.[name];
+  if (!r || r > 3) return '';
+  const medals = ['', '🥇', '🥈', '🥉'];
+  const colors  = ['', '#ffd700', '#c0c0c0', '#cd7f32'];
+  return `<span style="font-size:0.72rem; font-weight:700; color:${colors[r]}; margin-left:4px;">${medals[r]} ${r}位</span>`;
+}
+
+function drawPlayerCards(name, games, rankings) {
+  // 通算集計
+  let pa = 0, hits = 0, onBase = 0, runs = 0, walks = 0, strikeouts = 0, ab = 0;
+  let playedGames = 0;
+  games.forEach(({ player: p }) => {
+    if (p.pa === null) return;
+    playedGames++;
+    pa          += p.pa;
+    hits        += p.hits;
+    onBase      += p.onBase;
+    runs        += p.runs;
+    walks       += p.walks;
+    strikeouts  += p.strikeouts;
+    ab          += p.pa - p.walks;
+  });
+
+  const ba  = ab  > 0 ? hits   / ab  : null;
+  const obp = pa  > 0 ? onBase / pa  : null;
+  const baStr  = ba  !== null ? ba.toFixed(3).replace(/^0/, '')  : '-';
+  const obpStr = obp !== null ? obp.toFixed(3).replace(/^0/, '') : '-';
+
+  const cards = [
+    { label: '出場試合',  value: `${playedGames}`,  sub: `/ ${games.length} 試合`,  color: '#c8a84b', rankKey: null },
+    { label: '打席',      value: `${pa}`,            sub: `打数 ${ab}`,              color: '#c8a84b', rankKey: null },
+    { label: '打率',      value: baStr,              sub: `${hits} 安打`,            color: ba  !== null && ba  >= 0.300 ? '#6dff8f' : ba  !== null && ba  < 0.200 ? '#ff6d6d' : '#c8a84b', rankKey: 'ba' },
+    { label: '出塁率',    value: obpStr,             sub: `${onBase} 出塁`,          color: obp !== null && obp >= 0.350 ? '#6dff8f' : obp !== null && obp < 0.250 ? '#ff6d6d' : '#c8a84b', rankKey: 'obp' },
+    { label: '得点',      value: `${runs}`,          sub: `貢献率 ${onBase > 0 ? (runs/onBase*100).toFixed(0) : '-'}%`, color: '#c8a84b', rankKey: 'runs' },
+    { label: '三振',      value: `${strikeouts}`,    sub: `三振率 ${pa > 0 ? (strikeouts/pa*100).toFixed(0) : '-'}%`,  color: pa > 0 && strikeouts/pa >= 0.30 ? '#ff6d6d' : '#c8a84b', rankKey: 'strikeouts' },
+  ];
+
+  const container = document.getElementById('player-stat-cards');
+  container.innerHTML = cards.map(c => `
+    <div class="stat-card" style="border-top-color:${c.color};">
+      <div style="display:flex; justify-content:center; align-items:center; gap:4px; min-height:1.2rem;">
+        ${c.rankKey ? rankBadge(rankings, c.rankKey, name) : ''}
+      </div>
+      <div class="stat-num" style="color:${c.color}; font-size:1.8rem;">${c.value}</div>
+      <div class="stat-label">${c.label}</div>
+      <div style="font-size:0.72rem; color:#666; margin-top:4px;">${c.sub}</div>
+    </div>
+  `).join('');
+}
+
+function drawPlayerTrendChart(name, games) {
+  // 試合ごとの「その試合時点での累計打率・出塁率」を計算
+  const labels = [];
+  const baData  = [];
+  const obpData = [];
+  const hitData = [];
+
+  let cumHits = 0, cumAB = 0, cumOnBase = 0, cumPA = 0;
+
+  games.forEach(({ game, player: p }) => {
+    const label = `${formatDate(game.date)} ${game.opponent}`;
+    labels.push(label);
+
+    if (p.pa === null) {
+      // 欠場: 前回と同じ値を引き継ぐ
+      baData.push(baData.length > 0 ? baData[baData.length - 1] : null);
+      obpData.push(obpData.length > 0 ? obpData[obpData.length - 1] : null);
+      hitData.push(null);
+      return;
+    }
+
+    cumHits   += p.hits;
+    cumAB     += p.pa - p.walks;
+    cumOnBase += p.onBase;
+    cumPA     += p.pa;
+
+    baData.push(cumAB  > 0 ? +(cumHits   / cumAB  ).toFixed(3) : null);
+    obpData.push(cumPA > 0 ? +(cumOnBase / cumPA  ).toFixed(3) : null);
+    hitData.push(p.hits);
+  });
+
+  const ctx = document.getElementById('chart-player-trend').getContext('2d');
+  if (playerTrendChart) playerTrendChart.destroy();
+
+  playerTrendChart = new Chart(ctx, {
+    data: {
+      labels,
+      datasets: [
+        {
+          type: 'line',
+          label: '累計打率',
+          data: baData,
+          borderColor: '#ff4444',
+          backgroundColor: 'rgba(255,68,68,0.1)',
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: '#ff4444',
+          tension: 0.3,
+          yAxisID: 'y',
+          spanGaps: true,
+        },
+        {
+          type: 'line',
+          label: '累計出塁率',
+          data: obpData,
+          borderColor: '#c8a84b',
+          backgroundColor: 'rgba(200,168,75,0.1)',
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: '#c8a84b',
+          tension: 0.3,
+          yAxisID: 'y',
+          spanGaps: true,
+          borderDash: [4, 3],
+        },
+        {
+          type: 'bar',
+          label: '試合安打',
+          data: hitData,
+          backgroundColor: 'rgba(200,168,75,0.35)',
+          borderColor: 'rgba(200,168,75,0.8)',
+          borderWidth: 1,
+          yAxisID: 'y2',
+        },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#ccc', font: { size: 12 } } },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              if (ctx.dataset.label === '試合安打') return ` 安打: ${ctx.parsed.y}`;
+              return ` ${ctx.dataset.label}: ${ctx.parsed.y !== null ? ctx.parsed.y.toFixed(3).replace(/^0/, '') : '-'}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: '#aaa', font: { size: 10 }, maxRotation: 35 }, grid: { color: '#2a2a2a' } },
+        y: {
+          position: 'left',
+          min: 0,
+          max: Math.min(1.0, Math.ceil(Math.max(...baData.filter(v => v !== null), ...obpData.filter(v => v !== null), 0.4) * 10) / 10 + 0.1),
+          ticks: { color: '#aaa', callback: v => v.toFixed(3).replace(/^0/, '') },
+          grid: { color: '#2a2a2a' },
+          title: { display: true, text: '打率 / 出塁率', color: '#888' }
+        },
+        y2: {
+          position: 'right',
+          min: 0,
+          ticks: { color: '#888', stepSize: 1 },
+          grid: { drawOnChartArea: false },
+          title: { display: true, text: '安打数', color: '#888' }
+        }
+      }
+    }
+  });
+}
+
+function drawPlayerGameTable(games) {
+  const tbody = document.getElementById('player-game-tbody');
+  tbody.innerHTML = '';
+
+  // 新しい順（reverseして表示）
+  [...games].reverse().forEach(({ game, player: p }) => {
+    const resultClass = game.result === '勝' ? 'win' : game.result === '負' ? 'lose' : 'draw';
+    const absent = p.pa === null;
+    const ab  = absent ? '-' : p.pa - p.walks;
+    const ba  = (!absent && (p.pa - p.walks) > 0) ? (p.hits / (p.pa - p.walks)).toFixed(3).replace(/^0/, '') : (absent ? '-' : '-');
+    const obp = (!absent && p.pa > 0) ? (p.onBase / p.pa).toFixed(3).replace(/^0/, '') : '-';
+
+    const tr = document.createElement('tr');
+    tr.style.opacity = absent ? '0.4' : '1';
+    tr.innerHTML = `
+      <td>${formatDate(game.date)}</td>
+      <td>${game.tournament}</td>
+      <td>${game.opponent}</td>
+      <td class="center"><span class="badge ${resultClass}">${game.result}</span></td>
+      <td class="num">${absent ? '<span style="color:#555">欠場</span>' : p.pa}</td>
+      <td class="num">${ab}</td>
+      <td class="num">${absent ? '-' : p.hits}</td>
+      <td class="num">${ba}</td>
+      <td class="num">${absent ? '-' : p.onBase}</td>
+      <td class="num">${obp}</td>
+      <td class="num">${absent ? '-' : p.runs}</td>
+      <td class="num">${absent ? '-' : p.walks}</td>
+      <td class="num">${absent ? '-' : p.strikeouts}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// ===== JS TOOLTIP =====
+(function() {
+  const tip = document.getElementById('js-tooltip');
+  let hideTimer = null;
+
+  document.addEventListener('mouseover', e => {
+    const el = e.target.closest('[data-tip]');
+    if (!el) return;
+    clearTimeout(hideTimer);
+    tip.textContent = el.dataset.tip;  // pre-line で改行される
+    tip.style.display = 'block';
+    position(e);
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (tip.style.display === 'block') position(e);
+  });
+
+  document.addEventListener('mouseout', e => {
+    const el = e.target.closest('[data-tip]');
+    if (!el) return;
+    hideTimer = setTimeout(() => { tip.style.display = 'none'; }, 80);
+  });
+
+  function position(e) {
+    const margin = 12;
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    let x = e.clientX + margin;
+    let y = e.clientY - th - margin;
+    if (x + tw > window.innerWidth  - margin) x = e.clientX - tw - margin;
+    if (y < margin)                            y = e.clientY + margin;
+    tip.style.left = x + 'px';
+    tip.style.top  = y + 'px';
+  }
+})();
+
+// ===== INIT =====
+loadAllData();
+fetchVideos();
 </script>
 
 </body>
