@@ -1,5 +1,35 @@
 [
   {
+    "date": "2026-04-05",
+    "team": "A",
+    "tournament": "あじさいリーグ",
+    "opponent": "坂本少年野球部",
+    "result": "負",
+    "score": "2対12",
+    "pitchers": [
+      { "name": "計",       "pitches": 105, "strikes": 44, "batters": 26, "walks": 7, "strikeouts": 1, "hits": 5, "innings": 3.0, "runs": 12, "flyBalls": 13, "flyBallOuts": 8, "wp_pb": 4 },
+      { "name": "美山 拓斗", "pitches":  73, "strikes": 33, "batters": 18, "walks": 5, "strikeouts": 1, "hits": 3, "innings": 2.0, "runs":  7, "flyBalls":  9, "flyBallOuts": 5, "wp_pb": 2 },
+      { "name": "奥田 海杜", "pitches":  23, "strikes":  7, "batters":  5, "walks": 2, "strikeouts": 0, "hits": 2, "innings": 0.0, "runs":  5, "flyBalls":  1, "flyBallOuts": 0, "wp_pb": 2 },
+      { "name": "森田 啓仁", "pitches":   9, "strikes":  4, "batters":  3, "walks": 0, "strikeouts": 0, "hits": 0, "innings": 1.0, "runs":  0, "flyBalls":  3, "flyBallOuts": 3, "wp_pb": 0 }
+    ],
+    "opponent_pitchers": { "batters": 11, "walks": 1, "strikeouts": 2, "hits": 1, "runs": 2, "flyBalls": 5, "flyBallOuts": 4, "wp_pb": 2 }
+  },
+  {
+    "date": "2026-04-04",
+    "team": "A",
+    "tournament": "あじさいリーグ",
+    "opponent": "新作第二少年野球部",
+    "result": "負",
+    "score": "3対5",
+    "pitchers": [
+      { "name": "計",       "pitches": 103, "strikes": 56, "batters": 24, "walks": 4, "strikeouts": 5, "hits": 2, "innings": 5.0, "runs": 5, "flyBalls": 12, "flyBallOuts": 9, "wp_pb": 5 },
+      { "name": "奥田 海杜", "pitches":  59, "strikes": 34, "batters": 12, "walks": 1, "strikeouts": 4, "hits": 1, "innings": 3.0, "runs": 1, "flyBalls":  7, "flyBallOuts": 5, "wp_pb": 0 },
+      { "name": "美山 拓斗", "pitches":  13, "strikes":  2, "batters":  3, "walks": 2, "strikeouts": 0, "hits": 0, "innings": 0.0, "runs": 2, "flyBalls":  0, "flyBallOuts": 0, "wp_pb": 4 },
+      { "name": "森田 啓仁", "pitches":  31, "strikes": 20, "batters":  9, "walks": 1, "strikeouts": 1, "hits": 1, "innings": 2.0, "runs": 2, "flyBalls":  5, "flyBallOuts": 4, "wp_pb": 1 }
+    ],
+    "opponent_pitchers": { "batters": 24, "walks": 4, "strikeouts": 9, "hits": 1, "runs": 3, "flyBalls": 9, "flyBallOuts": 6, "wp_pb": 2 }
+  },
+  {
     "date": "2026-03-29",
     "team": "A",
     "tournament": "区大会",
