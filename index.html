@@ -670,6 +670,8 @@
             <th class="num">三振</th>
             <th class="num">投球数</th>
             <th class="num">失点</th>
+            <th class="num" data-tip="与四死球数 / 打者数\n（投手「計」行の値）">与四死球</th>
+            <th class="num" data-tip="WP/PB数 / 投球回数\n（バッテリーエラー）">WP/PB</th>
           </tr>
         </thead>
         <tbody id="game-tbody"></tbody>
@@ -1006,6 +1008,26 @@ function renderTeamTab() {
 
     const resultClass = g.result === '勝' ? 'win' : g.result === '負' ? 'lose' : 'draw';
 
+    // 与四死球率・WP/PB率
+    const pitcherWalks   = totPitcher.walks   ?? null;
+    const pitcherBatters = totPitcher.batters  ?? null;
+    const pitcherWpPb    = totPitcher.wp_pb    ?? null;
+    const pitcherInnings = totPitcher.innings  ?? null;
+
+    const bbRate  = (pitcherWalks !== null && pitcherBatters > 0)
+                      ? (pitcherWalks / pitcherBatters * 100).toFixed(0) + '%'
+                      : '-';
+    const wpRate  = (pitcherWpPb !== null && pitcherInnings > 0)
+                      ? (pitcherWpPb / pitcherInnings).toFixed(2) + '/回'
+                      : '-';
+
+    const bbColor  = pitcherWalks !== null && pitcherBatters > 0
+                       ? (pitcherWalks / pitcherBatters >= 0.25 ? 'bad' : pitcherWalks / pitcherBatters <= 0.10 ? 'good' : '')
+                       : '';
+    const wpColor  = pitcherWpPb !== null
+                       ? (pitcherWpPb >= 3 ? 'bad' : pitcherWpPb === 0 ? 'good' : '')
+                       : '';
+
     const row = document.createElement('tr');
     row.style.cursor = 'pointer';
     row.innerHTML = `
@@ -1020,10 +1042,12 @@ function renderTeamTab() {
       <td class="num">${teamTotals.strikeouts ?? '-'}</td>
       <td class="num">${totPitcher.pitches ?? '-'}</td>
       <td class="num">${totPitcher.runs ?? '-'}</td>
+      <td class="num ${bbColor}">${pitcherWalks !== null ? pitcherWalks : '-'}<span style="color:#666; font-size:0.75em; margin-left:3px;">${bbRate}</span></td>
+      <td class="num ${wpColor}">${pitcherWpPb !== null ? pitcherWpPb : '-'}<span style="color:#666; font-size:0.75em; margin-left:3px;">${wpRate}</span></td>
     `;
     tbody.appendChild(row);
     row.querySelector('.accordion-trigger').addEventListener('click', () => {
-      toggleAccordion(row, 11, () => buildGameAccordionHTML(g, b));
+      toggleAccordion(row, 13, () => buildGameAccordionHTML(g, b));
     });
   });
 }
