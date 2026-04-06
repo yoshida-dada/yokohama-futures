@@ -377,6 +377,7 @@
     @media (max-width: 900px) {
       .game-accordion-grid { grid-template-columns: 1fr; }
       .game-accordion-grid > div:last-child { border-left: none; border-top: 1px solid #2a2a2a; }
+      .defeat-grid { grid-template-columns: 1fr !important; }
     }
 
     /* ===== PITCHER HEATMAP ===== */
@@ -670,6 +671,7 @@
             <th class="num">三振</th>
             <th class="num">投球数</th>
             <th class="num">失点</th>
+            <th class="num" data-tip="相手チームに打たれた安打数\n（投手「計」行の値）">被安打</th>
             <th class="num" data-tip="与四死球数 / 打者数\n（投手「計」行の値）">与四死球</th>
             <th class="num" data-tip="WP/PB数 / 投球回数\n（バッテリーエラー）">WP/PB</th>
           </tr>
@@ -684,6 +686,25 @@
     </div>
     <div style="font-size:0.75rem; color:#666; margin-bottom:32px; padding-left:4px;">
       ● 勝　● 負　● 引分　／　破線 = 同点ライン
+    </div>
+
+    <div class="section-title" style="margin-top:8px;">敗因分析</div>
+    <div class="defeat-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:32px;">
+      <div>
+        <div style="font-size:0.78rem; color:#888; margin-bottom:8px; text-align:center;">勝敗別 平均指標比較</div>
+        <div style="position:relative; height:260px;">
+          <canvas id="chart-defeat-bar"></canvas>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:0.78rem; color:#888; margin-bottom:8px; text-align:center;">BB率 vs 失点（しきい値: 20%）</div>
+        <div style="position:relative; height:260px;">
+          <canvas id="chart-defeat-scatter"></canvas>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:0.75rem; color:#666; margin-bottom:32px; padding-left:4px;">
+      左: 勝ち・負けそれぞれの平均値を比較　／　右: BB率20%超えで失点が増加する傾向
     </div>
   </div>
 </div>
@@ -921,6 +942,7 @@ async function loadAllData() {
 // ===== TAB 1: チーム成績 =====
 function renderTeamTab() {
   renderScoreScatterChart();
+  renderDefeatAnalysis();
   // 勝敗集計 (pitcher_data をベースに)
   let wins = 0, losses = 0, draws = 0;
   pitcherData.forEach(g => {
@@ -1042,13 +1064,271 @@ function renderTeamTab() {
       <td class="num">${teamTotals.strikeouts ?? '-'}</td>
       <td class="num">${totPitcher.pitches ?? '-'}</td>
       <td class="num">${totPitcher.runs ?? '-'}</td>
+      <td class="num">${totPitcher.hits ?? '-'}</td>
       <td class="num ${bbColor}">${pitcherWalks !== null ? pitcherWalks : '-'}<span style="color:#666; font-size:0.75em; margin-left:3px;">${bbRate}</span></td>
       <td class="num ${wpColor}">${pitcherWpPb !== null ? pitcherWpPb : '-'}<span style="color:#666; font-size:0.75em; margin-left:3px;">${wpRate}</span></td>
     `;
     tbody.appendChild(row);
     row.querySelector('.accordion-trigger').addEventListener('click', () => {
-      toggleAccordion(row, 13, () => buildGameAccordionHTML(g, b));
+      toggleAccordion(row, 14, () => buildGameAccordionHTML(g, b));
     });
+  });
+}
+
+function renderDefeatAnalysis() {
+  // 試合ごとに投手「計」を取得
+  const games = pitcherData.map((g, idx) => {
+    const b   = batterData[idx] || {};
+    const tot = g.pitchers.find(p => p.name === '計') || {};
+    return {
+      result:       g.result,
+      label:        `${formatDate(g.date)} ${g.opponent}`,
+      runsAgainst:  tot.runs    ?? 0,
+      walks:        tot.walks   ?? 0,
+      batters:      tot.batters ?? 0,
+      hitsAgainst:  tot.hits    ?? 0,
+      wpPb:         tot.wp_pb   ?? 0,
+      innings:      tot.innings ?? 0,
+    };
+  });
+
+  const wins   = games.filter(g => g.result === '勝');
+  const losses = games.filter(g => g.result === '負');
+  const draws  = games.filter(g => g.result === '引き分け');
+
+  const avg = (arr, key) => arr.length ? arr.reduce((s, g) => s + g[key], 0) / arr.length : 0;
+  const bbRate = arr => {
+    const tw = arr.reduce((s, g) => s + g.walks, 0);
+    const tb = arr.reduce((s, g) => s + g.batters, 0);
+    return tb > 0 ? tw / tb * 100 : 0;
+  };
+
+  // ── 案A: 勝敗別 平均指標 比較バーグラフ ──
+  // 各指標の割合計算（打者数・投球回数ベース）
+  const hitRate = arr => {
+    const th = arr.reduce((s, g) => s + g.hitsAgainst, 0);
+    const tb = arr.reduce((s, g) => s + g.batters, 0);
+    return tb > 0 ? th / tb * 100 : 0;
+  };
+  const wpRate = arr => {
+    const tw = arr.reduce((s, g) => s + g.wpPb, 0);
+    const tb = arr.reduce((s, g) => s + g.batters, 0);
+    return tb > 0 ? tw / tb * 100 : 0;
+  };
+
+  // BB率・被安打率・WP/PB率は%、失点は平均点で右Y軸
+  const categories = ['BB率', '被安打率', 'WP/PB率', '平均失点'];
+
+  const vals = arr => [
+    bbRate(arr),
+    hitRate(arr),
+    wpRate(arr),
+    avg(arr, 'runsAgainst'),
+  ];
+
+  const winVals  = vals(wins);
+  const lossVals = vals(losses);
+  const drawVals = vals(draws);
+
+  // 内訳ツールチップ用の生データ集計
+  const rawStats = arr => ({
+    count:        arr.length,
+    totalBatters: arr.reduce((s, g) => s + g.batters, 0),
+    totalWalks:   arr.reduce((s, g) => s + g.walks, 0),
+    totalHits:    arr.reduce((s, g) => s + g.hitsAgainst, 0),
+    totalWpPb:    arr.reduce((s, g) => s + g.wpPb, 0),
+    totalRuns:    arr.reduce((s, g) => s + g.runsAgainst, 0),
+  });
+  const winRaw  = rawStats(wins);
+  const lossRaw = rawStats(losses);
+  const drawRaw = rawStats(draws);
+
+  // 失点のみ右Y軸（スケール異なるため）
+  const makeDatasets = (label, v, bg, border, raw) => [
+    {
+      label,
+      data: [v[0], v[1], v[2], null],
+      backgroundColor: bg,
+      borderColor: border,
+      borderWidth: 1,
+      yAxisID: 'yRate',
+      raw,
+    },
+    {
+      label: '_' + label,
+      data: [null, null, null, v[3]],
+      backgroundColor: bg,
+      borderColor: border,
+      borderWidth: 1,
+      yAxisID: 'yRuns',
+      raw,
+    },
+  ];
+
+  const ctxBar = document.getElementById('chart-defeat-bar').getContext('2d');
+  new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+      labels: categories,
+      datasets: [
+        ...makeDatasets(`勝ち (${wins.length}試合)`,   winVals,  'rgba(109,255,143,0.7)', '#6dff8f', winRaw),
+        ...makeDatasets(`負け (${losses.length}試合)`, lossVals, 'rgba(255,109,109,0.7)', '#ff6d6d', lossRaw),
+        ...(draws.length > 0 ? makeDatasets(`引分 (${draws.length}試合)`, drawVals, 'rgba(180,180,180,0.6)', '#aaa', drawRaw) : []),
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          labels: {
+            color: '#ccc',
+            font: { size: 11 },
+            filter: item => !item.text.startsWith('_'),
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              if (ctx.parsed.y === null) return null;
+              const name = ctx.dataset.label.replace(/^_/, '');
+              const raw  = ctx.dataset.raw;
+              const idx  = ctx.dataIndex;
+              const pct  = v => `${v.toFixed(1)}%`;
+              let detail = '';
+              if (idx === 0) {
+                // BB率
+                detail = `打者 ${raw.totalBatters}人 / 与四死球 ${raw.totalWalks}個 → ${pct(ctx.parsed.y)}`;
+              } else if (idx === 1) {
+                // 被安打率
+                detail = `打者 ${raw.totalBatters}人 / 被安打 ${raw.totalHits}本 → ${pct(ctx.parsed.y)}`;
+              } else if (idx === 2) {
+                // WP/PB率
+                detail = `打者 ${raw.totalBatters}人 / WP+PB ${raw.totalWpPb}個 → ${pct(ctx.parsed.y)}`;
+              } else if (idx === 3) {
+                // 平均失点
+                detail = `${raw.count}試合 計${raw.totalRuns}失点 → 平均 ${ctx.parsed.y.toFixed(1)}点`;
+              }
+              return ` ${name}: ${detail}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: '#aaa' }, grid: { color: '#2a2a2a' } },
+        yRate: {
+          beginAtZero: true,
+          position: 'left',
+          ticks: { color: '#aaa', callback: v => `${v}%` },
+          grid: { color: '#2a2a2a' },
+          title: { display: true, text: '割合 %', color: '#888' }
+        },
+        yRuns: {
+          beginAtZero: true,
+          position: 'right',
+          ticks: { color: '#c8a84b', stepSize: 1 },
+          grid: { drawOnChartArea: false },
+          title: { display: true, text: '平均失点', color: '#c8a84b' }
+        }
+      }
+    }
+  });
+
+  // ── 案C: BB率 vs 失点 散布図 ──
+  const THRESHOLD = 20; // BB率しきい値(%)
+
+  const points = games.map(g => ({
+    x: g.batters > 0 ? +(g.walks / g.batters * 100).toFixed(1) : 0,
+    y: g.runsAgainst,
+    label: g.label,
+    result: g.result,
+  }));
+
+  const colorMap  = { '勝': 'rgba(109,255,143,0.85)', '負': 'rgba(255,109,109,0.85)', '引き分け': 'rgba(180,180,180,0.85)' };
+  const borderMap = { '勝': '#6dff8f', '負': '#ff6d6d', '引き分け': '#aaa' };
+
+  const maxRuns = Math.max(...points.map(p => p.y), 5) + 2;
+  const maxBB   = Math.max(...points.map(p => p.x), THRESHOLD) + 5;
+
+  const ctxSc = document.getElementById('chart-defeat-scatter').getContext('2d');
+  new Chart(ctxSc, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        data: points.map(p => ({ x: p.x, y: p.y, label: p.label, result: p.result })),
+        backgroundColor: points.map(p => colorMap[p.result] ?? 'rgba(200,168,75,0.8)'),
+        borderColor:     points.map(p => borderMap[p.result] ?? '#c8a84b'),
+        borderWidth: 1,
+        pointRadius: 7,
+        pointHoverRadius: 10,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const d = ctx.raw;
+              return [`${d.label}`, `BB率: ${d.x}%　失点: ${d.y}　${d.result}`];
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          title: { display: true, text: 'BB率（与四死球率）%', color: '#888' },
+          min: 0, max: maxBB,
+          ticks: { color: '#aaa', callback: v => `${v}%` },
+          grid: { color: '#2a2a2a' },
+        },
+        y: {
+          title: { display: true, text: '失点', color: '#888' },
+          min: 0, max: maxRuns,
+          ticks: { color: '#aaa', stepSize: 2 },
+          grid: { color: '#2a2a2a' },
+        }
+      }
+    },
+    plugins: [{
+      id: 'bbThresholdLine',
+      afterDraw(chart) {
+        const { ctx, scales: { x, y } } = chart;
+        ctx.save();
+
+        // しきい値ライン（20%）
+        const xPx = x.getPixelForValue(THRESHOLD);
+        ctx.setLineDash([6, 4]);
+        ctx.strokeStyle = 'rgba(255,180,50,0.6)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(xPx, y.top);
+        ctx.lineTo(xPx, y.bottom);
+        ctx.stroke();
+
+        // ラベル
+        ctx.setLineDash([]);
+        ctx.font = '10px sans-serif';
+        ctx.fillStyle = 'rgba(255,180,50,0.7)';
+        ctx.fillText(`${THRESHOLD}% ライン`, xPx + 4, y.top + 12);
+
+        // 勝敗凡例（右下）
+        const lx = x.right - 90, ly = y.bottom - 44;
+        [['勝', '#6dff8f'], ['負', '#ff6d6d'], ['引分', '#aaa']].forEach(([lbl, col], i) => {
+          ctx.beginPath();
+          ctx.arc(lx, ly + i * 16, 5, 0, Math.PI * 2);
+          ctx.fillStyle = col;
+          ctx.fill();
+          ctx.fillStyle = '#aaa';
+          ctx.font = '10px sans-serif';
+          ctx.fillText(lbl, lx + 9, ly + i * 16 + 4);
+        });
+
+        ctx.restore();
+      }
+    }]
   });
 }
 
