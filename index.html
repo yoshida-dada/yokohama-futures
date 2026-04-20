@@ -152,6 +152,11 @@
     .data-table td.center, .data-table th.center { text-align: center; }
     .data-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
 
+    /* 投手通算テーブルは列数が多いためコンパクト表示 */
+    #pitcher-summary-table { font-size: 0.78rem; }
+    #pitcher-summary-table th,
+    #pitcher-summary-table td { padding-left: 6px; padding-right: 6px; }
+
     .badge {
       display: inline-block;
       font-size: 0.72rem;

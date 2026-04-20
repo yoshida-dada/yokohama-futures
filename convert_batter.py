@@ -262,24 +262,23 @@ def validate_game(game: dict) -> list[str]:
 # PDFからの抽出
 # ────────────────────────────────────────────
 def extract_batter_games(pdf_path: Path, team: str = 'A') -> list[dict]:
-    # Aチーム: P3+P4 (pages[2:4]) / Bチーム: P2のみ (pages[1:2])
-    if team == 'A':
-        page_slice = slice(2, 4)
-        min_pages  = 4
-        player_order = PLAYER_ORDER_A
-    else:
-        page_slice = slice(1, 2)
-        min_pages  = 2
-        player_order = PLAYER_ORDER_B
+    player_order = PLAYER_ORDER_A if team == 'A' else PLAYER_ORDER_B
+    batter_header = f'{team}チーム打者データ'
 
     page_texts = []
     with pdfplumber.open(pdf_path) as pdf:
         total = len(pdf.pages)
-        if total < min_pages:
-            raise ValueError(f"PDFのページ数が不足しています（{total}ページ）。")
-        for page in pdf.pages[page_slice]:
+        # 打者データページを動的に検出（最初に打者ヘッダーが現れるページ以降をすべて読む）
+        batter_start = None
+        for i, page in enumerate(pdf.pages):
             text = page.extract_text() or ""
-            page_texts.append(text)
+            if batter_start is None:
+                if batter_header in text:
+                    batter_start = i
+            if batter_start is not None:
+                page_texts.append(text)
+        if batter_start is None:
+            raise ValueError(f"「{batter_header}」ページが見つかりません（全{total}ページ）。")
 
     full_text = "\n".join(page_texts)
     lines = [l.strip() for l in full_text.splitlines() if l.strip()]

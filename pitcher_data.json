@@ -1,5 +1,137 @@
 [
   {
+    "date": "2026-04-19",
+    "team": "A",
+    "tournament": "YBBL",
+    "opponent": "師岡ベアース",
+    "result": "負",
+    "score": "１対8",
+    "pitchers": [
+      {
+        "name": "計",
+        "pitches": 150,
+        "strikes": 77,
+        "batters": 34,
+        "walks": 10,
+        "strikeouts": 5,
+        "hits": 8,
+        "innings": 4.3,
+        "runs": 15,
+        "flyBalls": 9,
+        "flyBallOuts": 5,
+        "errors": 4,
+        "wp_pb": 6
+      },
+      {
+        "name": "美山 拓斗",
+        "pitches": 70,
+        "strikes": 35,
+        "batters": 14,
+        "walks": 4,
+        "strikeouts": 3,
+        "hits": 4,
+        "innings": 2.0,
+        "runs": 6,
+        "flyBalls": 3,
+        "flyBallOuts": 2,
+        "errors": 1,
+        "wp_pb": 3
+      },
+      {
+        "name": "宇野 颯真",
+        "pitches": 69,
+        "strikes": 33,
+        "batters": 17,
+        "walks": 6,
+        "strikeouts": 2,
+        "hits": 2,
+        "innings": 2.0,
+        "runs": 8,
+        "flyBalls": 5,
+        "flyBallOuts": 2,
+        "errors": 3,
+        "wp_pb": 3
+      },
+      {
+        "name": "森田 啓仁",
+        "pitches": 11,
+        "strikes": 9,
+        "batters": 3,
+        "walks": 0,
+        "strikeouts": 0,
+        "hits": 2,
+        "innings": 0.3,
+        "runs": 1,
+        "flyBalls": 1,
+        "flyBallOuts": 1,
+        "errors": 0,
+        "wp_pb": 0
+      }
+    ],
+    "opponent_pitchers": {
+      "batters": 15,
+      "walks": 2,
+      "strikeouts": 6,
+      "hits": 0,
+      "runs": 1,
+      "flyBalls": 5,
+      "flyBallOuts": 5,
+      "errors": 1,
+      "wp_pb": 0
+    }
+  },
+  {
+    "date": "2026-04-18",
+    "team": "A",
+    "tournament": "YBBL",
+    "opponent": "都築L&D",
+    "result": "勝",
+    "score": "15対1",
+    "pitchers": [
+      {
+        "name": "計",
+        "pitches": 68,
+        "strikes": 39,
+        "batters": 16,
+        "walks": 3,
+        "strikeouts": 3,
+        "hits": 3,
+        "innings": 3.0,
+        "runs": 1,
+        "flyBalls": 7,
+        "flyBallOuts": 5,
+        "errors": 1,
+        "wp_pb": 0
+      },
+      {
+        "name": "藪野 文徳",
+        "pitches": 68,
+        "strikes": 39,
+        "batters": 16,
+        "walks": 3,
+        "strikeouts": 3,
+        "hits": 3,
+        "innings": 3.0,
+        "runs": 1,
+        "flyBalls": 7,
+        "flyBallOuts": 5,
+        "errors": 1,
+        "wp_pb": 0
+      }
+    ],
+    "opponent_pitchers": {
+      "batters": 22,
+      "walks": 6,
+      "strikeouts": 2,
+      "hits": 7,
+      "runs": 15,
+      "flyBalls": 6,
+      "flyBallOuts": 2,
+      "errors": 2,
+      "wp_pb": 0
+    }
+  },
+  {
     "date": "2026-04-12",
     "team": "A",
     "tournament": "若獅子カップ",
@@ -1067,16 +1199,7 @@
         "wp_pb": 2
       }
     ],
-    "opponent_pitchers": {
-      "batters": 37,
-      "walks": 4,
-      "strikeouts": 7,
-      "hits": 14,
-      "runs": 10,
-      "flyBalls": 15,
-      "flyBallOuts": 8,
-      "wp_pb": 0
-    }
+    "opponent_pitchers": {}
   },
   {
     "date": "2026-02-15",
