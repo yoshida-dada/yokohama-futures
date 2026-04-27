@@ -60,6 +60,7 @@ PLAYER_ORDER_B = [
     {"name": "壮一郎", "number": 21},
     {"name": "太慈",   "number": 22},
     {"name": "結也",   "number": 23},
+    {"name": "その他", "number": 99},
 ]
 
 # 後方互換: デフォルトはAチーム

@@ -1,5 +1,233 @@
 [
   {
+    "date": "2026-04-26",
+    "team": "A",
+    "tournament": "若獅子カップ",
+    "opponent": "翼クラブ",
+    "result": "負",
+    "score": "3対５",
+    "pitchers": [
+      {
+        "name": "計",
+        "pitches": 92,
+        "strikes": 62,
+        "batters": 27,
+        "walks": 2,
+        "strikeouts": 2,
+        "hits": 7,
+        "innings": 6.0,
+        "runs": 5,
+        "flyBalls": 19,
+        "flyBallOuts": 13,
+        "errors": 3,
+        "wp_pb": 1
+      },
+      {
+        "name": "森田 啓仁",
+        "pitches": 56,
+        "strikes": 38,
+        "batters": 16,
+        "walks": 1,
+        "strikeouts": 1,
+        "hits": 4,
+        "innings": 3.0,
+        "runs": 5,
+        "flyBalls": 12,
+        "flyBallOuts": 7,
+        "errors": 3,
+        "wp_pb": 0
+      },
+      {
+        "name": "奥田 海杜",
+        "pitches": 36,
+        "strikes": 24,
+        "batters": 11,
+        "walks": 1,
+        "strikeouts": 1,
+        "hits": 3,
+        "innings": 3.0,
+        "runs": 0,
+        "flyBalls": 7,
+        "flyBallOuts": 6,
+        "errors": 0,
+        "wp_pb": 1
+      }
+    ],
+    "opponent_pitchers": {
+      "batters": 26,
+      "walks": 2,
+      "strikeouts": 7,
+      "hits": 4,
+      "runs": 3,
+      "flyBalls": 11,
+      "flyBallOuts": 9,
+      "errors": 2,
+      "wp_pb": 3
+    }
+  },
+  {
+    "date": "2026-04-26",
+    "team": "B",
+    "tournament": "若獅子カップ",
+    "opponent": "翼クラブ",
+    "result": "勝",
+    "score": "10対４",
+    "pitchers": [
+      {
+        "name": "計",
+        "pitches": 94,
+        "strikes": 45,
+        "batters": 20,
+        "walks": 6,
+        "strikeouts": 5,
+        "hits": 2,
+        "innings": 4.0,
+        "runs": 4,
+        "flyBalls": 7,
+        "flyBallOuts": 7,
+        "errors": 1,
+        "wp_pb": 1
+      },
+      {
+        "name": "石井 太洋",
+        "pitches": 55,
+        "strikes": 23,
+        "batters": 11,
+        "walks": 4,
+        "strikeouts": 2,
+        "hits": 1,
+        "innings": 2.0,
+        "runs": 3,
+        "flyBalls": 4,
+        "flyBallOuts": 4,
+        "errors": 1,
+        "wp_pb": 0
+      },
+      {
+        "name": "堤 秀也",
+        "pitches": 19,
+        "strikes": 11,
+        "batters": 5,
+        "walks": 1,
+        "strikeouts": 2,
+        "hits": 1,
+        "innings": 1.0,
+        "runs": 1,
+        "flyBalls": 1,
+        "flyBallOuts": 1,
+        "errors": 0,
+        "wp_pb": 1
+      },
+      {
+        "name": "宮澤 拓己",
+        "pitches": 20,
+        "strikes": 11,
+        "batters": 4,
+        "walks": 1,
+        "strikeouts": 1,
+        "hits": 0,
+        "innings": 1.0,
+        "runs": 0,
+        "flyBalls": 2,
+        "flyBallOuts": 2,
+        "errors": 0,
+        "wp_pb": 0
+      }
+    ],
+    "opponent_pitchers": {
+      "batters": 21,
+      "walks": 4,
+      "strikeouts": 4,
+      "hits": 6,
+      "runs": 10,
+      "flyBalls": 5,
+      "flyBallOuts": 3,
+      "errors": 3,
+      "wp_pb": 2
+    }
+  },
+  {
+    "date": "2026-04-25",
+    "team": "B",
+    "tournament": "教育親善",
+    "opponent": "戸塚アイアンボンドス",
+    "result": "負",
+    "score": "0対15",
+    "pitchers": [
+      {
+        "name": "計",
+        "pitches": 81,
+        "strikes": 30,
+        "batters": 22,
+        "walks": 9,
+        "strikeouts": 2,
+        "hits": 6,
+        "innings": 2.0,
+        "runs": 15,
+        "flyBalls": 5,
+        "flyBallOuts": 4,
+        "errors": 2,
+        "wp_pb": 5
+      },
+      {
+        "name": "奥田 海杜",
+        "pitches": 13,
+        "strikes": 1,
+        "batters": 4,
+        "walks": 3,
+        "strikeouts": 0,
+        "hits": 1,
+        "innings": 0.0,
+        "runs": 4,
+        "flyBalls": 0,
+        "flyBallOuts": 0,
+        "errors": 0,
+        "wp_pb": 0
+      },
+      {
+        "name": "藪野 文徳",
+        "pitches": 56,
+        "strikes": 22,
+        "batters": 13,
+        "walks": 5,
+        "strikeouts": 1,
+        "hits": 4,
+        "innings": 1.0,
+        "runs": 9,
+        "flyBalls": 3,
+        "flyBallOuts": 2,
+        "errors": 2,
+        "wp_pb": 5
+      },
+      {
+        "name": "稲村 玄治",
+        "pitches": 12,
+        "strikes": 7,
+        "batters": 5,
+        "walks": 1,
+        "strikeouts": 1,
+        "hits": 1,
+        "innings": 1.0,
+        "runs": 2,
+        "flyBalls": 2,
+        "flyBallOuts": 2,
+        "errors": 0,
+        "wp_pb": 0
+      }
+    ],
+    "opponent_pitchers": {
+      "batters": 10,
+      "walks": 1,
+      "strikeouts": 3,
+      "hits": 0,
+      "runs": 0,
+      "flyBalls": 6,
+      "flyBallOuts": 6,
+      "errors": 0,
+      "wp_pb": 0
+    }
+  },
+  {
     "date": "2026-04-19",
     "team": "A",
     "tournament": "YBBL",
@@ -1137,16 +1365,7 @@
         "wp_pb": 1
       }
     ],
-    "opponent_pitchers": {
-      "batters": 18,
-      "walks": 0,
-      "strikeouts": 7,
-      "hits": 0,
-      "runs": 0,
-      "flyBalls": 10,
-      "flyBallOuts": 10,
-      "wp_pb": 0
-    }
+    "opponent_pitchers": {}
   },
   {
     "date": "2026-02-15",
