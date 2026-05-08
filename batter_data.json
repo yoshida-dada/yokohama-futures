@@ -1,5 +1,559 @@
 [
   {
+    "date": "2026-05-06",
+    "team": "B",
+    "tournament": "KBBA",
+    "opponent": "葉山ジャイアンツ",
+    "result": "負",
+    "score": "4対9",
+    "team_totals": {
+      "pa": 20,
+      "onBase": 7,
+      "runs": 4,
+      "walks": 1,
+      "hits": 5,
+      "strikeouts": 3
+    },
+    "players": [
+      {
+        "name": "玄治",
+        "number": 10,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 0,
+        "hits": 1,
+        "strikeouts": 1
+      },
+      {
+        "name": "吉海翔",
+        "number": 4,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "文徳",
+        "number": 6,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "秀矢",
+        "number": 8,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "奥海杜",
+        "number": 11,
+        "pa": 1,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "太洋",
+        "number": 12,
+        "pa": 2,
+        "onBase": 2,
+        "runs": 0,
+        "walks": 0,
+        "hits": 2,
+        "strikeouts": 0
+      },
+      {
+        "name": "新",
+        "number": 13,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "瞭",
+        "number": 14,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "拓巳",
+        "number": 15,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "大和",
+        "number": 16,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "翔",
+        "number": 17,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "悠明",
+        "number": 18,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "翔一朗",
+        "number": 19,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "奏太",
+        "number": 20,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "壮一郎",
+        "number": 21,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "太慈",
+        "number": 22,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "結也",
+        "number": 23,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "その他",
+        "number": 99,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "team": "B",
+    "tournament": "教育親善",
+    "opponent": "師岡ベアーズ",
+    "result": "負",
+    "score": "1対10",
+    "team_totals": {
+      "pa": 17,
+      "onBase": 3,
+      "runs": 1,
+      "walks": 0,
+      "hits": 2,
+      "strikeouts": 4
+    },
+    "players": [
+      {
+        "name": "玄治",
+        "number": 10,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "吉海翔",
+        "number": 4,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 2
+      },
+      {
+        "name": "文徳",
+        "number": 6,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "秀矢",
+        "number": 8,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "奥海杜",
+        "number": 11,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 2
+      },
+      {
+        "name": "太洋",
+        "number": 12,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "新",
+        "number": 13,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "瞭",
+        "number": 14,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "拓巳",
+        "number": 15,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "大和",
+        "number": 16,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "翔",
+        "number": 17,
+        "pa": 2,
+        "onBase": 2,
+        "runs": 1,
+        "walks": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "悠明",
+        "number": 18,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "翔一朗",
+        "number": 19,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "奏太",
+        "number": 20,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "壮一郎",
+        "number": 21,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "太慈",
+        "number": 22,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "結也",
+        "number": 23,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "その他",
+        "number": 99,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "team": "A",
+    "tournament": "あじさいリーグ",
+    "opponent": "山田バッファローズ",
+    "result": "負",
+    "score": "3対6",
+    "team_totals": {
+      "pa": 22,
+      "onBase": 6,
+      "runs": 3,
+      "walks": 4,
+      "hits": 0,
+      "strikeouts": 4
+    },
+    "players": [
+      {
+        "name": "拓斗",
+        "number": 10,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "颯真",
+        "number": 1,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "悠人",
+        "number": 2,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "玄治",
+        "number": 3,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "吉海翔",
+        "number": 4,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "俊斗",
+        "number": 5,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "文徳",
+        "number": 6,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "颯人",
+        "number": 7,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "秀矢",
+        "number": 8,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "啓仁",
+        "number": 9,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "奥海杜",
+        "number": 11,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "太洋",
+        "number": 12,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "新",
+        "number": 13,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "瞭",
+        "number": 14,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      }
+    ]
+  },
+  {
     "date": "2026-04-29",
     "team": "B",
     "tournament": "区大会",
