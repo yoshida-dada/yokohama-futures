@@ -1,5 +1,182 @@
 [
   {
+    "date": "2026-05-10",
+    "team": "A",
+    "tournament": "若獅子カップ",
+    "opponent": "山手メイツ",
+    "result": "負",
+    "score": "2対6",
+    "pitchers": [
+      {
+        "name": "計",
+        "pitches": 76,
+        "strikes": 34,
+        "batters": 23,
+        "walks": 9,
+        "strikeouts": 1,
+        "hits": 4,
+        "innings": 4.0,
+        "runs": 6,
+        "flyBalls": 11,
+        "flyBallOuts": 7,
+        "errors": 2,
+        "wp_pb": 3
+      },
+      {
+        "name": "森田 啓仁",
+        "pitches": 40,
+        "strikes": 17,
+        "batters": 14,
+        "walks": 6,
+        "strikeouts": 0,
+        "hits": 2,
+        "innings": 2.0,
+        "runs": 5,
+        "flyBalls": 8,
+        "flyBallOuts": 4,
+        "errors": 2,
+        "wp_pb": 2
+      },
+      {
+        "name": "藪野 文徳",
+        "pitches": 36,
+        "strikes": 17,
+        "batters": 9,
+        "walks": 3,
+        "strikeouts": 1,
+        "hits": 2,
+        "innings": 2.0,
+        "runs": 1,
+        "flyBalls": 3,
+        "flyBallOuts": 3,
+        "errors": 0,
+        "wp_pb": 1
+      }
+    ],
+    "opponent_pitchers": {
+      "batters": 22,
+      "walks": 3,
+      "strikeouts": 7,
+      "hits": 5,
+      "runs": 2,
+      "flyBalls": 8,
+      "flyBallOuts": 7,
+      "errors": 2,
+      "wp_pb": 2
+    }
+  },
+  {
+    "date": "2026-05-10",
+    "team": "B",
+    "tournament": "若獅子カップ",
+    "opponent": "シャークス浅間野球クラブ",
+    "result": "負",
+    "score": "7対16",
+    "pitchers": [
+      {
+        "name": "計",
+        "pitches": 152,
+        "strikes": 58,
+        "batters": 37,
+        "walks": 18,
+        "strikeouts": 4,
+        "hits": 3,
+        "innings": 4.0,
+        "runs": 16,
+        "flyBalls": 10,
+        "flyBallOuts": 6,
+        "errors": 3,
+        "wp_pb": 5
+      },
+      {
+        "name": "石井 太洋",
+        "pitches": 30,
+        "strikes": 4,
+        "batters": 7,
+        "walks": 6,
+        "strikeouts": 0,
+        "hits": 0,
+        "innings": 0.3,
+        "runs": 5,
+        "flyBalls": 1,
+        "flyBallOuts": 1,
+        "errors": 0,
+        "wp_pb": 1
+      },
+      {
+        "name": "吉田 海翔",
+        "pitches": 57,
+        "strikes": 30,
+        "batters": 16,
+        "walks": 4,
+        "strikeouts": 3,
+        "hits": 1,
+        "innings": 2.7,
+        "runs": 3,
+        "flyBalls": 7,
+        "flyBallOuts": 4,
+        "errors": 2,
+        "wp_pb": 2
+      },
+      {
+        "name": "宮澤 拓己",
+        "pitches": 33,
+        "strikes": 11,
+        "batters": 7,
+        "walks": 4,
+        "strikeouts": 0,
+        "hits": 1,
+        "innings": 0.3,
+        "runs": 6,
+        "flyBalls": 2,
+        "flyBallOuts": 1,
+        "errors": 1,
+        "wp_pb": 2
+      },
+      {
+        "name": "堤 秀矢",
+        "pitches": 25,
+        "strikes": 9,
+        "batters": 6,
+        "walks": 4,
+        "strikeouts": 0,
+        "hits": 1,
+        "innings": 0.3,
+        "runs": 2,
+        "flyBalls": 0,
+        "flyBallOuts": 0,
+        "errors": 0,
+        "wp_pb": 0
+      },
+      {
+        "name": "藪野 文徳",
+        "pitches": 7,
+        "strikes": 4,
+        "batters": 1,
+        "walks": 0,
+        "strikeouts": 1,
+        "hits": 0,
+        "innings": 0.3,
+        "runs": 0,
+        "flyBalls": 0,
+        "flyBallOuts": 0,
+        "errors": 0,
+        "wp_pb": 0
+      }
+    ],
+    "opponent_pitchers": {
+      "batters": 25,
+      "walks": 4,
+      "strikeouts": 5,
+      "hits": 8,
+      "runs": 7,
+      "flyBalls": 9,
+      "flyBallOuts": 7,
+      "errors": 4,
+      "wp_pb": 1
+    }
+  },
+  {
     "date": "2026-05-06",
     "team": "B",
     "tournament": "KBBA",
@@ -428,7 +605,7 @@
         "wp_pb": 0
       },
       {
-        "name": "堤 秀也",
+        "name": "堤 秀矢",
         "pitches": 19,
         "strikes": 11,
         "batters": 5,
@@ -1804,16 +1981,6 @@
         "wp_pb": 0
       }
     ],
-    "opponent_pitchers": {
-      "batters": 24,
-      "walks": 4,
-      "strikeouts": 6,
-      "hits": 9,
-      "runs": 13,
-      "flyBalls": 7,
-      "flyBallOuts": 3,
-      "errors": 1,
-      "wp_pb": 9
-    }
+    "opponent_pitchers": {}
   }
 ]
