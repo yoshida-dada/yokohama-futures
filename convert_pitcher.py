@@ -37,6 +37,7 @@ TOURNAMENT_MAP = {
 # 対戦相手名の正規化
 OPPONENT_MAP = {
     "百合丘ペッカーズ": "百合ヶ丘ペッカーズ",
+    "葉山巨人軍":       "葉山ジャイアンツ",
 }
 
 # スキップ対象行パターン
@@ -66,25 +67,49 @@ def find_pdf(team: str = 'A') -> Path:
 # ────────────────────────────────────────────
 # ヘッダー解析
 # ────────────────────────────────────────────
-def parse_game_header(line: str) -> dict | None:
+def parse_game_header(line: str, date_fallback: str = None) -> dict | None:
     """
-    例: "4月5日A あじさい 坂本少年野球部 負 2対12 計 105 44 42% ..."
-    ヘッダー部分（日付〜スコア）のみ抽出する
+    対応フォーマット:
+      "4月5日A あじさい 坂本少年野球部 負 2対12 計 ..."   （月日形式）
+      "2026/5/6B KBBA 葉山ジャイアンツ 負 4対9 計 ..."    （YYYY/M/D形式）
+      "#######B さわやか 茅ヶ崎エンデバーズ 勝 4対3 計 ..." （日付幅不足形式 → date_fallback使用）
     """
-    # 相手名と勝敗の間にスペースがない場合（例: ヤンキース負）や
-    # PDF抽出で勝敗文字の後に相手名の一部が残る場合（例: ヤンキー負ス）に対応
+    # フォーマット1: X月X日A
     m = re.match(
         r'(\d+)月(\d+)日([A-Z])\s+(\S+)\s+(.+?)\s*(勝|負|引き分け)(\S*)\s+(\d+対\d+)',
         line
     )
-    if not m:
-        return None
-    month, day, team, tournament, opp_head, result, opp_tail, score = m.groups()
+    if m:
+        month, day, team, tournament, opp_head, result, opp_tail, score = m.groups()
+        date = f"2026-{int(month):02d}-{int(day):02d}"
+    else:
+        # フォーマット2: YYYY/M/DA
+        m2 = re.match(
+            r'(\d{4})/(\d+)/(\d+)\s*([A-Z])\s+(\S+)\s+(.+?)\s*(勝|負|引き分け)(\S*)\s+(\d+対\d+)',
+            line
+        )
+        if m2:
+            year, month, day, team, tournament, opp_head, result, opp_tail, score = m2.groups()
+            date = f"{year}-{int(month):02d}-{int(day):02d}"
+        else:
+            # フォーマット3: #######A（Excelセル幅不足）
+            m3 = re.match(
+                r'#{5,}\s*([A-Z])\s+(\S+)\s+(.+?)\s*(勝|負|引き分け)(\S*)\s+(\d+対\d+)',
+                line
+            )
+            if not m3:
+                return None
+            if not date_fallback:
+                print(f"  [警告] 日付が '#######' のためスキップします（--date-fallback YYYY-MM-DD を指定してください）")
+                return None
+            team, tournament, opp_head, result, opp_tail, score = m3.groups()
+            date = date_fallback
+
     opponent = (opp_head + opp_tail).strip()
     tournament = TOURNAMENT_MAP.get(tournament, tournament)
     opponent   = OPPONENT_MAP.get(opponent.strip(), opponent.strip())
     return {
-        "date":       f"2026-{int(month):02d}-{int(day):02d}",
+        "date":       date,
         "team":       team,
         "tournament": tournament,
         "opponent":   opponent,
@@ -208,7 +233,7 @@ def parse_opponent_pitcher(tokens: list[str]) -> dict | None:
 # ────────────────────────────────────────────
 # PDFからの抽出
 # ────────────────────────────────────────────
-def extract_pitcher_games(pdf_path: Path, team: str = 'A') -> list[dict]:
+def extract_pitcher_games(pdf_path: Path, team: str = 'A', date_fallback: str = None) -> list[dict]:
     # Aチーム: P1+P2 (pages[0:2]) / Bチーム: P1のみ (pages[0:1])
     page_slice = slice(0, 1) if team != 'A' else slice(0, 2)
     min_pages  = 1 if team != 'A' else 2
@@ -243,10 +268,10 @@ def extract_pitcher_games(pdf_path: Path, team: str = 'A') -> list[dict]:
         if any(re.match(p, line) for p in SKIP_PATTERNS):
             continue
 
-        # 試合ヘッダー行（"4月5日A ..." のような行）
-        if re.match(r'\d+月\d+日[A-Z]', line):
+        # 試合ヘッダー行（"4月5日A" / "2026/5/6B" / "#######B" のような行）
+        if re.match(r'(\d+月\d+日|\d{4}/\d+/\d+\s*|#{5,}\s*)[A-Z]', line):
             flush()
-            current_header = parse_game_header(line)
+            current_header = parse_game_header(line, date_fallback)
             current_pitchers = []
             opponent_pitchers = None
             if current_header is None:
@@ -448,7 +473,13 @@ def compare_and_report(pdf_games: list, json_games: list):
 # メイン
 # ────────────────────────────────────────────
 def main():
-    update_mode = "--update" in sys.argv
+    update_mode   = "--update"   in sys.argv
+    new_only_mode = "--new-only" in sys.argv
+    date_fallback = None
+    if '--date-fallback' in sys.argv:
+        idx = sys.argv.index('--date-fallback')
+        if idx + 1 < len(sys.argv):
+            date_fallback = sys.argv[idx + 1]
     team = 'B' if '--team' in sys.argv and sys.argv[sys.argv.index('--team') + 1] == 'B' else 'A'
 
     print("PDFを検索中...")
@@ -462,7 +493,7 @@ def main():
     pages_desc = "P1" if team != 'A' else "P1・P2"
     print(f"投手データを抽出中 ({pages_desc})...")
     try:
-        pdf_games = extract_pitcher_games(pdf_path, team)
+        pdf_games = extract_pitcher_games(pdf_path, team, date_fallback)
     except Exception as e:
         print(f"抽出エラー: {e}")
         sys.exit(1)
@@ -479,9 +510,20 @@ def main():
     compare_and_report(pdf_games, json_games)
 
     if update_mode:
-        # PDF優先でマージ（PDFにない試合はJSONから保持）
         merged = {game_id(g): g for g in json_games}
+        # date_fallback使用時の重複防止: チーム/大会/相手が既存JSONにあればスキップ
+        existing_tto = {(g["team"], g["tournament"], g["opponent"]) for g in json_games}
+        skipped = 0
         for g in pdf_games:
+            if new_only_mode and game_id(g) in merged:
+                skipped += 1
+                continue
+            if new_only_mode and date_fallback and g["date"] == date_fallback:
+                tto = (g["team"], g["tournament"], g["opponent"])
+                if tto in existing_tto:
+                    skipped += 1
+                    continue
+                existing_tto.add(tto)
             merged[game_id(g)] = g
 
         sorted_games = sorted(merged.values(), key=lambda g: g["date"], reverse=True)
@@ -489,8 +531,11 @@ def main():
         with open(pitcher_path, "w", encoding="utf-8") as f:
             json.dump(sorted_games, f, ensure_ascii=False, indent=2)
         print(f"\n✓ pitcher_data.json を更新しました ({len(sorted_games)} 試合)")
+        if new_only_mode and skipped:
+            print(f"  ※ --new-only: 既存 {skipped} 試合はスキップしました")
     else:
-        print(f"\n※ 更新するには: python convert_pitcher.py --update")
+        team_arg = f" --team {team}" if team != 'A' else ""
+        print(f"\n※ 更新するには: python convert_pitcher.py{team_arg} --update")
 
 
 if __name__ == "__main__":
