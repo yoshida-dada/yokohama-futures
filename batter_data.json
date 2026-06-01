@@ -1,5 +1,203 @@
 [
   {
+    "date": "2026-05-30",
+    "team": "B",
+    "tournament": "教育親善",
+    "opponent": "仏向睦ヶ丘ベアーズ",
+    "result": "負",
+    "score": "5対16",
+    "team_totals": {
+      "pa": 25,
+      "onBase": 14,
+      "runs": 5,
+      "walks": 10,
+      "hits": 3,
+      "strikeouts": 4
+    },
+    "players": [
+      {
+        "name": "玄治",
+        "number": 10,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 0,
+        "walks": 1,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "吉海翔",
+        "number": 4,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "文徳",
+        "number": 6,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "秀矢",
+        "number": 8,
+        "pa": 3,
+        "onBase": 3,
+        "runs": 2,
+        "walks": 2,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "奥海杜",
+        "number": 11,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "太洋",
+        "number": 12,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 0,
+        "walks": 1,
+        "hits": 1,
+        "strikeouts": 1
+      },
+      {
+        "name": "新",
+        "number": 13,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "瞭",
+        "number": 14,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "拓巳",
+        "number": 15,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "大和",
+        "number": 16,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "翔",
+        "number": 17,
+        "pa": 2,
+        "onBase": 2,
+        "runs": 1,
+        "walks": 1,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "悠明",
+        "number": 18,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "翔一朗",
+        "number": 19,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "奏太",
+        "number": 20,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "壮一郎",
+        "number": 21,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "太慈",
+        "number": 22,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "結也",
+        "number": 23,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "その他",
+        "number": 99,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      }
+    ]
+  },
+  {
     "date": "2026-05-24",
     "team": "A",
     "tournament": "若獅子カップ",
