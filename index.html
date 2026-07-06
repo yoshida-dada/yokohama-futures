@@ -654,9 +654,155 @@
       gap: 8px;
       flex-wrap: wrap;
     }
+
+    /* ===== PASSWORD SCREEN ===== */
+    #pw-screen {
+      position: fixed;
+      inset: 0;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      padding: 24px;
+    }
+
+    #pw-screen .pw-logo {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    #pw-screen .pw-logo .pw-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #8b0000, #3a0000);
+      border: 2px solid #c8a84b;
+      border-radius: 50%;
+      width: 96px;
+      height: 96px;
+      line-height: 96px;
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    #pw-screen .pw-logo h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: #fff;
+    }
+
+    #pw-screen .pw-logo p {
+      font-size: 0.75rem;
+      color: #c8a84b;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    #pw-screen .pw-card {
+      background: #242424;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 32px 28px;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    #pw-screen .pw-card label {
+      display: block;
+      font-size: 0.8rem;
+      color: #aaa;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    #pw-screen .pw-input-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    #pw-screen .pw-input-wrap input {
+      width: 100%;
+      padding: 14px 48px 14px 16px;
+      background: #1a1a1a;
+      border: 1px solid #444;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    #pw-screen .pw-input-wrap input:focus { border-color: #c8a84b; }
+    #pw-screen .pw-input-wrap input.pw-error { border-color: #e05c5c; }
+
+    #pw-screen .pw-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: #888;
+      padding: 4px;
+      line-height: 1;
+    }
+
+    #pw-screen .pw-error-msg {
+      font-size: 0.8rem;
+      color: #e05c5c;
+      min-height: 18px;
+      margin-bottom: 16px;
+    }
+
+    #pw-screen .pw-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #8b0000, #c00000);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    #pw-screen .pw-btn:active { opacity: 0.85; transform: scale(0.98); }
+
+    #pw-screen .pw-gold-line {
+      width: 40px;
+      height: 3px;
+      background: #c8a84b;
+      border-radius: 2px;
+      margin: 24px auto 0;
+    }
   </style>
 </head>
 <body>
+
+<!-- ===== PASSWORD SCREEN ===== -->
+<div id="pw-screen">
+  <div class="pw-logo">
+    <div class="pw-badge">⚾</div>
+    <h2>YOKOHAMA FUTURES</h2>
+    <p>MEMBERS ONLY</p>
+  </div>
+  <div class="pw-card">
+    <label>パスワードを入力してください</label>
+    <div class="pw-input-wrap">
+      <input type="password" id="pw-input" placeholder="password" autocomplete="current-password" />
+      <button class="pw-toggle" id="pw-toggle" type="button" aria-label="パスワードを表示">👁</button>
+    </div>
+    <div class="pw-error-msg" id="pw-error-msg"></div>
+    <button class="pw-btn" id="pw-btn">ENTER</button>
+    <div class="pw-gold-line"></div>
+  </div>
+</div>
 
 <header>
   <h1>⚾ YOKOHAMA <span>FUTURES</span></h1>
@@ -707,6 +853,7 @@
             <th class="num">得点</th>
             <th class="num">安打</th>
             <th class="num">四死球</th>
+            <th class="num">犠打</th>
             <th class="num">三振</th>
             <th class="num">投球数</th>
             <th class="num">失点</th>
@@ -849,6 +996,7 @@
             <th data-col="runs"        data-tip="得点数（ホームを踏んだ回数）"                        class="num sortable">得点 <span class="sort-icon"></span></th>
             <th data-col="walks"       data-tip="四球・死球の合計"                                    class="num sortable">四死球 <span class="sort-icon"></span></th>
             <th data-col="walkRate"    data-tip="四死球率 = 四死球 ÷ 打席数\n15%以上: 緑（選球眼あり）/ 5%以下: 赤" class="num sortable">四死球率 <span class="sort-icon"></span></th>
+            <th data-col="sac"         data-tip="犠打数"                                               class="num sortable">犠打 <span class="sort-icon"></span></th>
             <th data-col="strikeouts"  data-tip="三振数"                                              class="num sortable">三振 <span class="sort-icon"></span></th>
             <th data-col="kRate"       data-tip="三振率 = 三振 ÷ 打席数\n15%以下: 緑 / 30%以上: 赤"  class="num sortable">三振率 <span class="sort-icon"></span></th>
             <th data-col="kbb"         data-tip="K/BB比 = 三振 ÷ 四死球\n1.0以下: 緑（粘れる打者）\n3.0以上: 赤\n四死球0の場合は ∞ と表示" class="num sortable">K/BB <span class="sort-icon"></span></th>
@@ -1043,7 +1191,7 @@ function renderTeamTab() {
   }).join('');
 
   // チームサマリー集計
-  let totPA = 0, totHits = 0, totOnBase = 0, totRuns = 0, totWalks = 0, totStrikeouts = 0;
+  let totPA = 0, totHits = 0, totOnBase = 0, totRuns = 0, totWalks = 0, totSac = 0, totStrikeouts = 0;
   let totRunsAgainst = 0, totPitches = 0, gameCount = 0;
 
   pData.forEach((g, idx) => {
@@ -1056,12 +1204,13 @@ function renderTeamTab() {
     totOnBase      += bt.onBase      ?? 0;
     totRuns        += bt.runs        ?? 0;
     totWalks       += bt.walks       ?? 0;
+    totSac         += bt.sac         ?? 0;
     totStrikeouts  += bt.strikeouts  ?? 0;
     totRunsAgainst += totPitcher.runs    ?? 0;
     totPitches     += totPitcher.pitches ?? 0;
   });
 
-  const teamBA  = (totPA - totWalks) > 0 ? (totHits   / (totPA - totWalks)) : null;
+  const teamBA  = (totPA - totWalks - totSac) > 0 ? (totHits / (totPA - totWalks - totSac)) : null;
   const teamOBP = totPA > 0             ? (totOnBase  / totPA)               : null;
   const avgRuns = gameCount > 0         ? totRuns        / gameCount          : null;
   const avgRA   = gameCount > 0         ? totRunsAgainst / gameCount          : null;
@@ -1138,6 +1287,7 @@ function renderTeamTab() {
       <td class="num">${teamTotals.runs ?? '-'}</td>
       <td class="num">${teamTotals.hits ?? '-'}</td>
       <td class="num">${teamTotals.walks ?? '-'}</td>
+      <td class="num">${teamTotals.sac ?? '-'}</td>
       <td class="num">${teamTotals.strikeouts ?? '-'}</td>
       <td class="num">${totPitcher.pitches ?? '-'}</td>
       <td class="num">${totPitcher.runs ?? '-'}</td>
@@ -1536,7 +1686,7 @@ function buildBatterMap() {
       if (p.pa === null) return; // 欠場
       if (!map[p.name]) {
         map[p.name] = { number: p.number, name: p.name,
-                        pa: 0, hits: 0, onBase: 0, runs: 0, walks: 0, strikeouts: 0 };
+                        pa: 0, hits: 0, onBase: 0, runs: 0, walks: 0, sac: 0, strikeouts: 0 };
       }
       const m = map[p.name];
       m.pa          += p.pa;
@@ -1544,6 +1694,7 @@ function buildBatterMap() {
       m.onBase      += p.onBase;
       m.runs        += p.runs;
       m.walks       += p.walks;
+      m.sac         += p.sac ?? 0;
       m.strikeouts  += p.strikeouts;
     });
   });
@@ -1551,7 +1702,7 @@ function buildBatterMap() {
 }
 
 function calcBA(m) {
-  const ab = m.pa - m.walks;
+  const ab = m.pa - m.walks - (m.sac ?? 0);
   return ab > 0 ? m.hits / ab : null;
 }
 
@@ -1563,7 +1714,7 @@ function calcOBP(m) {
 function buildBatterRow(m) {
   const ba           = calcBA(m);
   const obp          = calcOBP(m);
-  const ab           = m.pa - m.walks;
+  const ab           = m.pa - m.walks - (m.sac ?? 0);
   const kRate        = m.pa > 0 ? m.strikeouts / m.pa : null;
   const walkRate     = m.pa > 0 ? m.walks / m.pa : null;
   const kbb          = m.walks > 0 ? m.strikeouts / m.walks : (m.strikeouts > 0 ? Infinity : null);
@@ -1632,7 +1783,7 @@ function buildGameAccordionHTML(g, b) {
   // 打者成績
   const players = (b.players || []).filter(p => p.pa !== null);
   const batterRows = players.map(p => {
-    const ab  = p.pa - p.walks;
+    const ab  = p.pa - p.walks - (p.sac ?? 0);
     const ba  = ab > 0 ? (p.hits / ab).toFixed(3).replace(/^0/, '') : '-';
     const obp = p.pa > 0 ? (p.onBase / p.pa).toFixed(3).replace(/^0/, '') : '-';
     return `
@@ -1647,6 +1798,7 @@ function buildGameAccordionHTML(g, b) {
         <td class="num">${obp}</td>
         <td class="num">${p.runs}</td>
         <td class="num">${p.walks}</td>
+        <td class="num">${p.sac ?? '-'}</td>
         <td class="num">${p.strikeouts}</td>
       </tr>`;
   }).join('');
@@ -1683,9 +1835,9 @@ function buildGameAccordionHTML(g, b) {
               <th>#</th><th>選手名</th>
               <th class="num">打席</th><th class="num">打数</th><th class="num">安打</th>
               <th class="num">打率</th><th class="num">出塁</th><th class="num">出塁率</th>
-              <th class="num">得点</th><th class="num">四死球</th><th class="num">三振</th>
+              <th class="num">得点</th><th class="num">四死球</th><th class="num">犠打</th><th class="num">三振</th>
             </tr></thead>
-            <tbody>${batterRows || '<tr><td colspan="11" style="color:#555;text-align:center;padding:12px;">データなし</td></tr>'}</tbody>
+            <tbody>${batterRows || '<tr><td colspan="12" style="color:#555;text-align:center;padding:12px;">データなし</td></tr>'}</tbody>
           </table>
         </div>
         <div style="padding:8px 12px 12px; border-left:1px solid #2a2a2a;">
@@ -1712,9 +1864,10 @@ function buildBatterAccordionHTML(name) {
     if (!p) return '';
     const absent = p.pa === null;
     const resultClass = game.result === '勝' ? 'win' : game.result === '負' ? 'lose' : 'draw';
-    const ab  = absent ? '-' : p.pa - p.walks;
-    const ba  = (!absent && (p.pa - p.walks) > 0)
-                  ? (p.hits / (p.pa - p.walks)).toFixed(3).replace(/^0/, '') : '-';
+    const ab  = absent ? '-' : p.pa - p.walks - (p.sac ?? 0);
+    const _ab = absent ? 0 : p.pa - p.walks - (p.sac ?? 0);
+    const ba  = (!absent && _ab > 0)
+                  ? (p.hits / _ab).toFixed(3).replace(/^0/, '') : '-';
     const obp = (!absent && p.pa > 0)
                   ? (p.onBase / p.pa).toFixed(3).replace(/^0/, '') : '-';
     return `
@@ -1731,6 +1884,7 @@ function buildBatterAccordionHTML(name) {
         <td class="num">${obp}</td>
         <td class="num">${absent ? '-' : p.runs}</td>
         <td class="num">${absent ? '-' : p.walks}</td>
+        <td class="num">${absent ? '-' : (p.sac ?? '-')}</td>
         <td class="num">${absent ? '-' : p.strikeouts}</td>
       </tr>`;
   }).join('');
@@ -1742,7 +1896,7 @@ function buildBatterAccordionHTML(name) {
             <th>日付</th><th>大会</th><th>相手</th><th class="center">結果</th>
             <th class="num">打席</th><th class="num">打数</th><th class="num">安打</th>
             <th class="num">打率</th><th class="num">出塁</th><th class="num">出塁率</th>
-            <th class="num">得点</th><th class="num">四死球</th><th class="num">三振</th>
+            <th class="num">得点</th><th class="num">四死球</th><th class="num">犠打</th><th class="num">三振</th>
           </tr></thead>
           <tbody>${rows}</tbody>
         </table>
@@ -1857,6 +2011,7 @@ function renderBatterRows() {
       <td class="num">${m.runs}</td>
       <td class="num">${m.walks}</td>
       <td class="num ${wkColor}">${walkRateStr}</td>
+      <td class="num">${m.sac}</td>
       <td class="num">${m.strikeouts}</td>
       <td class="num ${kColor}">${kRateStr}</td>
       <td class="num ${kbbColor}">${kbbStr}</td>
@@ -1864,7 +2019,7 @@ function renderBatterRows() {
     `;
     tbody.appendChild(tr);
     tr.querySelector('.accordion-trigger').addEventListener('click', () => {
-      toggleAccordion(tr, 14, () => buildBatterAccordionHTML(m.name));
+      toggleAccordion(tr, 15, () => buildBatterAccordionHTML(m.name));
     });
   });
 }
@@ -1875,7 +2030,7 @@ const RANK_DEFS = {
     label: '打率',
     tip: '安打 ÷ 打数（打席 - 四死球）\n打数3以上の選手を対象',
     minPA: 3,
-    getValue: m => { const ab = m.pa - m.walks; return ab >= 3 ? calcBA(m) : null; },
+    getValue: m => { const ab = m.pa - m.walks - (m.sac ?? 0); return ab >= 3 ? calcBA(m) : null; },
     fmt: v => v.toFixed(3).replace(/^0/, ''),
     tooltipFmt: v => `.${String(Math.round(v * 1000)).padStart(3,'0')}`,
     xMax: 0.6,
@@ -3087,7 +3242,7 @@ function buildRankings(map) {
     return rankMap;
   };
   return {
-    ba:         rank(players.map(m => ({ name: m.name, v: (m.pa - m.walks) >= 3 ? calcBA(m) : null  }))),
+    ba:         rank(players.map(m => ({ name: m.name, v: (m.pa - m.walks - (m.sac ?? 0)) >= 3 ? calcBA(m) : null  }))),
     obp:        rank(players.map(m => ({ name: m.name, v: m.pa >= 5         ? calcOBP(m) : null }))),
     runs:       rank(players.map(m => ({ name: m.name, v: m.runs }))),
     strikeouts: rank(players.map(m => ({ name: m.name, v: m.strikeouts })), false), // 少ない方が良い
@@ -3132,7 +3287,7 @@ function drawPlayerCards(name, games, rankings) {
     runs        += p.runs;
     walks       += p.walks;
     strikeouts  += p.strikeouts;
-    ab          += p.pa - p.walks;
+    ab          += p.pa - p.walks - (p.sac ?? 0);
   });
 
   const ba  = ab  > 0 ? hits   / ab  : null;
@@ -3184,7 +3339,7 @@ function drawPlayerTrendChart(name, games) {
     }
 
     cumHits   += p.hits;
-    cumAB     += p.pa - p.walks;
+    cumAB     += p.pa - p.walks - (p.sac ?? 0);
     cumOnBase += p.onBase;
     cumPA     += p.pa;
 
@@ -3282,8 +3437,9 @@ function drawPlayerGameTable(games) {
   [...games].reverse().forEach(({ game, player: p }) => {
     const resultClass = game.result === '勝' ? 'win' : game.result === '負' ? 'lose' : 'draw';
     const absent = p.pa === null;
-    const ab  = absent ? '-' : p.pa - p.walks;
-    const ba  = (!absent && (p.pa - p.walks) > 0) ? (p.hits / (p.pa - p.walks)).toFixed(3).replace(/^0/, '') : (absent ? '-' : '-');
+    const ab  = absent ? '-' : p.pa - p.walks - (p.sac ?? 0);
+    const _ab = absent ? 0 : p.pa - p.walks - (p.sac ?? 0);
+    const ba  = (!absent && _ab > 0) ? (p.hits / _ab).toFixed(3).replace(/^0/, '') : '-';
     const obp = (!absent && p.pa > 0) ? (p.onBase / p.pa).toFixed(3).replace(/^0/, '') : '-';
 
     const tr = document.createElement('tr');
@@ -3380,6 +3536,43 @@ function refreshAnalyticsTabs() {
 // ===== INIT =====
 loadAllData();
 fetchVideos();
+</script>
+
+<script>
+// ===== PASSWORD =====
+(function () {
+  const CORRECT  = 'futures';
+  const pwScreen = document.getElementById('pw-screen');
+  const pwInput  = document.getElementById('pw-input');
+  const pwBtn    = document.getElementById('pw-btn');
+  const pwError  = document.getElementById('pw-error-msg');
+  const pwToggle = document.getElementById('pw-toggle');
+
+  function tryLogin() {
+    if (pwInput.value === CORRECT) {
+      pwScreen.style.display = 'none';
+    } else {
+      pwInput.classList.add('pw-error');
+      pwError.textContent = 'パスワードが違います';
+      pwInput.value = '';
+      pwInput.focus();
+      setTimeout(() => {
+        pwInput.classList.remove('pw-error');
+        pwError.textContent = '';
+      }, 2000);
+    }
+  }
+
+  pwBtn.addEventListener('click', tryLogin);
+  pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+  pwToggle.addEventListener('click', () => {
+    const hidden = pwInput.type === 'password';
+    pwInput.type = hidden ? 'text' : 'password';
+    pwToggle.textContent = hidden ? '🙈' : '👁';
+  });
+
+  pwInput.focus();
+})();
 </script>
 
 </body>

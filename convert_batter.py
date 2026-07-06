@@ -72,6 +72,7 @@ STAT_LABELS = {
     "出塁":   "onBase",
     "得点":   "runs",
     "四死球": "walks",
+    "犠打":   "sac",
     "安打":   "hits",
     "三振":   "strikeouts",
 }
@@ -256,7 +257,7 @@ def build_game(header: dict, stat_rows: dict, player_order: list = None) -> dict
     team_totals = {"pa": total_pa}
     player_data = {"pa": pa_values}
 
-    for key in ["onBase", "runs", "walks", "hits", "strikeouts"]:
+    for key in ["onBase", "runs", "walks", "sac", "hits", "strikeouts"]:
         tokens = stat_rows.get(key, [])
         total, values = parse_stat_row(tokens, absent_mask)
         team_totals[key] = total

@@ -1,5 +1,376 @@
 [
   {
+    "date": "2026-07-05",
+    "team": "A",
+    "tournament": "若獅子決勝T",
+    "opponent": "戸部タイガース",
+    "result": "負",
+    "score": "3対4",
+    "team_totals": {
+      "pa": 25,
+      "onBase": 6,
+      "runs": 4,
+      "walks": 0,
+      "hits": 3,
+      "strikeouts": 10,
+      "sac": 3
+    },
+    "players": [
+      {
+        "name": "拓斗",
+        "number": 10,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0,
+        "sac": 0
+      },
+      {
+        "name": "颯真",
+        "number": 1,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 1,
+        "walks": 0,
+        "hits": 2,
+        "strikeouts": 0,
+        "sac": 0
+      },
+      {
+        "name": "悠人",
+        "number": 2,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 1,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 1,
+        "sac": 0
+      },
+      {
+        "name": "玄治",
+        "number": 3,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 3,
+        "sac": 0
+      },
+      {
+        "name": "吉海翔",
+        "number": 4,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null,
+        "sac": null
+      },
+      {
+        "name": "俊斗",
+        "number": 5,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0,
+        "sac": 2
+      },
+      {
+        "name": "文徳",
+        "number": 6,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 2,
+        "sac": 1
+      },
+      {
+        "name": "颯人",
+        "number": 7,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 0,
+        "hits": 1,
+        "strikeouts": 0,
+        "sac": 0
+      },
+      {
+        "name": "秀矢",
+        "number": 8,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 2,
+        "sac": 0
+      },
+      {
+        "name": "啓仁",
+        "number": 9,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 1,
+        "sac": 0
+      },
+      {
+        "name": "奥海杜",
+        "number": 11,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0,
+        "sac": 0
+      },
+      {
+        "name": "太洋",
+        "number": 12,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null,
+        "sac": null
+      },
+      {
+        "name": "新",
+        "number": 13,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 1,
+        "sac": 0
+      },
+      {
+        "name": "瞭",
+        "number": 14,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null,
+        "sac": null
+      }
+    ]
+  },
+  {
+    "date": "2026-07-04",
+    "team": "B",
+    "tournament": "さわやか決勝T",
+    "opponent": "山下ジャイアンツ",
+    "result": "勝",
+    "score": "3対2",
+    "team_totals": {
+      "pa": 25,
+      "onBase": 7,
+      "runs": 3,
+      "walks": 5,
+      "hits": 2,
+      "strikeouts": 4
+    },
+    "players": [
+      {
+        "name": "玄治",
+        "number": 10,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 1,
+        "walks": 2,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "吉海翔",
+        "number": 4,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 0,
+        "walks": 1,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "文徳",
+        "number": 6,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "秀矢",
+        "number": 8,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "奥海杜",
+        "number": 11,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 1,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "太洋",
+        "number": 12,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "新",
+        "number": 13,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "瞭",
+        "number": 14,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "拓巳",
+        "number": 15,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 2
+      },
+      {
+        "name": "大和",
+        "number": 16,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "翔",
+        "number": 17,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "悠明",
+        "number": 18,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "翔一朗",
+        "number": 19,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "奏太",
+        "number": 20,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "壮一郎",
+        "number": 21,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "太慈",
+        "number": 22,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "結也",
+        "number": 23,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "その他",
+        "number": 99,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "hits": 0,
+        "strikeouts": 0
+      }
+    ]
+  },
+  {
     "date": "2026-06-14",
     "team": "A",
     "tournament": "若獅子カップ",
@@ -526,7 +897,8 @@
       "runs": 0,
       "walks": 2,
       "hits": 0,
-      "strikeouts": 8
+      "strikeouts": 8,
+      "sac": 0
     },
     "players": [
       {
@@ -537,7 +909,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 2
+        "strikeouts": 2,
+        "sac": 0
       },
       {
         "name": "颯真",
@@ -547,7 +920,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "悠人",
@@ -557,7 +931,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 2
+        "strikeouts": 2,
+        "sac": 0
       },
       {
         "name": "玄治",
@@ -567,7 +942,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "吉海翔",
@@ -577,7 +953,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "俊斗",
@@ -587,7 +964,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "文徳",
@@ -597,7 +975,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "颯人",
@@ -607,7 +986,8 @@
         "runs": 0,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "秀矢",
@@ -617,7 +997,8 @@
         "runs": 0,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "啓仁",
@@ -627,7 +1008,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "奥海杜",
@@ -637,7 +1019,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "太洋",
@@ -647,7 +1030,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "新",
@@ -657,7 +1041,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "瞭",
@@ -667,7 +1052,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       }
     ]
   },
@@ -684,7 +1070,8 @@
       "runs": 4,
       "walks": 3,
       "hits": 6,
-      "strikeouts": 7
+      "strikeouts": 7,
+      "sac": 0
     },
     "players": [
       {
@@ -695,7 +1082,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "颯真",
@@ -705,7 +1093,8 @@
         "runs": 1,
         "walks": 0,
         "hits": 1,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "悠人",
@@ -715,7 +1104,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "玄治",
@@ -725,7 +1115,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "吉海翔",
@@ -735,7 +1126,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 1,
-        "strikeouts": 2
+        "strikeouts": 2,
+        "sac": 0
       },
       {
         "name": "俊斗",
@@ -745,7 +1137,8 @@
         "runs": 1,
         "walks": 2,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "文徳",
@@ -755,7 +1148,8 @@
         "runs": 2,
         "walks": 0,
         "hits": 2,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "颯人",
@@ -765,7 +1159,8 @@
         "runs": 0,
         "walks": 1,
         "hits": 1,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "秀矢",
@@ -775,7 +1170,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 1,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "啓仁",
@@ -785,7 +1181,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "奥海杜",
@@ -795,7 +1192,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 2
+        "strikeouts": 2,
+        "sac": 0
       },
       {
         "name": "太洋",
@@ -805,7 +1203,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "新",
@@ -815,7 +1214,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 2
+        "strikeouts": 2,
+        "sac": 0
       },
       {
         "name": "瞭",
@@ -825,7 +1225,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       }
     ]
   },
@@ -2544,7 +2945,8 @@
       "runs": 3,
       "walks": 4,
       "hits": 0,
-      "strikeouts": 4
+      "strikeouts": 4,
+      "sac": 0
     },
     "players": [
       {
@@ -2555,7 +2957,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "颯真",
@@ -2565,7 +2968,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "悠人",
@@ -2575,7 +2979,8 @@
         "runs": 1,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "玄治",
@@ -2585,7 +2990,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "吉海翔",
@@ -2595,7 +3001,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "俊斗",
@@ -2605,7 +3012,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "文徳",
@@ -2615,7 +3023,8 @@
         "runs": 0,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "颯人",
@@ -2625,7 +3034,8 @@
         "runs": 1,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "秀矢",
@@ -2635,7 +3045,8 @@
         "runs": 1,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "啓仁",
@@ -2645,7 +3056,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "奥海杜",
@@ -2655,7 +3067,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "太洋",
@@ -2665,7 +3078,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "新",
@@ -2675,7 +3089,8 @@
         "runs": 0,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "瞭",
@@ -2685,7 +3100,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       }
     ]
   },
@@ -4126,7 +4542,8 @@
       "runs": 2,
       "walks": 1,
       "hits": 1,
-      "strikeouts": 2
+      "strikeouts": 2,
+      "sac": 0
     },
     "players": [
       {
@@ -4137,7 +4554,8 @@
         "runs": 1,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "颯真",
@@ -4147,7 +4565,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "悠人",
@@ -4157,7 +4576,8 @@
         "runs": 1,
         "walks": 0,
         "hits": 1,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "玄治",
@@ -4167,7 +4587,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "吉海翔",
@@ -4177,7 +4598,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "俊斗",
@@ -4187,7 +4609,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "文徳",
@@ -4197,7 +4620,8 @@
         "runs": 0,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "颯人",
@@ -4207,7 +4631,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "秀矢",
@@ -4217,7 +4642,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "啓仁",
@@ -4227,7 +4653,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "奥海杜",
@@ -4237,7 +4664,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "太洋",
@@ -4247,7 +4675,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "新",
@@ -4257,7 +4686,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "瞭",
@@ -4267,7 +4697,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       }
     ]
   },
@@ -4284,7 +4715,8 @@
       "runs": 3,
       "walks": 5,
       "hits": 1,
-      "strikeouts": 9
+      "strikeouts": 9,
+      "sac": 0
     },
     "players": [
       {
@@ -4295,7 +4727,8 @@
         "runs": 1,
         "walks": 2,
         "hits": 0,
-        "strikeouts": 2
+        "strikeouts": 2,
+        "sac": 0
       },
       {
         "name": "颯真",
@@ -4305,7 +4738,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 1,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "悠人",
@@ -4315,7 +4749,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 2
+        "strikeouts": 2,
+        "sac": 0
       },
       {
         "name": "玄治",
@@ -4325,7 +4760,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "吉海翔",
@@ -4335,7 +4771,8 @@
         "runs": 1,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 2
+        "strikeouts": 2,
+        "sac": 0
       },
       {
         "name": "俊斗",
@@ -4345,7 +4782,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "文徳",
@@ -4355,7 +4793,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "颯人",
@@ -4365,7 +4804,8 @@
         "runs": 1,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "秀矢",
@@ -4375,7 +4815,8 @@
         "runs": 0,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "啓仁",
@@ -4385,7 +4826,8 @@
         "runs": 0,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "奥海杜",
@@ -4395,7 +4837,8 @@
         "runs": 0,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "太洋",
@@ -4405,7 +4848,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "新",
@@ -4415,7 +4859,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "瞭",
@@ -4425,7 +4870,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       }
     ]
   },
@@ -5232,7 +5678,8 @@
       "runs": 24,
       "walks": 5,
       "hits": 14,
-      "strikeouts": 6
+      "strikeouts": 6,
+      "sac": 0
     },
     "players": [
       {
@@ -5243,7 +5690,8 @@
         "runs": 3,
         "walks": 1,
         "hits": 2,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "颯真",
@@ -5253,7 +5701,8 @@
         "runs": 3,
         "walks": 0,
         "hits": 2,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "悠人",
@@ -5263,7 +5712,8 @@
         "runs": 3,
         "walks": 0,
         "hits": 3,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "玄治",
@@ -5273,7 +5723,8 @@
         "runs": 2,
         "walks": 0,
         "hits": 1,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "吉海翔",
@@ -5283,7 +5734,8 @@
         "runs": 3,
         "walks": 2,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "俊斗",
@@ -5293,7 +5745,8 @@
         "runs": 3,
         "walks": 1,
         "hits": 2,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "文徳",
@@ -5303,7 +5756,8 @@
         "runs": 1,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 3
+        "strikeouts": 3,
+        "sac": 0
       },
       {
         "name": "颯人",
@@ -5313,7 +5767,8 @@
         "runs": 2,
         "walks": 0,
         "hits": 2,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "秀矢",
@@ -5323,7 +5778,8 @@
         "runs": 2,
         "walks": 0,
         "hits": 2,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "啓仁",
@@ -5333,7 +5789,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "奥海杜",
@@ -5343,7 +5800,8 @@
         "runs": 1,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "太洋",
@@ -5353,7 +5811,8 @@
         "runs": 1,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "新",
@@ -5363,7 +5822,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "瞭",
@@ -5373,7 +5833,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       }
     ]
   },
@@ -5390,7 +5851,8 @@
       "runs": 1,
       "walks": 2,
       "hits": 2,
-      "strikeouts": 2
+      "strikeouts": 2,
+      "sac": 0
     },
     "players": [
       {
@@ -5401,7 +5863,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "颯真",
@@ -5411,7 +5874,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "悠人",
@@ -5421,7 +5885,8 @@
         "runs": 1,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "玄治",
@@ -5431,7 +5896,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "吉海翔",
@@ -5441,7 +5907,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "俊斗",
@@ -5451,7 +5918,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 1,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "文徳",
@@ -5461,7 +5929,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 1,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "颯人",
@@ -5471,7 +5940,8 @@
         "runs": 0,
         "walks": 1,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "秀矢",
@@ -5481,7 +5951,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 1
+        "strikeouts": 1,
+        "sac": 0
       },
       {
         "name": "啓仁",
@@ -5491,7 +5962,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       },
       {
         "name": "奥海杜",
@@ -5501,7 +5973,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "太洋",
@@ -5511,7 +5984,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "新",
@@ -5521,7 +5995,8 @@
         "runs": 0,
         "walks": 0,
         "hits": 0,
-        "strikeouts": 0
+        "strikeouts": 0,
+        "sac": 0
       },
       {
         "name": "瞭",
@@ -5531,7 +6006,8 @@
         "runs": null,
         "walks": null,
         "hits": null,
-        "strikeouts": null
+        "strikeouts": null,
+        "sac": null
       }
     ]
   },
