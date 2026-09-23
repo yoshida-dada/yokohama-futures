@@ -1,5 +1,697 @@
 [
   {
+    "date": "2026-09-19",
+    "team": "A",
+    "tournament": "あじさいリーグ",
+    "opponent": "東台カルテックス",
+    "result": "負",
+    "score": "１対11",
+    "team_totals": {
+      "pa": 24,
+      "onBase": 8,
+      "runs": 1,
+      "walks": 3,
+      "sac": 0,
+      "hits": 4,
+      "strikeouts": 4
+    },
+    "players": [
+      {
+        "name": "拓斗",
+        "number": 10,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 2,
+        "strikeouts": 0
+      },
+      {
+        "name": "颯真",
+        "number": 1,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "悠人",
+        "number": 2,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 0,
+        "walks": 1,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "玄治",
+        "number": 3,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "sac": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "吉海翔",
+        "number": 4,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "俊斗",
+        "number": 5,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 0,
+        "walks": 2,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "文徳",
+        "number": 6,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 0,
+        "sac": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "颯人",
+        "number": 7,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "秀矢",
+        "number": 8,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 2
+      },
+      {
+        "name": "啓仁",
+        "number": 9,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "奥海杜",
+        "number": 11,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "太洋",
+        "number": 12,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "新",
+        "number": 13,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "瞭",
+        "number": 14,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "sac": null,
+        "hits": null,
+        "strikeouts": null
+      }
+    ]
+  },
+  {
+    "date": "2026-09-12",
+    "team": "A",
+    "tournament": "YBBL秋季大会",
+    "opponent": "本牧元町北部少年野球部",
+    "result": "負",
+    "score": "0対7",
+    "team_totals": {
+      "pa": 19,
+      "onBase": 5,
+      "runs": 0,
+      "walks": 1,
+      "sac": 0,
+      "hits": 3,
+      "strikeouts": 3
+    },
+    "players": [
+      {
+        "name": "拓斗",
+        "number": 10,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "颯真",
+        "number": 1,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "悠人",
+        "number": 2,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "玄治",
+        "number": 3,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "吉海翔",
+        "number": 4,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "俊斗",
+        "number": 5,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "文徳",
+        "number": 6,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "颯人",
+        "number": 7,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "秀矢",
+        "number": 8,
+        "pa": 2,
+        "onBase": 2,
+        "runs": 0,
+        "walks": 1,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "啓仁",
+        "number": 9,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "奥海杜",
+        "number": 11,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "sac": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "太洋",
+        "number": 12,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "新",
+        "number": 13,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "瞭",
+        "number": 14,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "sac": null,
+        "hits": null,
+        "strikeouts": null
+      }
+    ]
+  },
+  {
+    "date": "2026-09-05",
+    "team": "A",
+    "tournament": "YBBL秋季大会",
+    "opponent": "六ツ川ベースボールクラブ",
+    "result": "負",
+    "score": "1対2",
+    "team_totals": {
+      "pa": 28,
+      "onBase": 10,
+      "runs": 1,
+      "walks": 3,
+      "sac": 0,
+      "hits": 4,
+      "strikeouts": 4
+    },
+    "players": [
+      {
+        "name": "拓斗",
+        "number": 10,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "颯真",
+        "number": 1,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "悠人",
+        "number": 2,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "玄治",
+        "number": 3,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 2,
+        "strikeouts": 0
+      },
+      {
+        "name": "吉海翔",
+        "number": 4,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 1,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "俊斗",
+        "number": 5,
+        "pa": 4,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 1,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "文徳",
+        "number": 6,
+        "pa": 3,
+        "onBase": 2,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 1,
+        "strikeouts": 1
+      },
+      {
+        "name": "颯人",
+        "number": 7,
+        "pa": 3,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 1,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "秀矢",
+        "number": 8,
+        "pa": 3,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 2
+      },
+      {
+        "name": "啓仁",
+        "number": 9,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "奥海杜",
+        "number": 11,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "太洋",
+        "number": 12,
+        "pa": 1,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "新",
+        "number": 13,
+        "pa": 0,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "瞭",
+        "number": 14,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "sac": null,
+        "hits": null,
+        "strikeouts": null
+      }
+    ]
+  },
+  {
+    "date": "2026-09-05",
+    "team": "A",
+    "tournament": "東京ガスコスモ杯",
+    "opponent": "山内フェニックス",
+    "result": "負",
+    "score": "4対7",
+    "team_totals": {
+      "pa": 18,
+      "onBase": 6,
+      "runs": 4,
+      "walks": 1,
+      "sac": 0,
+      "hits": 5,
+      "strikeouts": 6
+    },
+    "players": [
+      {
+        "name": "拓斗",
+        "number": 10,
+        "pa": 2,
+        "onBase": 2,
+        "runs": 2,
+        "walks": 0,
+        "sac": 0,
+        "hits": 2,
+        "strikeouts": 0
+      },
+      {
+        "name": "颯真",
+        "number": 1,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 0,
+        "sac": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "悠人",
+        "number": 2,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 1,
+        "strikeouts": 0
+      },
+      {
+        "name": "玄治",
+        "number": 3,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 1,
+        "strikeouts": 1
+      },
+      {
+        "name": "吉海翔",
+        "number": 4,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "俊斗",
+        "number": 5,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "文徳",
+        "number": 6,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 1
+      },
+      {
+        "name": "颯人",
+        "number": 7,
+        "pa": 2,
+        "onBase": 1,
+        "runs": 1,
+        "walks": 1,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 0
+      },
+      {
+        "name": "秀矢",
+        "number": 8,
+        "pa": 2,
+        "onBase": 0,
+        "runs": 0,
+        "walks": 0,
+        "sac": 0,
+        "hits": 0,
+        "strikeouts": 2
+      },
+      {
+        "name": "啓仁",
+        "number": 9,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "sac": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "奥海杜",
+        "number": 11,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "sac": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "太洋",
+        "number": 12,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "sac": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "新",
+        "number": 13,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "sac": null,
+        "hits": null,
+        "strikeouts": null
+      },
+      {
+        "name": "瞭",
+        "number": 14,
+        "pa": null,
+        "onBase": null,
+        "runs": null,
+        "walks": null,
+        "sac": null,
+        "hits": null,
+        "strikeouts": null
+      }
+    ]
+  },
+  {
     "date": "2026-08-30",
     "team": "A",
     "tournament": "あじさいリーグ",
@@ -1571,9 +2263,9 @@
       "onBase": 6,
       "runs": 4,
       "walks": 0,
+      "sac": 3,
       "hits": 3,
-      "strikeouts": 10,
-      "sac": 3
+      "strikeouts": 10
     },
     "players": [
       {
@@ -1583,9 +2275,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "颯真",
@@ -1594,9 +2286,9 @@
         "onBase": 2,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "悠人",
@@ -1605,9 +2297,9 @@
         "onBase": 2,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "玄治",
@@ -1616,9 +2308,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 3,
-        "sac": 0
+        "strikeouts": 3
       },
       {
         "name": "吉海翔",
@@ -1627,9 +2319,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "俊斗",
@@ -1638,9 +2330,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 2,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 2
+        "strikeouts": 0
       },
       {
         "name": "文徳",
@@ -1649,9 +2341,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 1,
         "hits": 0,
-        "strikeouts": 2,
-        "sac": 1
+        "strikeouts": 2
       },
       {
         "name": "颯人",
@@ -1660,9 +2352,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "秀矢",
@@ -1671,9 +2363,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 2,
-        "sac": 0
+        "strikeouts": 2
       },
       {
         "name": "啓仁",
@@ -1682,9 +2374,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "奥海杜",
@@ -1693,9 +2385,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "太洋",
@@ -1704,9 +2396,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "新",
@@ -1715,9 +2407,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "瞭",
@@ -1726,9 +2418,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       }
     ]
   },
@@ -1942,6 +2634,7 @@
       "onBase": 14,
       "runs": 6,
       "walks": 7,
+      "sac": 0,
       "hits": 4,
       "strikeouts": 5
     },
@@ -1953,6 +2646,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -1963,6 +2657,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -1973,6 +2668,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -1983,6 +2679,7 @@
         "onBase": 2,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -1993,6 +2690,7 @@
         "onBase": 3,
         "runs": 1,
         "walks": 3,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -2003,6 +2701,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -2013,6 +2712,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -2023,6 +2723,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 2
       },
@@ -2033,6 +2734,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -2043,6 +2745,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -2053,6 +2756,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -2063,6 +2767,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -2073,6 +2778,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -2083,6 +2789,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -2298,6 +3005,7 @@
       "onBase": 13,
       "runs": 8,
       "walks": 0,
+      "sac": 0,
       "hits": 7,
       "strikeouts": 2
     },
@@ -2309,6 +3017,7 @@
         "onBase": 3,
         "runs": 3,
         "walks": 0,
+        "sac": 0,
         "hits": 3,
         "strikeouts": 0
       },
@@ -2319,6 +3028,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -2329,6 +3039,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -2339,6 +3050,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -2349,6 +3061,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -2359,6 +3072,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -2369,6 +3083,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -2379,6 +3094,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -2389,6 +3105,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -2399,6 +3116,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -2409,6 +3127,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -2419,6 +3138,7 @@
         "onBase": 2,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -2429,6 +3149,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -2439,6 +3160,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -2456,9 +3178,9 @@
       "onBase": 2,
       "runs": 0,
       "walks": 2,
+      "sac": 0,
       "hits": 0,
-      "strikeouts": 8,
-      "sac": 0
+      "strikeouts": 8
     },
     "players": [
       {
@@ -2468,9 +3190,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 2,
-        "sac": 0
+        "strikeouts": 2
       },
       {
         "name": "颯真",
@@ -2479,9 +3201,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "悠人",
@@ -2490,9 +3212,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 2,
-        "sac": 0
+        "strikeouts": 2
       },
       {
         "name": "玄治",
@@ -2501,9 +3223,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "吉海翔",
@@ -2512,9 +3234,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "俊斗",
@@ -2523,9 +3245,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "文徳",
@@ -2534,9 +3256,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "颯人",
@@ -2545,9 +3267,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "秀矢",
@@ -2556,9 +3278,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "啓仁",
@@ -2567,9 +3289,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "奥海杜",
@@ -2578,9 +3300,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "太洋",
@@ -2589,9 +3311,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "新",
@@ -2600,9 +3322,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "瞭",
@@ -2611,9 +3333,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       }
     ]
   },
@@ -2629,9 +3351,9 @@
       "onBase": 9,
       "runs": 4,
       "walks": 3,
+      "sac": 0,
       "hits": 6,
-      "strikeouts": 7,
-      "sac": 0
+      "strikeouts": 7
     },
     "players": [
       {
@@ -2641,9 +3363,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "颯真",
@@ -2652,9 +3374,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "悠人",
@@ -2663,9 +3385,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "玄治",
@@ -2674,9 +3396,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "吉海翔",
@@ -2685,9 +3407,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
-        "strikeouts": 2,
-        "sac": 0
+        "strikeouts": 2
       },
       {
         "name": "俊斗",
@@ -2696,9 +3418,9 @@
         "onBase": 2,
         "runs": 1,
         "walks": 2,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "文徳",
@@ -2707,9 +3429,9 @@
         "onBase": 2,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "颯人",
@@ -2718,9 +3440,9 @@
         "onBase": 2,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "秀矢",
@@ -2729,9 +3451,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "啓仁",
@@ -2740,9 +3462,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "奥海杜",
@@ -2751,9 +3473,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 2,
-        "sac": 0
+        "strikeouts": 2
       },
       {
         "name": "太洋",
@@ -2762,9 +3484,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "新",
@@ -2773,9 +3495,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 2,
-        "sac": 0
+        "strikeouts": 2
       },
       {
         "name": "瞭",
@@ -2784,9 +3506,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       }
     ]
   },
@@ -3000,6 +3722,7 @@
       "onBase": 8,
       "runs": 4,
       "walks": 3,
+      "sac": 0,
       "hits": 4,
       "strikeouts": 1
     },
@@ -3011,6 +3734,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -3021,6 +3745,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -3031,6 +3756,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -3041,6 +3767,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -3051,6 +3778,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -3061,6 +3789,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -3071,6 +3800,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -3081,6 +3811,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 2,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -3091,6 +3822,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -3101,6 +3833,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -3111,6 +3844,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -3121,6 +3855,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -3131,6 +3866,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -3141,6 +3877,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -3752,6 +4489,7 @@
       "onBase": 8,
       "runs": 2,
       "walks": 3,
+      "sac": 0,
       "hits": 5,
       "strikeouts": 7
     },
@@ -3763,6 +4501,7 @@
         "onBase": 2,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
         "strikeouts": 0
       },
@@ -3773,6 +4512,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -3783,6 +4523,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -3793,6 +4534,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 2
       },
@@ -3803,6 +4545,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -3813,6 +4556,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 2,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -3823,6 +4567,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -3833,6 +4578,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -3843,6 +4589,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -3853,6 +4600,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -3863,6 +4611,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -3873,6 +4622,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -3883,6 +4633,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -3893,6 +4644,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -4504,9 +5256,9 @@
       "onBase": 6,
       "runs": 3,
       "walks": 4,
+      "sac": 0,
       "hits": 0,
-      "strikeouts": 4,
-      "sac": 0
+      "strikeouts": 4
     },
     "players": [
       {
@@ -4516,9 +5268,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "颯真",
@@ -4527,9 +5279,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "悠人",
@@ -4538,9 +5290,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "玄治",
@@ -4549,9 +5301,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "吉海翔",
@@ -4560,9 +5312,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "俊斗",
@@ -4571,9 +5323,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "文徳",
@@ -4582,9 +5334,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "颯人",
@@ -4593,9 +5345,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "秀矢",
@@ -4604,9 +5356,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "啓仁",
@@ -4615,9 +5367,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "奥海杜",
@@ -4626,9 +5378,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "太洋",
@@ -4637,9 +5389,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "新",
@@ -4648,9 +5400,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "瞭",
@@ -4659,9 +5411,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       }
     ]
   },
@@ -4875,6 +5627,7 @@
       "onBase": 9,
       "runs": 3,
       "walks": 2,
+      "sac": 0,
       "hits": 4,
       "strikeouts": 7
     },
@@ -4886,6 +5639,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -4896,6 +5650,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -4906,6 +5661,7 @@
         "onBase": 3,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -4916,6 +5672,7 @@
         "onBase": 2,
         "runs": 2,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -4926,6 +5683,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -4936,6 +5694,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -4946,6 +5705,7 @@
         "onBase": 2,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -4956,6 +5716,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -4966,6 +5727,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -4976,6 +5738,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -4986,6 +5749,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -4996,6 +5760,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5006,6 +5771,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5016,6 +5782,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -5429,6 +6196,7 @@
       "onBase": 1,
       "runs": 1,
       "walks": 2,
+      "sac": 0,
       "hits": 0,
       "strikeouts": 6
     },
@@ -5440,6 +6208,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5450,6 +6219,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5460,6 +6230,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5470,6 +6241,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5480,6 +6252,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5490,6 +6263,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5500,6 +6274,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5510,6 +6285,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5520,6 +6296,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5530,6 +6307,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5540,6 +6318,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5550,6 +6329,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5560,6 +6340,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -5570,6 +6351,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       }
@@ -5587,6 +6369,7 @@
       "onBase": 18,
       "runs": 15,
       "walks": 6,
+      "sac": 0,
       "hits": 7,
       "strikeouts": 2
     },
@@ -5598,6 +6381,7 @@
         "onBase": 2,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -5608,6 +6392,7 @@
         "onBase": 3,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -5618,6 +6403,7 @@
         "onBase": 2,
         "runs": 2,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -5628,6 +6414,7 @@
         "onBase": 3,
         "runs": 2,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -5638,6 +6425,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5648,6 +6436,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5658,6 +6447,7 @@
         "onBase": 2,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
         "strikeouts": 1
       },
@@ -5668,6 +6458,7 @@
         "onBase": 2,
         "runs": 2,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5678,6 +6469,7 @@
         "onBase": 2,
         "runs": 2,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -5688,6 +6480,7 @@
         "onBase": 0,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5698,6 +6491,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5708,6 +6502,7 @@
         "onBase": 0,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5718,6 +6513,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5728,6 +6524,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -5745,6 +6542,7 @@
       "onBase": 7,
       "runs": 3,
       "walks": 3,
+      "sac": 0,
       "hits": 2,
       "strikeouts": 6
     },
@@ -5756,6 +6554,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -5766,6 +6565,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -5776,6 +6576,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5786,6 +6587,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5796,6 +6598,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5806,6 +6609,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5816,6 +6620,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5826,6 +6631,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5836,6 +6642,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5846,6 +6653,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5856,6 +6664,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5866,6 +6675,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -5876,6 +6686,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -5886,6 +6697,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -6101,9 +6913,9 @@
       "onBase": 3,
       "runs": 2,
       "walks": 1,
+      "sac": 0,
       "hits": 1,
-      "strikeouts": 2,
-      "sac": 0
+      "strikeouts": 2
     },
     "players": [
       {
@@ -6113,9 +6925,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "颯真",
@@ -6124,9 +6936,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "悠人",
@@ -6135,9 +6947,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "玄治",
@@ -6146,9 +6958,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "吉海翔",
@@ -6157,9 +6969,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "俊斗",
@@ -6168,9 +6980,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "文徳",
@@ -6179,9 +6991,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "颯人",
@@ -6190,9 +7002,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "秀矢",
@@ -6201,9 +7013,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "啓仁",
@@ -6212,9 +7024,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "奥海杜",
@@ -6223,9 +7035,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "太洋",
@@ -6234,9 +7046,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "新",
@@ -6245,9 +7057,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "瞭",
@@ -6256,9 +7068,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       }
     ]
   },
@@ -6274,9 +7086,9 @@
       "onBase": 6,
       "runs": 3,
       "walks": 5,
+      "sac": 0,
       "hits": 1,
-      "strikeouts": 9,
-      "sac": 0
+      "strikeouts": 9
     },
     "players": [
       {
@@ -6286,9 +7098,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 2,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 2,
-        "sac": 0
+        "strikeouts": 2
       },
       {
         "name": "颯真",
@@ -6297,9 +7109,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "悠人",
@@ -6308,9 +7120,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 2,
-        "sac": 0
+        "strikeouts": 2
       },
       {
         "name": "玄治",
@@ -6319,9 +7131,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "吉海翔",
@@ -6330,9 +7142,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 2,
-        "sac": 0
+        "strikeouts": 2
       },
       {
         "name": "俊斗",
@@ -6341,9 +7153,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "文徳",
@@ -6352,9 +7164,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "颯人",
@@ -6363,9 +7175,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "秀矢",
@@ -6374,9 +7186,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "啓仁",
@@ -6385,9 +7197,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "奥海杜",
@@ -6396,9 +7208,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "太洋",
@@ -6407,9 +7219,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "新",
@@ -6418,9 +7230,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "瞭",
@@ -6429,9 +7241,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       }
     ]
   },
@@ -6447,6 +7259,7 @@
       "onBase": 13,
       "runs": 6,
       "walks": 5,
+      "sac": 0,
       "hits": 4,
       "strikeouts": 4
     },
@@ -6458,6 +7271,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6468,6 +7282,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -6478,6 +7293,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6488,6 +7304,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -6498,6 +7315,7 @@
         "onBase": 2,
         "runs": 0,
         "walks": 2,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6508,6 +7326,7 @@
         "onBase": 2,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -6518,6 +7337,7 @@
         "onBase": 2,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -6528,6 +7348,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6538,6 +7359,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6548,6 +7370,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -6558,6 +7381,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6568,6 +7392,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6578,6 +7403,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6588,6 +7414,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       }
@@ -6605,6 +7432,7 @@
       "onBase": 2,
       "runs": 0,
       "walks": 0,
+      "sac": 0,
       "hits": 1,
       "strikeouts": 8
     },
@@ -6616,6 +7444,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6626,6 +7455,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -6636,6 +7466,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6646,6 +7477,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -6656,6 +7488,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6666,6 +7499,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 2
       },
@@ -6676,6 +7510,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6686,6 +7521,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6696,6 +7532,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6706,6 +7543,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -6716,6 +7554,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6726,6 +7565,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6736,6 +7576,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6746,6 +7587,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -6763,6 +7605,7 @@
       "onBase": 5,
       "runs": 0,
       "walks": 2,
+      "sac": 0,
       "hits": 3,
       "strikeouts": 9
     },
@@ -6774,6 +7617,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6784,6 +7628,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -6794,6 +7639,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6804,6 +7650,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -6814,6 +7661,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6824,6 +7672,7 @@
         "onBase": 2,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
         "strikeouts": 1
       },
@@ -6834,6 +7683,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6844,6 +7694,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6854,6 +7705,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6864,6 +7716,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6874,6 +7727,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6884,6 +7738,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6894,6 +7749,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6904,6 +7760,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -6921,6 +7778,7 @@
       "onBase": 2,
       "runs": 1,
       "walks": 0,
+      "sac": 0,
       "hits": 2,
       "strikeouts": 4
     },
@@ -6932,6 +7790,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6942,6 +7801,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6952,6 +7812,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6962,6 +7823,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6972,6 +7834,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -6982,6 +7845,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -6992,6 +7856,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -7002,6 +7867,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7012,6 +7878,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -7022,6 +7889,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -7032,6 +7900,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7042,6 +7911,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -7052,6 +7922,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -7062,6 +7933,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -7079,6 +7951,7 @@
       "onBase": 12,
       "runs": 8,
       "walks": 3,
+      "sac": 0,
       "hits": 5,
       "strikeouts": 3
     },
@@ -7090,6 +7963,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -7100,6 +7974,7 @@
         "onBase": 2,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -7110,6 +7985,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -7120,6 +7996,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -7130,6 +8007,7 @@
         "onBase": 2,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -7140,6 +8018,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7150,6 +8029,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -7160,6 +8040,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -7170,6 +8051,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7180,6 +8062,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7190,6 +8073,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -7200,6 +8084,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -7210,6 +8095,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7220,6 +8106,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -7237,9 +8124,9 @@
       "onBase": 26,
       "runs": 24,
       "walks": 5,
+      "sac": 0,
       "hits": 14,
-      "strikeouts": 6,
-      "sac": 0
+      "strikeouts": 6
     },
     "players": [
       {
@@ -7249,9 +8136,9 @@
         "onBase": 3,
         "runs": 3,
         "walks": 1,
+        "sac": 0,
         "hits": 2,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "颯真",
@@ -7260,9 +8147,9 @@
         "onBase": 3,
         "runs": 3,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "悠人",
@@ -7271,9 +8158,9 @@
         "onBase": 3,
         "runs": 3,
         "walks": 0,
+        "sac": 0,
         "hits": 3,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "玄治",
@@ -7282,9 +8169,9 @@
         "onBase": 3,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "吉海翔",
@@ -7293,9 +8180,9 @@
         "onBase": 3,
         "runs": 3,
         "walks": 2,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "俊斗",
@@ -7304,9 +8191,9 @@
         "onBase": 4,
         "runs": 3,
         "walks": 1,
+        "sac": 0,
         "hits": 2,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "文徳",
@@ -7315,9 +8202,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 3,
-        "sac": 0
+        "strikeouts": 3
       },
       {
         "name": "颯人",
@@ -7326,9 +8213,9 @@
         "onBase": 2,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "秀矢",
@@ -7337,9 +8224,9 @@
         "onBase": 2,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "啓仁",
@@ -7348,9 +8235,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "奥海杜",
@@ -7359,9 +8246,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "太洋",
@@ -7370,9 +8257,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "新",
@@ -7381,9 +8268,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "瞭",
@@ -7392,9 +8279,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       }
     ]
   },
@@ -7410,9 +8297,9 @@
       "onBase": 6,
       "runs": 1,
       "walks": 2,
+      "sac": 0,
       "hits": 2,
-      "strikeouts": 2,
-      "sac": 0
+      "strikeouts": 2
     },
     "players": [
       {
@@ -7422,9 +8309,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "颯真",
@@ -7433,9 +8320,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "悠人",
@@ -7444,9 +8331,9 @@
         "onBase": 1,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "玄治",
@@ -7455,9 +8342,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "吉海翔",
@@ -7466,9 +8353,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "俊斗",
@@ -7477,9 +8364,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "文徳",
@@ -7488,9 +8375,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "颯人",
@@ -7499,9 +8386,9 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "秀矢",
@@ -7510,9 +8397,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 1,
-        "sac": 0
+        "strikeouts": 1
       },
       {
         "name": "啓仁",
@@ -7521,9 +8408,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       },
       {
         "name": "奥海杜",
@@ -7532,9 +8419,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "太洋",
@@ -7543,9 +8430,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "新",
@@ -7554,9 +8441,9 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
-        "strikeouts": 0,
-        "sac": 0
+        "strikeouts": 0
       },
       {
         "name": "瞭",
@@ -7565,9 +8452,9 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
-        "strikeouts": null,
-        "sac": null
+        "strikeouts": null
       }
     ]
   },
@@ -7583,6 +8470,7 @@
       "onBase": 7,
       "runs": 2,
       "walks": 6,
+      "sac": 0,
       "hits": 2,
       "strikeouts": 3
     },
@@ -7594,6 +8482,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7604,6 +8493,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7614,6 +8504,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7624,6 +8515,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 2,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7634,6 +8526,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
         "strikeouts": 0
       },
@@ -7644,6 +8537,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7654,6 +8548,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -7664,6 +8559,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -7674,6 +8570,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7684,6 +8581,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -7694,6 +8592,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -7704,6 +8603,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7714,6 +8614,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -7724,6 +8625,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -7741,6 +8643,7 @@
       "onBase": 15,
       "runs": 6,
       "walks": 4,
+      "sac": 0,
       "hits": 6,
       "strikeouts": 6
     },
@@ -7752,6 +8655,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -7762,6 +8666,7 @@
         "onBase": 3,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
         "strikeouts": 0
       },
@@ -7772,6 +8677,7 @@
         "onBase": 2,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7782,6 +8688,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -7792,6 +8699,7 @@
         "onBase": 2,
         "runs": 1,
         "walks": 2,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7802,6 +8710,7 @@
         "onBase": 3,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7812,6 +8721,7 @@
         "onBase": 3,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 3,
         "strikeouts": 0
       },
@@ -7822,6 +8732,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 2
       },
@@ -7832,6 +8743,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 3
       },
@@ -7842,6 +8754,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -7852,6 +8765,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7862,6 +8776,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7872,6 +8787,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7882,6 +8798,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       }
@@ -7899,6 +8816,7 @@
       "onBase": 1,
       "runs": 0,
       "walks": 0,
+      "sac": 0,
       "hits": 1,
       "strikeouts": 7
     },
@@ -7910,6 +8828,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -7920,6 +8839,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       },
@@ -7930,6 +8850,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7940,6 +8861,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7950,6 +8872,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -7960,6 +8883,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -7970,6 +8894,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -7980,6 +8905,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 2
       },
@@ -7990,6 +8916,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 2
       },
@@ -8000,6 +8927,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -8010,6 +8938,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -8020,6 +8949,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -8030,6 +8960,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -8040,6 +8971,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       }
@@ -8057,6 +8989,7 @@
       "onBase": 21,
       "runs": 10,
       "walks": 4,
+      "sac": 0,
       "hits": 14,
       "strikeouts": 6
     },
@@ -8068,6 +9001,7 @@
         "onBase": null,
         "runs": null,
         "walks": null,
+        "sac": null,
         "hits": null,
         "strikeouts": null
       },
@@ -8078,6 +9012,7 @@
         "onBase": 3,
         "runs": 2,
         "walks": 0,
+        "sac": 0,
         "hits": 3,
         "strikeouts": 0
       },
@@ -8088,6 +9023,7 @@
         "onBase": 4,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 3,
         "strikeouts": 0
       },
@@ -8098,6 +9034,7 @@
         "onBase": 3,
         "runs": 3,
         "walks": 2,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -8108,6 +9045,7 @@
         "onBase": 2,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -8118,6 +9056,7 @@
         "onBase": 2,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 2,
         "strikeouts": 0
       },
@@ -8128,6 +9067,7 @@
         "onBase": 3,
         "runs": 2,
         "walks": 1,
+        "sac": 0,
         "hits": 2,
         "strikeouts": 0
       },
@@ -8138,6 +9078,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 1
       },
@@ -8148,6 +9089,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 2
       },
@@ -8158,6 +9100,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -8168,6 +9111,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -8178,6 +9122,7 @@
         "onBase": 0,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 1
       },
@@ -8188,6 +9133,7 @@
         "onBase": 1,
         "runs": 1,
         "walks": 1,
+        "sac": 0,
         "hits": 0,
         "strikeouts": 0
       },
@@ -8198,6 +9144,7 @@
         "onBase": 1,
         "runs": 0,
         "walks": 0,
+        "sac": 0,
         "hits": 1,
         "strikeouts": 0
       }
