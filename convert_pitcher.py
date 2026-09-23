@@ -15,6 +15,7 @@ import json
 import re
 import sys
 import io
+from datetime import date
 from pathlib import Path
 
 # Windows コンソールの文字化け対策
@@ -473,6 +474,28 @@ def compare_and_report(pdf_games: list, json_games: list):
 # ────────────────────────────────────────────
 # メイン
 # ────────────────────────────────────────────
+def record_news_update(team: str, new_count: int) -> None:
+    """news.json に更新お知らせを記録する（同日・同チームは重複記録しない、最大3件保持）"""
+    if new_count <= 0:
+        return
+    news_path = BASE_DIR / "news.json"
+    if news_path.exists():
+        with open(news_path, encoding="utf-8") as f:
+            news = json.load(f)
+    else:
+        news = []
+
+    today = date.today().isoformat()
+    if any(n["date"] == today and n["team"] == team for n in news):
+        return
+
+    news.insert(0, {"date": today, "team": team, "count": new_count})
+    news = news[:3]
+
+    with open(news_path, "w", encoding="utf-8") as f:
+        json.dump(news, f, ensure_ascii=False, indent=2)
+
+
 def main():
     update_mode   = "--update"   in sys.argv
     new_only_mode = "--new-only" in sys.argv
@@ -512,6 +535,7 @@ def main():
 
     if update_mode:
         merged = {game_id(g): g for g in json_games}
+        original_keys = set(merged.keys())
         # date_fallback使用時の重複防止: チーム/大会/相手が既存JSONにあればスキップ
         existing_tto = {(g["team"], g["tournament"], g["opponent"]) for g in json_games}
         skipped = 0
@@ -534,6 +558,9 @@ def main():
         print(f"\n✓ pitcher_data.json を更新しました ({len(sorted_games)} 試合)")
         if new_only_mode and skipped:
             print(f"  ※ --new-only: 既存 {skipped} 試合はスキップしました")
+
+        new_count = len(set(merged.keys()) - original_keys)
+        record_news_update(team, new_count)
     else:
         team_arg = f" --team {team}" if team != 'A' else ""
         print(f"\n※ 更新するには: python convert_pitcher.py{team_arg} --update")

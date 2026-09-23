@@ -32,6 +32,36 @@
 
     header h1 span { color: #c8a84b; }
 
+    /* ===== NEWS BAR ===== */
+    .news-bar {
+      max-width: 520px;
+      margin: 0 auto 16px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(200, 168, 75, 0.35);
+      border-radius: 8px;
+      padding: 8px 14px;
+      text-align: left;
+    }
+
+    .news-bar .news-item {
+      font-size: 0.8rem;
+      color: #e8d9b0;
+      line-height: 1.6;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .news-bar .news-item .news-date {
+      color: #c8a84b;
+      font-weight: 700;
+      margin-right: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .news-bar .news-item { white-space: normal; }
+    }
+
     /* ===== TAB NAV ===== */
     .tab-nav {
       display: flex;
@@ -806,6 +836,7 @@
 
 <header>
   <h1>⚾ YOKOHAMA <span>FUTURES</span></h1>
+  <div class="news-bar" id="news-bar"></div>
   <nav class="tab-nav">
     <button class="tab-btn" data-tab="team">チーム成績</button>
     <button class="tab-btn" data-tab="pitcher">投手分析</button>
@@ -1124,6 +1155,30 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== DATA LOADING =====
 let pitcherData = [];
 let batterData  = [];
+
+// ===== NEWS BAR =====
+async function loadNews() {
+  const bar = document.getElementById('news-bar');
+  if (!bar) return;
+  try {
+    const res = await fetch('news.json');
+    const news = await res.json();
+    if (!Array.isArray(news) || news.length === 0) {
+      bar.style.display = 'none';
+      return;
+    }
+    const teamLabel = { A: 'Aチーム', B: 'Bチーム', C: 'Cチーム' };
+    bar.innerHTML = news.slice(0, 3).map(n => {
+      const [y, m, d] = n.date.split('-');
+      const dateStr = `${y.slice(2)}/${m}/${d}`;
+      const team = teamLabel[n.team] || n.team;
+      return `<div class="news-item"><span class="news-date">(${dateStr})</span>${team}の${n.count}試合の結果を更新しました。</div>`;
+    }).join('');
+  } catch (e) {
+    console.error('お知らせ読み込みエラー:', e);
+    bar.style.display = 'none';
+  }
+}
 
 // ===== TEAM FILTER =====
 let activeTeamFilter = 'all'; // 'all' | 'A' | 'B' | 'C'
@@ -3536,6 +3591,7 @@ function refreshAnalyticsTabs() {
 // ===== INIT =====
 loadAllData();
 fetchVideos();
+loadNews();
 </script>
 
 <script>
